@@ -3,7 +3,7 @@
   "ignorePatterns": ["projects/**/*"],
   "plugins": ["unused-imports"],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "**/tsconfig.json"
   },
   "overrides": [
     {
@@ -19,6 +19,9 @@
       "rules": {
         "import/prefer-default-export": "off",
         "class-methods-use-this": "off",
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@angular-eslint/no-empty-lifecycle-method": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
