@@ -1,0 +1,17 @@
+<main>
+  <div class="first_div">
+    <span>En cours (0)</span>
+    <div class="container_cards">
+      <app-card-hover *ngFor="let card of cards" [card]="card"></app-card-hover>
+    </div>
+  </div>
+  <div class="second_div">
+    <span>Pas encore commencée (0)</span>
+  </div>
+  <div class="third_div">
+    <span>Terminée (0)</span>
+  </div>
+  <div class="fourth_div">
+    <span>Vue récemment (0)</span>
+  </div>
+</main>
