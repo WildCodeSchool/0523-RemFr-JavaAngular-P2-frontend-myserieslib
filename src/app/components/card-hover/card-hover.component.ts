@@ -13,6 +13,5 @@ export class CardHoverComponent {
 
   toggleCard() {
     this.isClicked = !this.isClicked;
-    console.log(this.card);
   }
 }
