@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { ICategories, ISeries } from 'src/app/utils/interface';
+import { ISeries } from 'src/app/utils/interface';
 
 @Injectable({
   providedIn: 'root',

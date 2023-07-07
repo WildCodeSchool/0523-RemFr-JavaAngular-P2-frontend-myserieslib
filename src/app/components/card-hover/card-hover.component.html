@@ -1,7 +1,12 @@
-<div (click)="toggleCard()" [ngStyle]="{ 'background-image': 'url(' + card?.url + ')' }" class="cards">
+<div (click)="toggleCard()" [ngStyle]="{ 'background-image': 'url(' + card?.image + ')' }" class="cards">
   <div class="cards_in" [hidden]="!isClicked">
-    <span>{{ card?.title }}</span>
-    <br />
-    <span>{{ card?.copy }}</span>
+    <div class="cards_in_container">
+      <div class="cards_in_title">
+        <span>{{ card?.serie?.name }}</span>
+      </div>
+      <div class="cards_in_desc">
+        <span>{{ card?.serie?.description }}</span>
+      </div>
+    </div>
   </div>
 </div>

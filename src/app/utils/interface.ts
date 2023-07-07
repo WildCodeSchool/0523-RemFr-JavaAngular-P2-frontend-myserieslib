@@ -25,3 +25,12 @@ export interface IActors {
   lastname: string;
   pictureUrl: string;
 }
+
+export interface ILibraries {
+  id: string;
+  score: number;
+  comment: string;
+  serie: ISeries;
+  status: string;
+  image?: string;
+}
