@@ -1,0 +1,13 @@
+<div class="flex w-9/12	justify-center align-center mx-auto	mt-8">
+  <div *ngFor="let star of ratings">
+    <div *ngIf="star === 'full'">
+      <img src="assets/icons/fullstar.png" alt="fullstar">
+    </div>
+    <div *ngIf="star === 'half'">
+      <img src="assets/icons/semi-star.png" alt="semistar">
+    </div>
+    <div *ngIf="star === 'empty'">
+      <img src="assets/icons/empty-star.png" alt="semistar">
+    </div>
+  </div>
+</div>
