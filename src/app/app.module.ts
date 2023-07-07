@@ -12,6 +12,8 @@ import { DemoPageComponent } from './pages/demo/demo.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { DemoPipe } from './pipes/demo.pipe';
 import { DemoDirective } from './directives/demo.directive';
+import { LibraryComponent } from './pages/library/library.component';
+import { CardHoverComponent } from './components/card-hover/card-hover.component';
 import { SearchComponent } from './pages/search/search.component';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +28,8 @@ import { RatingComponent } from './components/rating/rating.component';
     DemoComponent,
     DemoPipe,
     DemoDirective,
+    LibraryComponent,
+    CardHoverComponent,
     SearchComponent,
     FilterSearchBarComponent,
     CardsComponent,
