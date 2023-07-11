@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterSearchBarComponent } from './components/filter-search-bar/filter-search-bar.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { RatingComponent } from './components/rating/rating.component';
     FilterSearchBarComponent,
     CardsComponent,
     RatingComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     MatSelectModule,
