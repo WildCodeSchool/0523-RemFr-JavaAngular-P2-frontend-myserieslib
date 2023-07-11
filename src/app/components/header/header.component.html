@@ -1,1 +1,34 @@
-<p>header works!</p>
+<div class="top bg-cover bg-center">
+  <div class="bg-desktop">
+    <div class="image-container bg-gradient-to-b from-black to-transparent">
+      <div class="left-side w-3/5 h-4/5 pl-20 flex flex-col justify-center">
+        <h1 class="mt-[20vh] text-6xl font-semibold text-white shadow-xl">Stranger Things</h1>
+        <p class="text-white text-base font-medium mt-4 mb-6">
+          Follow a group of astronauts from the future through the cosmos in search of an earthly replacement, what will
+          happen next?
+        </p>
+        <div class="mt-[10vh] flex flex-wrap gap-8">
+          <button class="btn-msl flex items-center before:rounded-2xl py-3 px-6 gap-3">
+            <h2 class="text-white text-xl">Trailer</h2>
+            <mat-icon class="text-black bg-white rounded-[50%]">play_circle_outline</mat-icon>
+          </button>
+          <button class="btn-msl flex items-center before:rounded-2xl py-2 px-4 ml-8 gap-3">
+            <h3 class="text-white text-xl">Ajouter</h3>
+            <mat-icon class="font-bold text-black bg-white rounded-[50%]">add_circle_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-mobile w-[100vh] h-[70vh]">
+    <div class="image-container flex flex-col">
+      <div class="w-3/5 h-4/5 pl-20 flex flex-col justify-center gap-5">
+        <h1 class="mt-[30vh] text-4xl font-semibold text-white shadow-xl">Stranger Things</h1>
+      </div>
+      <div class="mt-[20vh] btn-grp flex justify-around gap-x-[7rem]">
+        <app-btn-trailer></app-btn-trailer>
+        <app-btn-add class="flex-end"></app-btn-add>
+      </div>
+    </div>
+  </div>
+</div>

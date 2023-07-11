@@ -38,5 +38,61 @@ $angular-template-theme: mat.define-light-theme((
 @tailwind components;
 @tailwind utilities;
 
+
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("./assets/bg-01.png");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+
+
+// button color linear gradient
+
+.btn-msl {
+  background: none!important;
+  border: none!important;
+  position: relative!important;
+  z-index: 0!important;
+  transition: .3s!important;
+//   cursor: pointer;
+}
+.btn-msl:before {
+  content: ""!important;
+  position: absolute!important;
+  z-index: 1!important;
+  inset: -8px!important;
+  padding: 4px!important;
+  background: linear-gradient(to right, #fe5388 0%, #09fbd3 100%)!important;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0)!important;
+  -webkit-mask-composite: xor!important;
+          mask-composite: intersect
+}
+.btn-msl:after {
+  content: ""!important;
+  position: absolute!important;
+  inset: -100px!important;
+  background:
+    radial-gradient(60px at left  120px top    120px,#fe5388 98%,#0000),
+    radial-gradient(60px at right 120px bottom 120px,#09fbd3 98%,#0000)!important;
+  filter: blur(60px)!important;
+  opacity: .5!important;
+  z-index: 1!important;
+}
+
+// .btn-msl:before,
+// .btn-msl:after {
+//   transition:.5s, 99999s 99999s transform, 99999s 99999s --d;
+// }
+
+// .btn-msl:hover:after {
+//   transform: rotate(3600deg);
+//   transition: .5s,60s linear transform;
+// }

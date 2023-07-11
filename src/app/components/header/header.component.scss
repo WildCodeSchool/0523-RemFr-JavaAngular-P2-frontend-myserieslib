@@ -1,0 +1,10 @@
+.bg-mobile {
+    @apply bg-cover bg-center md:hidden;
+    background-image: url('../../../assets/Stranger-things-bgmob.png');
+}
+
+.bg-desktop {
+    @apply md:h-[100vh] bg-cover bg-center md:block hidden;
+    background-image: url('../../../assets/Stranger-things-bg.png');
+}
+  

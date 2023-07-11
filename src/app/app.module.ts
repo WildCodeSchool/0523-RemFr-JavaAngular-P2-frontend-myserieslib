@@ -15,6 +15,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavMobComponent } from './components/nav/nav-mob/nav-mob.component';
 import { NavPcComponent } from './components/nav/nav-pc/nav-pc.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ButtonAccComponent } from './components/UI/button-acc/button-acc.component';
+import { ButtonPriComponent } from './components/UI/button-pri/button-pri.component';
+import { GlassDirective } from './directives/glass.directive';
+import { BtnTrailerComponent } from './components/UI/btn-trailer/btn-trailer.component';
+import { BtnAddComponent } from './components/UI/btn-add/btn-add.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,11 @@ import { HeaderComponent } from './components/header/header.component';
     NavMobComponent,
     NavPcComponent,
     HeaderComponent,
+    ButtonAccComponent,
+    ButtonPriComponent,
+    GlassDirective,
+    BtnTrailerComponent,
+    BtnAddComponent,
   ],
   imports: [
     BrowserModule,
