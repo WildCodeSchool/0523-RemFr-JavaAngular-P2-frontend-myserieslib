@@ -22,6 +22,7 @@ import { CardsComponent } from './components/cards/cards.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SignupComponent } from './components/signup/signup.component';
     RatingComponent,
     LoginComponent,
     SignupComponent,
+    LoginPageComponent,
   ],
   imports: [
     MatSelectModule,
