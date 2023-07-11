@@ -1,23 +1,32 @@
 <div>
   <div>
-    <form  (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()">
       <div class="flex justify-center">
         <div class="relative">
-        <input [formControl]="formSearch" class="bg-zinc-800	text-white rounded-xl p-3 m-1 pl-8" matInput placeholder="Rechercher une série">
-        <img src="assets/icons/loupe.png" class="absolute w-4 img">
+          <input
+            [formControl]="formSearch"
+            class="bg-zinc-800 text-white rounded-xl p-3 m-1 pl-8"
+            matInput
+            placeholder="Rechercher une série"
+          />
+          <img src="assets/icons/loupe.png" class="absolute w-4 img" />
         </div>
-        <select matNativeControl [formControl]="formFilter" (change)="onSubmit()" class="bg-zinc-800	text-white rounded-xl p-3 m-1">
+        <select
+          matNativeControl
+          [formControl]="formFilter"
+          (change)="onSubmit()"
+          class="bg-zinc-800 text-white rounded-xl p-3 m-1"
+        >
           <option value="title">Titre</option>
           <option value="actor">Acteur</option>
           <option value="producer">Producteur</option>
         </select>
       </div>
       <div class="flex justify-center">
-        <select matNativeControl class="bg-zinc-800	text-white rounded-xl p-3 m-1" [formControl]="formCategories">
-          <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+        <select matNativeControl class="bg-zinc-800 text-white rounded-xl p-3 m-1" [formControl]="formCategories">
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
         </select>
       </div>
     </form>
   </div>
 </div>
-
