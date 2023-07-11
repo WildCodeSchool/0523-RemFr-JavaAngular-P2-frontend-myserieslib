@@ -16,7 +16,7 @@ export interface ISeries {
   actors: IActors[];
   show?: boolean;
   image?: string;
-  rating?: number;
+  rating: number;
 }
 
 export interface IActors {
