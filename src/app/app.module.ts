@@ -24,6 +24,11 @@ import { DetailComponent } from './pages/detail/detail.component';
 import { DetailInformationsComponent } from './components/detail-informations/detail-informations.component';
 import { CardActorComponent } from './components/card-actor/card-actor.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,10 @@ import { CommentComponent } from './components/comment/comment.component';
     DetailInformationsComponent,
     CardActorComponent,
     CommentComponent,
+    LoginComponent,
+    SignupComponent,
+    LoginPageComponent,
+    SignupPageComponent,
   ],
   imports: [
     MatSelectModule,
@@ -52,6 +61,7 @@ import { CommentComponent } from './components/comment/comment.component';
     MatInputModule,
     FormsModule,
     HttpClientModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
