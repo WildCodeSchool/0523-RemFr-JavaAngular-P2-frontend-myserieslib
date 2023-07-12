@@ -30,4 +30,8 @@ export class SeriesService {
   getSerieById(id: string): Observable<ISeries> {
     return this.http.get<ISeries>('http://localhost:8080/api/series/' + id);
   }
+
+  getEpisodes(id: string): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/api/episodes/series/' + id);
+  }
 }
