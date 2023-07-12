@@ -26,7 +26,5 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder) {}
 
-  onSubmit() {
-    console.log(this.loginForm.value);
-  }
+  onSubmit() {}
 }

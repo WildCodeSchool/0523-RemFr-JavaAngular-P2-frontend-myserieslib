@@ -17,9 +17,7 @@ export class SignupComponent {
 
   constructor(private fb: FormBuilder) { }
 
-    onSubmit() {
-      console.log(this.signUpForm.value);
-    }
+    onSubmit() {}
 
   }
 

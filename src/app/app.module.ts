@@ -21,6 +21,9 @@ import { FilterSearchBarComponent } from './components/filter-search-bar/filter-
 import { CardsComponent } from './components/cards/cards.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { DetailComponent } from './pages/detail/detail.component';
+import { DetailInformationsComponent } from './components/detail-informations/detail-informations.component';
+import { CardActorComponent } from './components/card-actor/card-actor.component';
+import { CommentComponent } from './components/comment/comment.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -41,6 +44,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CardsComponent,
     RatingComponent,
     DetailComponent,
+    DetailInformationsComponent,
+    CardActorComponent,
+    CommentComponent,
     LoginComponent,
     SignupComponent,
     LoginPageComponent,
