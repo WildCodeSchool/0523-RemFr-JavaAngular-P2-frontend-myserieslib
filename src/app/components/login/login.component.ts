@@ -1,29 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  loginForm = this.fb.group({
+  loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required]
+    password: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) { }
+  
+  isUsernameValid(): boolean {
+    const usernameControl = this.loginForm.get('emailOrUsername');
+  return !usernameControl?.errors?.['emailOrUsername'];
+  }
 
-  ngOnInit(): void {}
+  isFormValid(): boolean {
+    return this.loginForm.valid && this.isUsernameValid();
+  }
+
+  constructor(private fb: FormBuilder) {}
 
   onSubmit() {
     console.log(this.loginForm.value);
-    if (this.loginForm.valid) {
-      console.log('Valid');
-    } else {
-      console.log('Invalid');
-    }
   }
-
 }

@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
 
-  signupForm = this.fb.group({
+  signUpForm = this.fb.group({
+    username: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     confirmPassword: ['', [Validators.required]]
@@ -16,14 +17,24 @@ export class SignupComponent {
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit() {
+    onSubmit() {
+      console.log(this.signUpForm.value);
+    }
+
   }
 
-  onSignup() {
-    if (this.signupForm.valid) {
-      const email = this.signupForm.value.email;
-      const password = this.signupForm.value.password;
-      const confirmPassword = this.signupForm.value.confirmPassword;
+export function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null {
+  let passwordControl = c.get('password');
+  let confirmPasswordControl = c.get('confirmPassword');
+
+  if (passwordControl && confirmPasswordControl) {
+    if (passwordControl.pristine || confirmPasswordControl.pristine) {
+      return null;
+    }
+
+    if (passwordControl.value === confirmPasswordControl.value) {
+      return null;
     }
   }
+  return { match: true };
 }

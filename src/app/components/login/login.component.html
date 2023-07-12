@@ -1,24 +1,26 @@
-<section class="page-container">
+<h1>Connexion</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>Email ou nom d'utilisateur</mat-label>
+        <input matInput type="text" formControlName="email">
+        <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+          <div *ngIf="loginForm.get('email')?.hasError('required')">Email ou nome d'utilisateur requis</div>
+        </mat-error>
+      </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+        <div *ngIf="loginForm.get('password')?.hasError('required')">Password is required</div>
+      </mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="!isFormValid()">Connexion</button>
 
-    <h1>Connexion</h1>
-
-    <div class="container-connection">
-        <div class="connection">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <fieldset>
-                    <label><span>*</span>Email : </label>
-                    <input type="text" formControlName="email">
-                </fieldset>
-                <fieldset>
-                    <label><span>*</span>Mot de passe : </label>
-                    <input type="password" formControlName="password">
-                </fieldset>
-                
-                <button type="submit" [disabled]="!loginForm.valid">Connexion</button>
-            </form>
-            <p><span>*</span> Champs obligatoires</p>
-        </div>
-    </div>
-</section>
-
-
+    <div class="signup-link"><p>
+        Première visite ? </p><a [routerLink]="['/sign-up']">Inscrivez-vous ici</a>
+      </div>
+    
+  </form>
+ 

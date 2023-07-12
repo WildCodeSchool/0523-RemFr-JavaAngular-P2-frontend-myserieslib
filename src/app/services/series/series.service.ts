@@ -26,4 +26,8 @@ export class SeriesService {
   getRating(id: string): Observable<number> {
     return this.http.get<number>('http://localhost:8080/api/libraries/' + id);
   }
+
+  getSerieById(id: string): Observable<ISeries> {
+    return this.http.get<ISeries>('http://localhost:8080/api/series/' + id);
+  }
 }

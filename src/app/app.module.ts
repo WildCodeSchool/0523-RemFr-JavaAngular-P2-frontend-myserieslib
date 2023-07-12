@@ -20,9 +20,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterSearchBarComponent } from './components/filter-search-bar/filter-search-bar.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { DetailComponent } from './pages/detail/detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -37,9 +40,11 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     FilterSearchBarComponent,
     CardsComponent,
     RatingComponent,
+    DetailComponent,
     LoginComponent,
     SignupComponent,
     LoginPageComponent,
+    SignupPageComponent,
   ],
   imports: [
     MatSelectModule,
@@ -50,6 +55,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     MatInputModule,
     FormsModule,
     HttpClientModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
