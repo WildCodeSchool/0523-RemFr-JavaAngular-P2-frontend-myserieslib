@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILibraries } from 'src/app/utils/interface';
+import { IComment, ILibraries } from 'src/app/utils/interface';
 
 @Injectable({
   providedIn: 'root',
@@ -22,5 +22,9 @@ export class LibrariesService {
 
   getLibrariesFinished(): Observable<ILibraries[]> {
     return this.http.get<ILibraries[]>(`${this.url}/${this.userId}/finished`);
+  }
+
+  getComments(id: string): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`${this.url}/${id}/comments`);
   }
 }

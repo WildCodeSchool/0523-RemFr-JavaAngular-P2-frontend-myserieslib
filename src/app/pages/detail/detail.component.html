@@ -20,7 +20,7 @@
     </p>
   </div>
   <div *ngIf="informationsSelected">
-    <p class="text-white">Toutes les informations</p>
+    <app-detail-informations [serie]="serie"></app-detail-informations>
   </div>
   <div *ngIf="!informationsSelected">
     <app-detail-episodes [id]="id"></app-detail-episodes>
