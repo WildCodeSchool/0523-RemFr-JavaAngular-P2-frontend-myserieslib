@@ -21,6 +21,9 @@ import { FilterSearchBarComponent } from './components/filter-search-bar/filter-
 import { CardsComponent } from './components/cards/cards.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { DetailComponent } from './pages/detail/detail.component';
+import { DetailInformationsComponent } from './components/detail-informations/detail-informations.component';
+import { CardActorComponent } from './components/card-actor/card-actor.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { DetailComponent } from './pages/detail/detail.component';
     CardsComponent,
     RatingComponent,
     DetailComponent,
+    DetailInformationsComponent,
+    CardActorComponent,
+    CommentComponent,
   ],
   imports: [
     MatSelectModule,
