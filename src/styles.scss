@@ -96,3 +96,37 @@ body {
 //   transform: rotate(3600deg);
 //   transition: .5s,60s linear transform;
 // }
+
+
+/* Basic class for tailwind */
+.linear-bg {
+  background: linear-gradient(269.82deg, #07091c00 0.17%, #080a1ad6 99.87%);
+}
+
+.hoveres {
+  @apply hidden;
+}
+
+.hovered:hover .hoveres {
+  @apply flex-colo
+}
+
+.flex-colo {
+  @apply flex flex-col justify-center items-center;
+}
+
+.flex-rows {
+  @apply flex flex-row justify-center items-center;
+}
+
+.flex-btn {
+  @apply flex justify-between items-center;
+}
+
+.transitions {
+  @apply transition duration-300 ease-in;
+}
+
+.zIndex {
+  z-index: 1000;
+}

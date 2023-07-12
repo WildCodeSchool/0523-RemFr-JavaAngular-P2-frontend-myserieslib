@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxSplideModule } from 'ngx-splide';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,7 @@ import { ButtonPriComponent } from './components/UI/button-pri/button-pri.compon
 import { GlassDirective } from './directives/glass.directive';
 import { BtnTrailerComponent } from './components/UI/btn-trailer/btn-trailer.component';
 import { BtnAddComponent } from './components/UI/btn-add/btn-add.component';
+import { SwiperCardsComponent } from './components/swiper-cards/swiper-cards.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { BtnAddComponent } from './components/UI/btn-add/btn-add.component';
     GlassDirective,
     BtnTrailerComponent,
     BtnAddComponent,
+    SwiperCardsComponent,
   ],
   imports: [
     MatSelectModule,
@@ -63,6 +66,7 @@ import { BtnAddComponent } from './components/UI/btn-add/btn-add.component';
     FormsModule,
     HttpClientModule,
     MatIconModule,
+    NgxSplideModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

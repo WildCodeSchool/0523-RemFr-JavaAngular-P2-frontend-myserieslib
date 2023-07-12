@@ -4,7 +4,7 @@
 }
 
 .bg-desktop {
-    @apply md:h-[100vh] bg-cover bg-center md:block hidden;
+    @apply md:h-[60vh] bg-cover bg-center md:block hidden overflow-hidden;
     background-image: url('../../../assets/Stranger-things-bg.png');
 }
   

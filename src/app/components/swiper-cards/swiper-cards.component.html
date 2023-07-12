@@ -1,0 +1,17 @@
+<div class="my-8 text-white p-2">
+  <h1 class="ml-4 text-2xl font-bold mb-4">{{ title }}</h1>
+  <splide [options]="options">
+    <splide-slide *ngFor="let movie of series">
+      <div class="p-2 h-[16rem] hovered md:h-[22rem] hover:scale-[110%] transitions bg-dry rounded-lg overflow-hidden flex justify-center">
+        <img [src]="movie.pictureUrl" alt="movie.name" class="w-7/8 md:w-3/4 h-[14rem] md:h-[20rem] object-cover rounded-xl"/>
+        <div class="px-4 hoveres gap-6 text-center absolute top-0 left-0 right-0 bottom-0">
+          <h1 class="text-xl font-bold">{{ movie.name }}</h1>
+          <p class="text-sm">{{ movie.releaseDate }}</p>
+          <div class="flex justify-center gap-4 mt-4">
+            <button class="btn-msl px-2 md:px-4 md:py-1 before:rounded-full">Details</button>
+          </div>
+        </div>
+      </div>
+    </splide-slide>
+  </splide>
+</div>
