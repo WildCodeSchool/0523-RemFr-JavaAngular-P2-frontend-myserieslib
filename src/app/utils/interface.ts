@@ -21,8 +21,8 @@ export interface ISeries {
 
 export interface IActors {
   id: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   pictureUrl: string;
 }
 
@@ -33,4 +33,10 @@ export interface ILibraries {
   serie: ISeries;
   status: string;
   image?: string;
+}
+
+export interface IComment {
+  comment: string;
+  userUsername: string;
+  score: number | null;
 }
