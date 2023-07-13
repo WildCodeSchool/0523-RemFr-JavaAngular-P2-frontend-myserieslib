@@ -1,6 +1,13 @@
 <div class="episode_select">
   <div>
-    <select name="season" id="season" [(ngModel)]="selectedSeason" (change)="seasonSelect(selectedSeason)">
+    <select
+      name="season"
+      id="season"
+      *ngIf="seasons && seasons.length > 0"
+      [(ngModel)]="selectedSeason"
+      (change)="selectedSeason !== null ? seasonSelect(selectedSeason) : null"
+    >
+      >
       <option value="">---</option>
       <option *ngFor="let season of seasons" [value]="season">Saison {{ season }}</option>
     </select>
@@ -21,7 +28,7 @@
           <span>{{ episode.description }}</span>
         </div>
         <div class="info_card_right_but">
-          <button (click)="onClick()">X</button>
+          <button>X</button>
         </div>
       </div>
     </div>

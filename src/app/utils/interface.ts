@@ -40,3 +40,13 @@ export interface IComment {
   userUsername: string;
   score: number | null;
 }
+
+export interface IEpisode {
+  episodeNumber: number;
+  title: string;
+  seasonNumber: number;
+  image?: string;
+  description: string;
+  releaseDate: Date;
+  serie: ISeries;
+}

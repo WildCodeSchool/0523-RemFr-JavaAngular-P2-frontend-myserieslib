@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SeriesService } from 'src/app/services/series/series.service';
+import { IEpisode } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-detail-episodes',
@@ -10,9 +11,9 @@ export class DetailEpisodesComponent implements OnInit {
   @Input()
   id!: string;
 
-  episodes: any | undefined;
-  seasons: any | undefined;
-  selectedSeason: any | null = null;
+  episodes: IEpisode[] = [];
+  seasons: number[] | undefined;
+  selectedSeason: number | null = null;
 
   images: string[] = [
     'https://fr.web.img5.acsta.net/pictures/15/09/03/10/45/420630.jpg',
@@ -36,34 +37,31 @@ export class DetailEpisodesComponent implements OnInit {
     return this.images[Math.floor(Math.random() * this.images.length)];
   }
 
-  onClick() {
-    console.log(this.seasons);
-  }
-
   ngOnInit(): void {
     this.serieService.getEpisodes(this.id).subscribe((data) => {
-      this.episodes = data.map((item: any) => {
+      this.episodes = data.map((item: IEpisode) => {
         return { ...item, image: this.randomImage() };
       });
-      this.episodes.sort((a: any, b: any) => {
+      this.episodes.sort((a: IEpisode, b: IEpisode) => {
         if (a.seasonNumber === b.seasonNumber) {
           return a.episodeNumber - b.episodeNumber;
         } else {
           return a.seasonNumber - b.seasonNumber;
         }
       });
-      const numbers = data.map((item: any) => item.seasonNumber);
-      this.seasons = Array.from(new Set(numbers)).sort();
+      const numbers = data.map((item: IEpisode) => item.seasonNumber);
+      this.seasons = Array.from(new Set<number>(numbers)).sort();
     });
+    this.selectedSeason = 1;
   }
 
-  seasonSelect(season: any) {
+  seasonSelect(season: number) {
     this.selectedSeason = season;
   }
 
   getFilteredEpisodes() {
     if (this.selectedSeason) {
-      return this.episodes.filter((episode: any) => episode.seasonNumber == this.selectedSeason);
+      return this.episodes.filter((episode: IEpisode) => episode.seasonNumber == this.selectedSeason);
     } else {
       return this.episodes;
     }
