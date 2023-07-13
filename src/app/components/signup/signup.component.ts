@@ -7,23 +7,21 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-
   signUpForm = this.fb.group({
     username: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
-    confirmPassword: ['', [Validators.required]]
+    confirmPassword: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
-    onSubmit() {}
-
-  }
+  onSubmit() {}
+}
 
 export function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null {
-  let passwordControl = c.get('password');
-  let confirmPasswordControl = c.get('confirmPassword');
+  const passwordControl = c.get('password');
+  const confirmPasswordControl = c.get('confirmPassword');
 
   if (passwordControl && confirmPasswordControl) {
     if (passwordControl.pristine || confirmPasswordControl.pristine) {
