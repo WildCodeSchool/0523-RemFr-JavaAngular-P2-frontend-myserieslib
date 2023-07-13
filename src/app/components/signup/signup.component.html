@@ -1,8 +1,7 @@
-<h1>Inscription</h1>
 
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <mat-label>Username</mat-label>
+    <mat-label>Nom d'utilisateur</mat-label>
     <input matInput type="text" formControlName="username" />
     <mat-error
       *ngIf="
@@ -25,7 +24,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Password</mat-label>
+    <mat-label>Mot de passe</mat-label>
     <input matInput type="password" formControlName="password" />
     <mat-error
       *ngIf="
@@ -38,7 +37,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Confirm Password</mat-label>
+    <mat-label>Confirmer mot de passe</mat-label>
     <input matInput type="password" formControlName="confirmPassword" />
     <mat-error
       *ngIf="

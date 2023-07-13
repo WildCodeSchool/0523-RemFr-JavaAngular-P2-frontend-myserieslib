@@ -1,23 +1,19 @@
-h1 {
-  font-size: 3.125rem;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  text-decoration: underline;
-  text-decoration-color: rgb(247, 247, 247);
-  text-underline-offset: 0.5rem;
-}
-
 form {
   display: flex;
   flex-direction: column;
   max-width: 25rem;
-  margin: 5rem auto;
+  margin: 2.75rem auto; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 mat-form-field {
   border-radius: 1.25rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 1.05rem;
+  margin-bottom: 1.05rem;
   width: 100%;
 }
 
