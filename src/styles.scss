@@ -51,17 +51,14 @@ body {
   background-attachment: fixed;
 }
 
-
-// button color linear gradient
-
 .btn-msl {
   background: none!important;
   border: none!important;
   position: relative!important;
   z-index: 0!important;
   transition: .3s!important;
-//   cursor: pointer;
 }
+
 .btn-msl:before {
   content: ""!important;
   position: absolute!important;
