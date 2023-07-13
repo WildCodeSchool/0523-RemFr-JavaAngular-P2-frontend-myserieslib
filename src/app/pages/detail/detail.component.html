@@ -1,16 +1,28 @@
 <div *ngIf="serie">
   <div class="image-container">
-    <img src="{{serie.image}}" alt="{{serie.name}}">
+    <img src="{{ serie.image }}" alt="{{ serie.name }}" />
     <div class="image-gradient"></div>
   </div>
-  <div class="flex justify-center  mt-8 gap-8">
-    <p class="text-white cursor-pointer	" [ngClass]="{'underline underline-offset-8': !informationsSelected}" (click)="showEpisodes()">Episodes</p>
-    <p class="text-white cursor-pointer	" [ngClass]="{'underline underline-offset-8': informationsSelected}" (click)="showInformations()">Informations</p>
+  <div class="flex justify-center mt-8 gap-8">
+    <p
+      class="text-white cursor-pointer"
+      [ngClass]="{ 'underline underline-offset-8': !informationsSelected }"
+      (click)="showEpisodes()"
+    >
+      Episodes
+    </p>
+    <p
+      class="text-white cursor-pointer"
+      [ngClass]="{ 'underline underline-offset-8': informationsSelected }"
+      (click)="showInformations()"
+    >
+      Informations
+    </p>
   </div>
   <div *ngIf="informationsSelected">
     <app-detail-informations [serie]="serie"></app-detail-informations>
   </div>
-  <div *ngIf="!informationsSelected" >
-    <p class="text-white" > Tous les épisodes </p>
+  <div *ngIf="!informationsSelected">
+    <app-detail-episodes [id]="id"></app-detail-episodes>
   </div>
 </div>
