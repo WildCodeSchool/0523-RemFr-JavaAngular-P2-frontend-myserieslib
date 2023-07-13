@@ -32,6 +32,15 @@ import { BtnTrailerComponent } from './components/UI/btn-trailer/btn-trailer.com
 import { BtnAddComponent } from './components/UI/btn-add/btn-add.component';
 import { SwiperCardsComponent } from './components/swiper-cards/swiper-cards.component';
 import { MobAdsComponent } from './components/mob-ads/mob-ads.component';
+import { DetailEpisodesComponent } from './components/detail-episodes/detail-episodes.component';
+import { DetailInformationsComponent } from './components/detail-informations/detail-informations.component';
+import { CardActorComponent } from './components/card-actor/card-actor.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -46,17 +55,6 @@ import { MobAdsComponent } from './components/mob-ads/mob-ads.component';
     CardsComponent,
     RatingComponent,
     DetailComponent,
-    HomeComponent,
-    NavMobComponent,
-    NavPcComponent,
-    HeaderComponent,
-    ButtonAccComponent,
-    ButtonPriComponent,
-    GlassDirective,
-    BtnTrailerComponent,
-    BtnAddComponent,
-    SwiperCardsComponent,
-    MobAdsComponent,
   ],
   imports: [
     MatSelectModule,
@@ -67,8 +65,6 @@ import { MobAdsComponent } from './components/mob-ads/mob-ads.component';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatIconModule,
-    NgxSplideModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

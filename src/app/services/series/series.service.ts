@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { ISeries } from 'src/app/utils/interface';
+import { IEpisode, ISeries } from 'src/app/utils/interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SeriesService {
+  urlLink = 'http://localhost:8080/api/';
+
   constructor(public http: HttpClient) {}
 
   getSeries(search?: string, filter?: string, category?: string): Observable<ISeries[]> {
@@ -20,14 +22,18 @@ export class SeriesService {
     if (category && category !== '0') {
       url += '&category=' + category;
     }
-    return this.http.get<ISeries[]>('http://localhost:8080/api/series?' + url);
+    return this.http.get<ISeries[]>(this.urlLink + 'series?' + url);
   }
 
   getRating(id: string): Observable<number> {
-    return this.http.get<number>('http://localhost:8080/api/libraries/' + id);
+    return this.http.get<number>(this.urlLink + 'libraries/' + id + '/ratings');
   }
 
   getSerieById(id: string): Observable<ISeries> {
-    return this.http.get<ISeries>('http://localhost:8080/api/series/' + id);
+    return this.http.get<ISeries>(this.urlLink + 'series/' + id);
+  }
+
+  getEpisodes(id: string): Observable<IEpisode[]> {
+    return this.http.get<IEpisode[]>(this.urlLink + 'episodes/series/' + id);
   }
 }

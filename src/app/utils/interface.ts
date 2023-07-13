@@ -21,8 +21,8 @@ export interface ISeries {
 
 export interface IActors {
   id: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   pictureUrl: string;
 }
 
@@ -33,4 +33,20 @@ export interface ILibraries {
   serie: ISeries;
   status: string;
   image?: string;
+}
+
+export interface IComment {
+  comment: string;
+  userUsername: string;
+  score: number | null;
+}
+
+export interface IEpisode {
+  episodeNumber: number;
+  title: string;
+  seasonNumber: number;
+  image?: string;
+  description: string;
+  releaseDate: Date;
+  serie: ISeries;
 }
