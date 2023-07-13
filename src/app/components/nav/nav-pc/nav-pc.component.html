@@ -1,8 +1,8 @@
-<nav class="bg-transparent fixed w-full h-16 z-20 top-0 left-0">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+<nav class=" fixed w-full z-20 top-0 left-0 background-nav p-4">
+  <div class=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
     <a href="./" class="flex items-center">
-      <img src="../../../../assets/Logos/logo_pc.png" class="h-14 mr-1 hidden md:block" alt="MSL Logo" />
-      <img src="../../../../assets/Logos/logo_mobile.png" class="h-12 mr-1 md:hidden" alt="MSL Logo" />
+      <img src="assets/Logos/logo_pc.png" class="h-14 mr-1 hidden md:block" alt="MSL Logo" />
+      <img src="assets/Logos/logo_mobile.png" class="h-12 mr-1 md:hidden" alt="MSL Logo" />
     </a>
     <div class="flex md:order-2">
       <app-button-acc></app-button-acc>
@@ -13,13 +13,13 @@
           <a href="/" class="button-container" aria-current="page">Home</a>
         </li>
         <li>
-          <a (click)="smoothScroll('movies')" class="button-container">Explore</a>
+          <a routerLink="/search" class="button-container">Explorer</a>
         </li>
         <li>
-          <a (click)="smoothScroll('movies')" class="button-container">Library</a>
+          <a  routerLink="/library" class="button-container">Bibliothèque</a>
         </li>
         <li>
-          <a (click)="smoothScroll('movies')" class="button-container">Trending</a>
+          <a routerLink="/trending" class="button-container">Tendances</a>
         </li>
       </ul>
     </div>
