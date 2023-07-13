@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ISeries } from 'src/app/utils/interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-swiper-cards',
@@ -7,8 +8,14 @@ import { ISeries } from 'src/app/utils/interface';
   styleUrls: ['./swiper-cards.component.scss'],
 })
 export class SwiperCardsComponent {
+  constructor(public router: Router) {}
   @Input() title = '';
   @Input() series: ISeries[] = [];
+
+  redirectToDetail(serie: ISeries) {
+    console.log(serie);
+    this.router.navigate(['/detail', serie.id]);
+  }
 
   options = {
     type: 'loop',

@@ -15,10 +15,9 @@
             <p class="text-white inline" *ngIf="index !== 0">-</p>
             <p class="text-white inline">{{ category.name }}</p>
           </div>
-          <div class="text-white bold" (click)="redirectToDetail(serie)">Voir plus</div>
-        </div>
-        <div>
-          <p class="text-white" (click)="redirectToDetail(serie)">Voir plus</p>
+          <div>
+          <button class="mt-4 bg-gray-900	btn-msl text-white px-2 md:px-4 md:py-1 before:rounded-full" (click)="redirectToDetail(serie)">Voir plus</button>
+          </div>
         </div>
       </div>
     </div>
