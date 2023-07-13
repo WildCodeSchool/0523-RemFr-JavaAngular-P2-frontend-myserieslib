@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
   getTrendingSeries() {
     this.trendingsService.getTrendings().subscribe((series: ISeries[]) => {
       this.trendingSeries = series.map((series) => {
-        console.log(series);
         return { ...series, show: false, pictureUrl: this.randomImage() };
       });
     });
