@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { ISeries } from 'src/app/utils/interface';
+import { IEpisode, ISeries } from 'src/app/utils/interface';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +31,7 @@ export class SeriesService {
     return this.http.get<ISeries>('http://localhost:8080/api/series/' + id);
   }
 
-  getEpisodes(id: string): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/api/episodes/series/' + id);
+  getEpisodes(id: string): Observable<IEpisode> {
+    return this.http.get<IEpisode>('http://localhost:8080/api/episodes/series/' + id);
   }
 }
