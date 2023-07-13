@@ -38,15 +38,99 @@ $angular-template-theme: mat.define-light-theme((
 @tailwind components;
 @tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.img {
-  top: 50%;
-  transform: translate(0, -50%);
-  left: 0.8rem;
+
+html, body { height: 100%; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("./assets/bg-01.png");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-body {
-  background-color: rgb(25, 25, 27);
+
+
+// button color linear gradient
+
+.btn-msl {
+  background: none!important;
+  border: none!important;
+  position: relative!important;
+  z-index: 0!important;
+  transition: .3s!important;
+//   cursor: pointer;
+}
+.btn-msl:before {
+  content: ""!important;
+  position: absolute!important;
+  z-index: 1!important;
+  inset: -8px!important;
+  padding: 4px!important;
+  background: linear-gradient(to right, #fe5388 0%, #09fbd3 100%)!important;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0)!important;
+  -webkit-mask-composite: xor!important;
+          mask-composite: intersect
+}
+.btn-msl:after {
+  content: ""!important;
+  position: absolute!important;
+  inset: -100px!important;
+  background:
+    radial-gradient(60px at left  120px top    120px,#fe5388 98%,#0000),
+    radial-gradient(60px at right 120px bottom 120px,#09fbd3 98%,#0000)!important;
+  filter: blur(60px)!important;
+  opacity: .5!important;
+  z-index: 1!important;
+}
+
+// .btn-msl:before,
+// .btn-msl:after {
+//   transition:.5s, 99999s 99999s transform, 99999s 99999s --d;
+// }
+
+// .btn-msl:hover:after {
+//   transform: rotate(3600deg);
+//   transition: .5s,60s linear transform;
+// }
+
+
+/* Basic class for tailwind */
+.linear-bg {
+  background: linear-gradient(269.82deg, #07091c00 0.17%, #080a1ad6 99.87%);
+}
+
+.hoveres {
+  @apply hidden;
+}
+
+.hovered:hover .hoveres {
+  @apply flex-colo
+}
+
+.flex-colo {
+  @apply flex flex-col justify-center items-center;
+}
+
+.flex-rows {
+  @apply flex flex-row justify-center items-center;
+}
+
+.flex-btn {
+  @apply flex justify-between items-center;
+}
+
+.transitions {
+  @apply transition duration-300 ease-in;
+}
+
+.zIndex {
+  z-index: 1000;
+}
+
+.downloads {
+  @apply border-2 border-[#424244] rounded-lg h-[3rem] w-[10rem];
 }
