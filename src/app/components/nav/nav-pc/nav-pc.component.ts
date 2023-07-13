@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
 })
 export class NavPcComponent {
   isActive = false;
-  smoothScroll(sectionId: string): void {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-  }
 }
