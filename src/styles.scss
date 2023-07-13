@@ -130,3 +130,7 @@ body {
 .zIndex {
   z-index: 1000;
 }
+
+.downloads {
+  @apply border-2 border-[#424244] rounded-lg h-[3rem] w-[10rem];
+}

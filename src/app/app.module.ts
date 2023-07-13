@@ -31,6 +31,7 @@ import { GlassDirective } from './directives/glass.directive';
 import { BtnTrailerComponent } from './components/UI/btn-trailer/btn-trailer.component';
 import { BtnAddComponent } from './components/UI/btn-add/btn-add.component';
 import { SwiperCardsComponent } from './components/swiper-cards/swiper-cards.component';
+import { MobAdsComponent } from './components/mob-ads/mob-ads.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { SwiperCardsComponent } from './components/swiper-cards/swiper-cards.com
     BtnTrailerComponent,
     BtnAddComponent,
     SwiperCardsComponent,
+    MobAdsComponent,
   ],
   imports: [
     MatSelectModule,
