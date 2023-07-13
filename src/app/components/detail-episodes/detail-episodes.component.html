@@ -8,7 +8,6 @@
       (change)="selectedSeason !== null ? seasonSelect(selectedSeason) : null"
     >
       >
-      <option value="">---</option>
       <option *ngFor="let season of seasons" [value]="season">Saison {{ season }}</option>
     </select>
   </div>
