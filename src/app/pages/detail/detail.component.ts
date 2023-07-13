@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { SeriesService } from 'src/app/services/series/series.service';
 import { ISeries } from 'src/app/utils/interface';
@@ -9,7 +10,7 @@ import { ISeries } from 'src/app/utils/interface';
   styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit {
-  constructor(public serieService: SeriesService, public route: ActivatedRoute) {}
+  constructor(public serieService: SeriesService, public route: ActivatedRoute, private sanitizer: DomSanitizer) {}
   id = this.route.snapshot.paramMap.get('id') || '';
 
   informationsSelected = true;
@@ -27,7 +28,7 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.serieService.getSerieById(this.id).subscribe((data) => {
       this.serie = data;
-      this.serie.image = 'https://cache.cosmopolitan.fr/data/photo/w1000_ci/4x/ned-stark.jpg';
+      this.serie.trailerSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.serie.trailerURL);
     });
   }
 }
