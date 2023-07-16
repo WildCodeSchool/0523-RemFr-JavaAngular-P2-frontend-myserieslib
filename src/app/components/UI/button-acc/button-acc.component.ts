@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-button-acc',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ButtonAccComponent {
   open = false;
+  constructor(private elementRef: ElementRef) {}
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const clickedInside = this.elementRef.nativeElement.contains(event.target);
+    if (!clickedInside) {
+      this.open = false;
+    }
+  }
 }

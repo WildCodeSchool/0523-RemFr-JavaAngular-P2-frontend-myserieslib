@@ -42,6 +42,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { InputComponent } from './components/comment/input/input.component';
+import { BgLoginComponent } from './components/bg-login/bg-login.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { InputComponent } from './components/comment/input/input.component';
     LoginPageComponent,
     SignupPageComponent,
     InputComponent,
+    BgLoginComponent,
   ],
   imports: [
     MatSelectModule,

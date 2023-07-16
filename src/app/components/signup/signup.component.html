@@ -1,7 +1,19 @@
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <mat-label>Nom d'utilisateur</mat-label>
-    <input matInput type="text" formControlName="username" />
+  <h1 class="relative text-white text-2xl font-semibold flex justify-center mb-10">Inscrivez-vous</h1>
+  <div class="relative flex items-center flex-col">
+    <input 
+      matInput type="text" 
+      formControlName="username"
+      id="input1"
+      appGlass
+      class="rounded-2xl peer block w-[20rem] border-1 px-3 py-2 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [ border-[1px] border-solid border-white border-opacity-30 ] [ shadow-black/70 shadow-2xl ] text-white"
+    />
+    <label
+      for="input1"
+      class="pointer-events-none absolute left-4 md:left-[2rem] top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-white transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-valid:-translate-y-[1.15rem] peer-valid:scale-[0.8] motion-reduce:transition-none"
+    >
+      Nom d'utilisateur
+    </label>
     <mat-error
       *ngIf="
         signUpForm.get('username')?.invalid &&
@@ -10,21 +22,44 @@
     >
       <div *ngIf="signUpForm.get('username')?.hasError('required')">Saisissez votre nom d'utilisateur</div>
     </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input matInput type="text" formControlName="email" />
+  </div>
+  <div class="mt-5 relative flex items-center flex-col">
+    <input 
+      matInput 
+      type="text" 
+      formControlName="email"
+      id="input2"
+      appGlass
+      class="rounded-2xl peer block w-[20rem] border-1 px-3 py-2 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [ border-[1px] border-solid border-white border-opacity-30 ] [ shadow-black/70 shadow-2xl ] text-white"
+    />
+    <label
+      for="input2"
+      class="pointer-events-none absolute left-4 md:left-[2rem] top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-white transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-valid:-translate-y-[1.15rem] peer-valid:scale-[0.8] motion-reduce:transition-none"
+    >
+      Email
+    </label>
     <mat-error
       *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)"
     >
       <div *ngIf="signUpForm.get('email')?.hasError('required')">Email requis</div>
       <div *ngIf="signUpForm.get('email')?.hasError('email')">Format d'email invalide</div>
     </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Mot de passe</mat-label>
-    <input matInput type="password" formControlName="password" />
+  </div>
+  <div class="mt-5 relative flex items-center flex-col">
+    <input 
+      matInput 
+      type="password"
+      formControlName="password"
+      id="input3"
+      appGlass
+      class="rounded-2xl peer block w-[20rem] border-1 px-3 py-2 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [ border-[1px] border-solid border-white border-opacity-30 ] [ shadow-black/70 shadow-2xl ] text-white"
+    />
+    <label
+      for="input3"
+      class="pointer-events-none absolute left-4 md:left-[2rem] top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-white transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-valid:-translate-y-[1.15rem] peer-valid:scale-[0.8] motion-reduce:transition-none"
+    >
+      Mot de passe
+    </label>
     <mat-error
       *ngIf="
         signUpForm.get('password')?.invalid &&
@@ -33,11 +68,22 @@
     >
       <div *ngIf="signUpForm.get('password')?.hasError('required')">Mot de passe requis</div>
     </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Confirmer mot de passe</mat-label>
-    <input matInput type="password" formControlName="confirmPassword" />
+  </div>
+  <div class="mt-5 relative flex items-center flex-col">
+    <input 
+      matInput
+      type="password"
+      formControlName="confirmPassword"
+      id="input4"
+      appGlass
+      class="rounded-2xl peer block w-[20rem] border-1 px-3 py-2 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [ border-[1px] border-solid border-white border-opacity-30 ] [ shadow-black/70 shadow-2xl ] text-white"
+    />
+    <label
+      for="input4"
+      class="pointer-events-none absolute left-4 md:left-[2rem] top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-white transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-valid:-translate-y-[1.15rem] peer-valid:scale-[0.8] motion-reduce:transition-none"
+    >
+      Confirmer mot de passe
+    </label>
     <mat-error
       *ngIf="
         signUpForm.get('confirmPassword')?.invalid &&
@@ -46,12 +92,13 @@
     >
       <div *ngIf="signUpForm.get('confirmPassword')?.hasError('required')">Vous devez confirmer votre mot de passe</div>
     </mat-error>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" type="submit" [disabled]="!signUpForm.valid">S'inscrire</button>
-
-  <div class="login-link">
-    <p>Vous avez déjà un compte ?</p>
-    <a [routerLink]="['/login']">Connectez-vous ici</a>
   </div>
+  <button
+    type="submit"
+    [disabled]="!signUpForm.valid"
+    disabled
+    class="mt-10 btn-msl w-[10rem] py-1 before:rounded-full after:hidden text-white ease-linear disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    S'inscrire
+  </button>
 </form>
