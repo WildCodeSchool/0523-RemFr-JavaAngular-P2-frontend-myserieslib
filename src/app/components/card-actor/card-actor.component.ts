@@ -6,12 +6,6 @@ import { IActors } from 'src/app/utils/interface';
   templateUrl: './card-actor.component.html',
   styleUrls: ['./card-actor.component.scss'],
 })
-export class CardActorComponent implements OnChanges {
+export class CardActorComponent {
   @Input() actors: IActors[] = [];
-
-  ngOnChanges(): void {
-    this.actors.map(
-      (actor) => (actor.pictureUrl = 'https://fr.web.img5.acsta.net/c_310_420/pictures/17/07/13/11/23/574012.jpg')
-    );
-  }
 }

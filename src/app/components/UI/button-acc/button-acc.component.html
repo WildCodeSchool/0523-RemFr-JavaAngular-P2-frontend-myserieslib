@@ -1,14 +1,12 @@
 <div class="relative" [class.open]="open" (click)="open = false">
   <button type="button" class="btn btn-ghost btn-circle avatar mr-3" (click)="open = !open; $event.stopPropagation()">
-    <div class="btn-msl p-1 h-8 before:rounded-full">
-      <mat-icon class="mt-[-5px] text-2xl text-white">perm_identity | glass</mat-icon>
+    <div class="btn-msl p-1 h-8 before:rounded-full after:h-[5rem]">
+      <mat-icon class="mt-[-5px] text-2xl text-white">perm_identity</mat-icon>
     </div>
   </button>
-  <ul *ngIf="open" class="dropdown-menu mt-3 p-2 shadow bg-base-100 rounded-box w-52" id="dropdown-menu">
-
-    <li><a [routerLink]="['/login']" class="dropdown-link">Se Connecter</a></li>
-    <li><a [routerLink]="['/sign-up']" class="dropdown-link">S'inscrire</a></li>
-    <li><a class="dropdown-link">Paramètres</a></li>
-    <li><a class="dropdown-link">Déconnexion</a></li>
+  <ul *ngIf="open" class="absolute ml-[-2rem] mt-2 text-xs text-white shadow bg-base-100 rounded-box w-[10rem]">
+    <li class="py-1"><a [routerLink]="['/login']" class="bg-gradient-to-r hover:from-green-400">Se Connecter</a></li>
+    <li class="py-1"><a class="bg-gradient-to-r hover:from-green-400">Paramètres</a></li>
+    <li class="py-1"><a class="bg-gradient-to-r hover:from-green-400">Déconnexion</a></li>
   </ul>
 </div>

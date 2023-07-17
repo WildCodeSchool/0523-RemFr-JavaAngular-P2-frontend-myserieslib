@@ -7,8 +7,7 @@
       [(ngModel)]="selectedSeason"
       (change)="selectedSeason !== null ? seasonSelect(selectedSeason) : null"
     >
-      <option *ngFor="let season of seasons" [value]="season"       class="p-3"
-      >Saison {{ season }}</option>
+      <option *ngFor="let season of seasons" [value]="season" class="p-3">Saison {{ season }}</option>
     </select>
   </div>
 </div>
@@ -20,7 +19,7 @@
     </div>
     <div class="info_card">
       <div class="image_container">
-        <img [src]="episode.image" [alt]="episode.title" />
+        <img [src]="episode.thumbnail" [alt]="episode.title" />
       </div>
       <div class="info_card_right">
         <div class="info_card_right_desc">

@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from '@angular/platform-browser';
+
 export interface ICategories {
   id: string;
   name: string;
@@ -7,8 +9,10 @@ export interface ISeries {
   id: string;
   name: string;
   producer: string;
-  pictureUrl: string;
-  trailerUrl: string;
+  pictureUrlXS: string;
+  pictureUrlXL: string;
+  trailerURL: string;
+  trailerSafe: SafeResourceUrl | string;
   releaseDate: string;
   description: string;
   isCompleted: boolean;
@@ -49,4 +53,5 @@ export interface IEpisode {
   description: string;
   releaseDate: Date;
   serie: ISeries;
+  thumbnail: string;
 }
