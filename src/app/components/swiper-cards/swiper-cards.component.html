@@ -4,7 +4,7 @@
     <splide-slide *ngFor="let serie of series">
       <div class="relative h-[13rem] md:h-[18rem] overflow-hidden rounded-xl drop-shadow-lg card">
         <div class="transition h-[100%] rounded-xl poster">
-          <img [src]="serie.pictureUrl" alt="serie.name" class="w-[100%] h-[100%] object-cover rounded-xl" />
+          <img [src]="serie.pictureUrlXS" alt="serie.name" class="w-[100%] h-[100%] object-cover rounded-xl" />
         </div>
         <div class="details absolute w-[100%] bottom-[-180px] flex flex-col items-center">
           <h1 class="text-sm md:text-lg font-bold">{{ serie.name }}</h1>

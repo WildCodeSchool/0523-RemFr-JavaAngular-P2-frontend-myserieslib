@@ -1,7 +1,7 @@
 <div class="grid grid-cols-2 gap-4 p-4 test">
   <div *ngFor="let serie of series">
     <div class="relative h-full" (click)="toggleShowName(serie)">
-      <img src="{{ serie.image }}" alt="" class="rounded-xl h-full" />
+      <img src="{{ serie.pictureUrlXS }}" alt="" class="rounded-xl h-full" />
       <div
         *ngIf="serie.show"
         class="absolute top-0 left-0 w-full h-full flex flex-col p-4 bg-zinc-800/75 rounded-xl align-center"
