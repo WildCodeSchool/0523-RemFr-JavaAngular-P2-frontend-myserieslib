@@ -36,7 +36,6 @@ export interface ILibraries {
   comment: string;
   serie: ISeries;
   status: string;
-  image?: string;
 }
 
 export interface IComment {

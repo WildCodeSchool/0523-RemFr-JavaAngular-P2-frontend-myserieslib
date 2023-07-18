@@ -43,6 +43,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { InputComponent } from './components/comment/input/input.component';
 import { BgLoginComponent } from './components/bg-login/bg-login.component';
+import { StarScoreComponent } from './components/star-score/star-score.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { BgLoginComponent } from './components/bg-login/bg-login.component';
     SignupPageComponent,
     InputComponent,
     BgLoginComponent,
+    StarScoreComponent,
   ],
   imports: [
     MatSelectModule,

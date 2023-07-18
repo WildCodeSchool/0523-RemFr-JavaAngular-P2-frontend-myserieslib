@@ -36,3 +36,11 @@
     width: 100%;
     text-align: center;
 }
+
+.cards_in_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 70%;
+}

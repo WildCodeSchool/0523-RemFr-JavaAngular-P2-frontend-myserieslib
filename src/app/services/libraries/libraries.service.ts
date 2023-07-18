@@ -8,7 +8,7 @@ import { IComment, ILibraries } from 'src/app/utils/interface';
 })
 export class LibrariesService {
   url = 'http://localhost:8080/api/libraries';
-  userId = '1a5c34fe-19df-4062-b4b3-728a9089edb9';
+  userId = '0de3b99c-da13-4448-8336-de568f072ad3';
 
   constructor(public http: HttpClient) {}
 
@@ -26,5 +26,19 @@ export class LibrariesService {
 
   getComments(id: string): Observable<IComment[]> {
     return this.http.get<IComment[]>(`${this.url}/${id}/comments`);
+  }
+
+  getUserSerieDetails(id: string): Observable<ILibraries> {
+    return this.http.get<ILibraries>(`${this.url}/${this.userId}/series/${id}`);
+  }
+
+  updateScore(id: string, score: number): Observable<ILibraries> {
+    const scoreBody = { score: score };
+    return this.http.put<ILibraries>(`${this.url}/${this.userId}/series/${id}/score`, scoreBody);
+  }
+
+  updateComment(id: string, comment: string): Observable<ILibraries> {
+    const commentBody = { comment: comment };
+    return this.http.put<ILibraries>(`${this.url}/${this.userId}/series/${id}/comment`, commentBody);
   }
 }

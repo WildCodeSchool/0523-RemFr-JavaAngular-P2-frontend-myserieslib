@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ILibraries } from 'src/app/utils/interface';
+import { Router } from '@angular/router';
+import { ILibraries, ISeries } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-card-hover',
@@ -11,7 +12,13 @@ export class CardHoverComponent {
 
   isClicked = false;
 
+  constructor(private router: Router) {}
+
   toggleCard() {
     this.isClicked = !this.isClicked;
+  }
+
+  redirectToDetail(serie: ISeries) {
+    this.router.navigate(['/detail', serie.id]);
   }
 }

@@ -1,0 +1,5 @@
+<div class="star-container" (mouseleave)="leaveIndex()">
+  <button *ngFor="let star of stars; let i = index" (click)="getIndex(i)" (mouseover)="hoverIndex(i)">
+    <div class="{{ star.type }}" [ngStyle]="{ 'background-image': 'url(' + star.urlStar + ')' }"></div>
+  </button>
+</div>
