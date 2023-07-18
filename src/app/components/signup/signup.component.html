@@ -1,8 +1,9 @@
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <h1 class="relative text-white text-2xl font-semibold flex justify-center mb-10">Inscrivez-vous</h1>
   <div class="relative flex items-center flex-col">
-    <input 
-      matInput type="text" 
+    <input
+      matInput
+      type="text"
       formControlName="username"
       id="input1"
       appGlass
@@ -24,9 +25,9 @@
     </mat-error>
   </div>
   <div class="mt-5 relative flex items-center flex-col">
-    <input 
-      matInput 
-      type="text" 
+    <input
+      matInput
+      type="text"
       formControlName="email"
       id="input2"
       appGlass
@@ -46,8 +47,8 @@
     </mat-error>
   </div>
   <div class="mt-5 relative flex items-center flex-col">
-    <input 
-      matInput 
+    <input
+      matInput
       type="password"
       formControlName="password"
       id="input3"
@@ -70,7 +71,7 @@
     </mat-error>
   </div>
   <div class="mt-5 relative flex items-center flex-col">
-    <input 
+    <input
       matInput
       type="password"
       formControlName="confirmPassword"

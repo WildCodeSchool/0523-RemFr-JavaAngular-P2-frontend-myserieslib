@@ -13,12 +13,12 @@ export class SwiperCardsComponent {
   @Input() series: ISeries[] = [];
 
   redirectToDetail(serie: ISeries) {
-    console.log(serie);
     this.router.navigate(['/detail', serie.id]);
   }
 
   options = {
     type: 'loop',
+    gap: '2rem',
     perPage: 5,
     keyboard: false,
     padding: '5rem',
@@ -26,6 +26,7 @@ export class SwiperCardsComponent {
       640: {
         perPage: 2,
         padding: '2rem',
+        gap: '1rem',
       },
     },
   };
