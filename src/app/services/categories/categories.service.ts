@@ -10,6 +10,6 @@ export class CategoriesService {
   constructor(public http: HttpClient) {}
 
   getCategories(): Observable<ICategories[]> {
-    return this.http.get<ICategories[]>('http://localhost:8080/categories');
+    return this.http.get<ICategories[]>('http://localhost:8080/api/categories');
   }
 }

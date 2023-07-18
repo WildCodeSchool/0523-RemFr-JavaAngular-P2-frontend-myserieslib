@@ -55,3 +55,18 @@ export interface IEpisode {
   serie: ISeries;
   thumbnail: string;
 }
+
+export interface IUser {
+  id: string;
+  username: string;
+  email: string;
+  JWT: string;
+  pictureUrl: string;
+  role: string;
+}
+
+export interface UserJWT {
+  JWT: string;
+  role: string;
+  id: string;
+}
