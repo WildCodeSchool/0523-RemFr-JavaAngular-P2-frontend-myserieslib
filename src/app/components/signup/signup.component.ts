@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -8,38 +8,39 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  signUpForm = this.fb.group({
-    nickname: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
-    confirmPassword: ['', [Validators.required]],
-  });
+  signUpForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(private fb: FormBuilder, private userService: UserService) {
+    this.signUpForm = this.fb.group({
+      nickname: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(20),
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]+$'),
+        ],
+      ],
+      confirmPassword: ['', [Validators.required]],
+    }, { validators: passwordMatcher });
+  }
 
   isFormValid(): boolean {
     return this.signUpForm.valid;
   }
+
   onSubmit() {
-    if (this.signUpForm.valid) {
+    if (this.isFormValid()) {
       this.userService.register(this.signUpForm.value);
-          }
-     }
+    }
+  }
 }
 
+function passwordMatcher(control: AbstractControl): { [key: string]: boolean } | null {
+  const password = control.get('password');
+  const confirmPassword = control.get('confirmPassword');
 
-// export function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null {
-//   const passwordControl = c.get('password');
-//   const confirmPasswordControl = c.get('confirmPassword');
-
-//   if (passwordControl && confirmPasswordControl) {
-//     if (passwordControl.pristine || confirmPasswordControl.pristine) {
-//       return null;
-//     }
-
-//     if (passwordControl.value === confirmPasswordControl.value) {
-//       return null;
-//     }
-//   }
-//   return { match: true };
-// }
+  return password && confirmPassword && password.value === confirmPassword.value ? null : { 'passwordMismatch': true };
+}

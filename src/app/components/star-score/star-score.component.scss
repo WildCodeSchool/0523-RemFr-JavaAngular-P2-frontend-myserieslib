@@ -1,0 +1,25 @@
+.star-container {
+    display: flex;
+    color: white;
+}
+
+.star-container > button {
+    height: 2.5rem;
+    width: 1rem;
+}
+
+.left_star {
+    background-position: right;
+}
+
+.right_star {
+    background-position: left;
+}
+
+.left_star,
+.right_star {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: auto;
+}
