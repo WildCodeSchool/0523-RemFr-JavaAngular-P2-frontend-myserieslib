@@ -36,6 +36,10 @@ form > textarea {
     padding: 0.8rem;
 }
 
+form > textarea:focus {
+    outline: none;
+}
+
 form > div {
     width: 90%;
     background-color: white;

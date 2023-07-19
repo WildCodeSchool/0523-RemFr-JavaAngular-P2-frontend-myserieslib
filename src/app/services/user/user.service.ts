@@ -17,7 +17,9 @@ export class UserService {
 
   login(user: any) {
     return this.http.post('http://localhost:8080/api/auth/login', user).subscribe((res: any) => {
-      console.log(res);
+      this.store.dispatch({ type: 'USER_LOGIN', payload: res.user });
+      this.store.dispatch({ type: 'USER_JWT', payload: res.token });
+      localStorage.setItem('jwt', res.token);
     });
   }
 }
