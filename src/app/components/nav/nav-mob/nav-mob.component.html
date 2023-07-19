@@ -28,7 +28,7 @@
           [ngClass]="{ 'btn-msl': activeTab === 'library' }"
           aria-hidden="true"
         >
-          <a routerLink="/library">
+          <a (click)="redirectToLibrary()">
             <img class="w-6 h-6" src="assets/Icons/lib.svg" alt="logo" />
           </a>
         </li>
