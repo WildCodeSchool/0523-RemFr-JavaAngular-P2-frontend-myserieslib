@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,29 +9,37 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class SignupComponent {
   signUpForm = this.fb.group({
-    username: ['', Validators.required],
+    nickname: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     confirmPassword: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService) {}
 
-  onSubmit() {}
-}
-
-export function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null {
-  const passwordControl = c.get('password');
-  const confirmPasswordControl = c.get('confirmPassword');
-
-  if (passwordControl && confirmPasswordControl) {
-    if (passwordControl.pristine || confirmPasswordControl.pristine) {
-      return null;
-    }
-
-    if (passwordControl.value === confirmPasswordControl.value) {
-      return null;
-    }
+  isFormValid(): boolean {
+    return this.signUpForm.valid;
   }
-  return { match: true };
+  onSubmit() {
+    if (this.signUpForm.valid) {
+      this.userService.register(this.signUpForm.value);
+          }
+     }
 }
+
+
+// export function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null {
+//   const passwordControl = c.get('password');
+//   const confirmPasswordControl = c.get('confirmPassword');
+
+//   if (passwordControl && confirmPasswordControl) {
+//     if (passwordControl.pristine || confirmPasswordControl.pristine) {
+//       return null;
+//     }
+
+//     if (passwordControl.value === confirmPasswordControl.value) {
+//       return null;
+//     }
+//   }
+//   return { match: true };
+// }

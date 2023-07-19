@@ -20,4 +20,10 @@ export class UserService {
       console.log(res);
     });
   }
+
+  register(user: any) {
+    return this.http.post('http://localhost:8080/api/auth/register', user).subscribe((res: any) => {
+      console.log(res);
+    });
+  }
 }

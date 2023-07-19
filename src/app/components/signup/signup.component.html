@@ -4,7 +4,7 @@
     <input
       matInput
       type="text"
-      formControlName="username"
+      formControlName="nickname"
       id="input1"
       appGlass
       class="rounded-2xl peer block w-[20rem] border-1 px-3 py-2 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [ border-[1px] border-solid border-white border-opacity-30 ] [ shadow-black/70 shadow-2xl ] text-white"
@@ -17,11 +17,11 @@
     </label>
     <mat-error
       *ngIf="
-        signUpForm.get('username')?.invalid &&
-        (signUpForm.get('username')?.dirty || signUpForm.get('username')?.touched)
+        signUpForm.get('nickname')?.invalid &&
+        (signUpForm.get('nickname')?.dirty || signUpForm.get('nickname')?.touched)
       "
     >
-      <div *ngIf="signUpForm.get('username')?.hasError('required')">Saisissez votre nom d'utilisateur</div>
+      <div *ngIf="signUpForm.get('nickname')?.hasError('required')">Saisissez votre nom d'utilisateur</div>
     </mat-error>
   </div>
   <div class="mt-5 relative flex items-center flex-col">
@@ -97,7 +97,6 @@
   <button
     type="submit"
     [disabled]="!signUpForm.valid"
-    disabled
     class="mt-10 btn-msl w-[10rem] py-1 before:rounded-full after:hidden text-white ease-linear disabled:opacity-50 disabled:cursor-not-allowed"
   >
     S'inscrire
