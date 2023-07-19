@@ -5,11 +5,12 @@ import { IComment, ILibraries, UserJWT } from 'src/app/utils/interface';
 import { selectUser } from '../store/user.reducer';
 import { IUser } from 'src/app/utils/interface';
 import { Store } from '@ngrx/store';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class LibrariesService {
-  url = 'http://localhost:8080/api/libraries';
+  url = environment.baseApiUrl + '/api/libraries';
   user$: Observable<UserJWT> = this.store.select(selectUser);
   userId = '';
 
