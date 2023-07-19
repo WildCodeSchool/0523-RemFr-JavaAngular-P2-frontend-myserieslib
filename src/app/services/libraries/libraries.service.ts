@@ -11,7 +11,7 @@ import { Store } from '@ngrx/store';
 export class LibrariesService {
   url = 'http://localhost:8080/api/libraries';
   user$: Observable<UserJWT> = this.store.select(selectUser);
-  userId = '0de3b99c-da13-4448-8336-de568f072ad3';
+  userId = '';
 
   constructor(public http: HttpClient, private store: Store) {
     this.user$.subscribe((user: UserJWT) => {

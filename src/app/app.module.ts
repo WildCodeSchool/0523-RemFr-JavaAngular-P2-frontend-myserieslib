@@ -83,11 +83,8 @@ import { JwtInterceptor } from './utils/jwt.interceptor';
     SignupPageComponent,
     InputComponent,
     BgLoginComponent,
-<<<<<<< HEAD
     StarScoreComponent,
-=======
     ModalComponent,
->>>>>>> dev
   ],
   imports: [
     MatSelectModule,
