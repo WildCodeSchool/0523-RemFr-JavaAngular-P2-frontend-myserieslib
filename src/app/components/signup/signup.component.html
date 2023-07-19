@@ -69,6 +69,17 @@
     >
       <div *ngIf="signUpForm.get('password')?.hasError('required')">Mot de passe requis</div>
     </mat-error>
+    <mat-error *ngIf="signUpForm.get('password')?.hasError('pattern')">
+      Le mot de passe doit comporter au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère
+      spécial.
+    </mat-error>
+    <mat-error *ngIf="signUpForm.get('password')?.hasError('minlength')">
+      Le mot de passe doit comporter au moins 8 caractères.
+    </mat-error>
+
+    <mat-error *ngIf="signUpForm.get('password')?.hasError('maxlength')">
+      Le mot de passe ne doit pas dépasser 20 caractères.
+    </mat-error>
   </div>
   <div class="mt-5 relative flex items-center flex-col">
     <input
@@ -93,6 +104,7 @@
     >
       <div *ngIf="signUpForm.get('confirmPassword')?.hasError('required')">Vous devez confirmer votre mot de passe</div>
     </mat-error>
+    <mat-error *ngIf="signUpForm.hasError('passwordMismatch')">Les mots de passe ne correspondent pas</mat-error>
   </div>
   <button
     type="submit"

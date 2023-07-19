@@ -15,7 +15,7 @@
     </div>
     <iframe
       class="youtube-video"
-      [src]="serie?.trailerSafe"
+      [src]="serie.trailerSafe"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -23,6 +23,6 @@
     ></iframe>
   </div>
   <app-card-actor [actors]="serie.actors"></app-card-actor>
-  <app-input></app-input>
+  <app-input *ngIf="userInfo" [userInfo]="userInfo" [serieId]="serie.id"></app-input>
   <app-comment [serieId]="serie.id"></app-comment>
 </div>

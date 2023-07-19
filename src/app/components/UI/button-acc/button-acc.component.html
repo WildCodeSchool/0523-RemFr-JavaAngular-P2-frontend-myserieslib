@@ -8,6 +8,6 @@
     <li class="py-1"><a [routerLink]="['/login']" class="bg-gradient-to-r hover:from-green-400">Se Connecter</a></li>
     <li class="py-1"><a [routerLink]="['/sign-up']" class="bg-gradient-to-r hover:from-green-400">S'inscrire</a></li>
     <li class="py-1"><a class="bg-gradient-to-r hover:from-green-400">Paramètres</a></li>
-    <li class="py-1"><a class="bg-gradient-to-r hover:from-green-400">Déconnexion</a></li>
+    <li class="py-1"><a class="bg-gradient-to-r hover:from-green-400" (click)="logOut()">Déconnexion</a></li>
   </ul>
 </div>

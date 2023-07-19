@@ -36,7 +36,6 @@ export interface ILibraries {
   comment: string;
   serie: ISeries;
   status: string;
-  image?: string;
 }
 
 export interface IComment {
@@ -69,4 +68,15 @@ export interface UserJWT {
   JWT: string;
   role: string;
   id: string;
+}
+
+export interface ILogin {
+  email: string;
+  password: string;
+}
+
+export interface IRegister {
+  nickname: string;
+  email: string;
+  password: string;
 }

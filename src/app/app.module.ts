@@ -43,10 +43,13 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { InputComponent } from './components/comment/input/input.component';
 import { BgLoginComponent } from './components/bg-login/bg-login.component';
+import { StarScoreComponent } from './components/star-score/star-score.component';
 import { StoreModule } from '@ngrx/store';
 import { ModalComponent } from './components/modal/modal.component';
 import { reducer } from './services/store/user.reducer';
 import { JwtInterceptor } from './utils/jwt.interceptor';
+import { TrendingComponent } from './components/trending/trending.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -82,7 +85,9 @@ import { JwtInterceptor } from './utils/jwt.interceptor';
     SignupPageComponent,
     InputComponent,
     BgLoginComponent,
+    StarScoreComponent,
     ModalComponent,
+    TrendingComponent,
   ],
   imports: [
     MatSelectModule,
@@ -98,7 +103,9 @@ import { JwtInterceptor } from './utils/jwt.interceptor';
     NgxSplideModule,
     MatFormFieldModule,
     StoreModule.forRoot({ userState: reducer }),
+    ToastrModule.forRoot(),
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

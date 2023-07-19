@@ -5,6 +5,7 @@
       <img src="assets/Logos/logo_mobile.png" class="h-12 mr-1 md:hidden" alt="MSL Logo" />
     </a>
     <div class="flex md:order-2">
+      <p class="text-white pr-4" *ngIf="username">Bonjour {{username}}</p>
       <app-button-acc></app-button-acc>
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
