@@ -12,7 +12,7 @@ import { selectUser } from 'src/app/services/store/user.reducer';
 export class NavMobComponent implements OnInit {
   activeTab = 'home';
   isNavbarFixed = false;
-  username = '';
+  user: any = {};
 
   constructor(
     private elementRef: ElementRef,
@@ -33,7 +33,7 @@ export class NavMobComponent implements OnInit {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.activeTab = this.activatedRoute.snapshot.queryParams['activeTab'] || 'home';
     });
-    this.store.select(selectUser).subscribe((user) => (this.username = user.nickname));
+    this.store.select(selectUser).subscribe((user) => (this.user = user));
   }
 
   changeTab(tabName: string): void {
