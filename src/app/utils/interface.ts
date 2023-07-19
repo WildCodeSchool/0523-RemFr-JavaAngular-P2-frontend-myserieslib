@@ -69,3 +69,8 @@ export interface UserJWT {
   role: string;
   id: string;
 }
+
+export interface ILogin {
+  email: string;
+  password: string;
+}
