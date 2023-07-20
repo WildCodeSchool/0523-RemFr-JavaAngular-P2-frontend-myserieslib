@@ -12,13 +12,13 @@ import { selectUser } from 'src/app/services/store/user.reducer';
 export class NavPcComponent implements OnInit {
   constructor(private modalService: ModalService, private router: Router, private store: Store) {}
   isActive = false;
-  username = '';
+  user: any = {};
 
   redirectToLibrary() {
     this.modalService.openModal(() => this.router.navigate(['/library']));
   }
 
   ngOnInit(): void {
-    this.store.select(selectUser).subscribe((user) => (this.username = user.nickname));
+    this.store.select(selectUser).subscribe((user) => (this.user = user));
   }
 }

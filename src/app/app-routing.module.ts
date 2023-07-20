@@ -6,6 +6,9 @@ import { SearchComponent } from './pages/search/search.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { TrendingComponent } from './components/trending/trending.component';
+import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +17,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: DetailComponent },
   { path: 'sign-up', component: SignupPageComponent },
   { path: 'login', component: LoginPageComponent },
+  { path:'trending', component: TrendingsPageComponent }
 ];
 
 @NgModule({
