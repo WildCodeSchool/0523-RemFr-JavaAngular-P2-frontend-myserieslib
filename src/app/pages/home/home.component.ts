@@ -9,8 +9,8 @@ import { SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  title1 = 'Top Rated Series';
-  title2 = 'Trending Series';
+  title1 = 'Séries les mieux notées';
+  title2 = 'Séries tendances';
   trendingSeries: ISeries[] = [];
   topRatedSeries: ISeries[] = [];
 
