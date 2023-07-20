@@ -50,6 +50,8 @@ import { reducer } from './services/store/user.reducer';
 import { JwtInterceptor } from './utils/jwt.interceptor';
 import { TrendingComponent } from './components/trending/trending.component';
 import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -90,6 +92,7 @@ import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.co
     TrendingComponent,
     TrendingsPageComponent,
   ],
+  
   imports: [
     MatSelectModule,
     MatDialogModule,
@@ -104,7 +107,9 @@ import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.co
     NgxSplideModule,
     MatFormFieldModule,
     StoreModule.forRoot({ userState: reducer }),
+    ToastrModule.forRoot(),
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

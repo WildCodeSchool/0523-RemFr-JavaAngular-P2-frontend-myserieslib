@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ILogin } from 'src/app/utils/interface';
+import { ILogin, IRegister } from 'src/app/utils/interface';
 import jwt_decode from 'jwt-decode';
 import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -39,9 +40,14 @@ export class UserService {
     );
   }
 
-  register(user: any) {
-    return this.http.post('http://localhost:8080/api/auth/register', user).subscribe((registerData: any) => {
-      console.log(registerData);
-    });
+  register(user: IRegister) {
+    return this.http.post(`${environment.baseApiUrl}/api/auth/register`, user).subscribe(
+      (registerData: any) => {
+        this.router.navigate(['/']);
+      },
+      (error: any) => {
+        console.error("Une erreur s'est produite lors de l'inscription :", error);
+      }
+    );
   }
 }

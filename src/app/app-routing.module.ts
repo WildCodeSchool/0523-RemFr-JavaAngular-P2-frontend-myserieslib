@@ -9,6 +9,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { TrendingComponent } from './components/trending/trending.component';
 import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.component';
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search', component: SearchComponent },

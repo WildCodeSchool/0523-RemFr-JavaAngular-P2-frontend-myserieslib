@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, ValidatorFn } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user/user.service';
+import { IRegister } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +13,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class SignupComponent {
   signUpForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private toastr: ToastrService, private router: Router) {
     this.signUpForm = this.fb.group({
       nickname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -32,8 +35,14 @@ export class SignupComponent {
   }
 
   onSubmit() {
-    if (this.isFormValid()) {
-      this.userService.register(this.signUpForm.value);
+    if (this.signUpForm.valid) {
+      const user: IRegister = {
+        nickname: this.signUpForm.value.nickname,
+        email: this.signUpForm.value.email,
+        password: this.signUpForm.value.password,
+      };
+      this.userService.register(user);
+      this.toastr.success('Inscription réussie !');
     }
   }
 }
