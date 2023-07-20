@@ -12,7 +12,6 @@ import { IRegister } from 'src/app/utils/interface';
 })
 export class SignupComponent {
   signUpForm: FormGroup;
-  
 
   constructor(private fb: FormBuilder, private userService: UserService, private toastr: ToastrService, private router: Router) {
     this.signUpForm = this.fb.group({
@@ -47,6 +46,7 @@ export class SignupComponent {
     }
   }
 }
+
 function passwordMatcher(control: AbstractControl): { [key: string]: boolean } | null {
   const password = control.get('password');
   const confirmPassword = control.get('confirmPassword');
