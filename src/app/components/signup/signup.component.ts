@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators, ValidatorFn } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/services/user/user.service';
+import { IRegister } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-signup',
@@ -7,30 +11,45 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  signUpForm = this.fb.group({
-    username: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
-    confirmPassword: ['', [Validators.required]],
-  });
+  signUpForm: FormGroup;
+  
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService, private toastr: ToastrService, private router: Router) {
+    this.signUpForm = this.fb.group({
+      nickname: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(20),
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]+$'),
+        ],
+      ],
+      confirmPassword: ['', [Validators.required]],
+    }, { validators: passwordMatcher });
+  }
 
-  onSubmit() {}
-}
+  isFormValid(): boolean {
+    return this.signUpForm.valid;
+  }
 
-export function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null {
-  const passwordControl = c.get('password');
-  const confirmPasswordControl = c.get('confirmPassword');
-
-  if (passwordControl && confirmPasswordControl) {
-    if (passwordControl.pristine || confirmPasswordControl.pristine) {
-      return null;
-    }
-
-    if (passwordControl.value === confirmPasswordControl.value) {
-      return null;
+  onSubmit() {
+    if (this.signUpForm.valid) {
+      const user: IRegister = {
+        nickname: this.signUpForm.value.nickname,
+        email: this.signUpForm.value.email,
+        password: this.signUpForm.value.password,
+      };
+      this.userService.register(user);
+      this.toastr.success('Inscription réussie !');
     }
   }
-  return { match: true };
+}
+function passwordMatcher(control: AbstractControl): { [key: string]: boolean } | null {
+  const password = control.get('password');
+  const confirmPassword = control.get('confirmPassword');
+
+  return password && confirmPassword && password.value === confirmPassword.value ? null : { 'passwordMismatch': true };
 }

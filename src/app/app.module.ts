@@ -48,6 +48,8 @@ import { StoreModule } from '@ngrx/store';
 import { ModalComponent } from './components/modal/modal.component';
 import { reducer } from './services/store/user.reducer';
 import { JwtInterceptor } from './utils/jwt.interceptor';
+import { TrendingComponent } from './components/trending/trending.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -85,6 +87,7 @@ import { JwtInterceptor } from './utils/jwt.interceptor';
     BgLoginComponent,
     StarScoreComponent,
     ModalComponent,
+    TrendingComponent,
   ],
   imports: [
     MatSelectModule,
@@ -100,7 +103,9 @@ import { JwtInterceptor } from './utils/jwt.interceptor';
     NgxSplideModule,
     MatFormFieldModule,
     StoreModule.forRoot({ userState: reducer }),
+    ToastrModule.forRoot(),
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })
