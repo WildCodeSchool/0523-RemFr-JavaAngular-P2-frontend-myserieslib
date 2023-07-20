@@ -5,7 +5,7 @@
       <img src="assets/Logos/logo_mobile.png" class="h-12 mr-1 md:hidden" alt="MSL Logo" />
     </a>
     <div class="flex md:order-2">
-      <p class="text-white pr-4" *ngIf="user.nickname">Bonjour {{user.nickname}}</p>
+      <p class="text-white pr-4" *ngIf="user.nickname">Bonjour {{ user.nickname }}</p>
       <div *ngIf="user.nickname">
         <app-button-acc></app-button-acc>
       </div>
@@ -24,7 +24,7 @@
           <a routerLink="/search" class="button-container">Explorer</a>
         </li>
         <li>
-          <a  (click)="redirectToLibrary()" class="button-container">Bibliothèque</a>
+          <a (click)="redirectToLibrary()" class="button-container">Bibliothèque</a>
         </li>
         <li>
           <a routerLink="/trending" class="button-container">Tendances</a>

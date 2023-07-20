@@ -14,4 +14,3 @@ export class BtnTrailerComponent {
     this.router.navigate(['/detail', id]);
   }
 }
-
