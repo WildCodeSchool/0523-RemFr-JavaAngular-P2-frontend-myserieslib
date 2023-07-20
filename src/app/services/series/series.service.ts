@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { IEpisode, ISeries } from 'src/app/utils/interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SeriesService {
-  urlLink = 'http://localhost:8080/api/';
+  urlLink = environment.baseApiUrl + '/api/';
 
   constructor(public http: HttpClient) {}
 

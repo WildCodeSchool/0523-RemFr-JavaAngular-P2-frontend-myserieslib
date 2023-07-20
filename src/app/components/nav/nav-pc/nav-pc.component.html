@@ -5,7 +5,14 @@
       <img src="assets/Logos/logo_mobile.png" class="h-12 mr-1 md:hidden" alt="MSL Logo" />
     </a>
     <div class="flex md:order-2">
-      <app-button-acc></app-button-acc>
+      <p class="text-white pr-4" *ngIf="user.username">Bonjour {{user.nickname}}</p>
+      <div *ngIf="user.username">
+        <app-button-acc></app-button-acc>
+      </div>
+      <div *ngIf="!user.username" class="flex gap-4">
+        <a routerLink="/login" class="text-white">Se connecter</a>
+        <a routerLink="/register" class="text-white">S'inscrire</a>
+      </div>
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
       <ul class="flex flex-col p-4 md:p-2 mt-4 text-white font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0">
@@ -16,7 +23,7 @@
           <a routerLink="/search" class="button-container">Explorer</a>
         </li>
         <li>
-          <a routerLink="/library" class="button-container">Bibliothèque</a>
+          <a  (click)="redirectToLibrary()" class="button-container">Bibliothèque</a>
         </li>
         <li>
           <a routerLink="/trending" class="button-container">Tendances</a>

@@ -5,8 +5,8 @@
     </div>
   </button>
   <ul *ngIf="open" class="absolute ml-[-2rem] mt-2 text-xs text-white shadow bg-base-100 rounded-box w-[10rem]">
-    <li class="py-1"><a [routerLink]="['/login']" class="bg-gradient-to-r hover:from-green-400">Se Connecter</a></li>
+    <li *ngIf="!user.nickname" class="py-1"><a [routerLink]="['/login']" class="bg-gradient-to-r hover:from-green-400">Se Connecter</a></li>
     <li class="py-1"><a class="bg-gradient-to-r hover:from-green-400">Paramètres</a></li>
-    <li class="py-1"><a class="bg-gradient-to-r hover:from-green-400">Déconnexion</a></li>
+    <li class="py-1"><a class="bg-gradient-to-r hover:from-green-400" (click)="logOut()">Déconnexion</a></li>
   </ul>
 </div>

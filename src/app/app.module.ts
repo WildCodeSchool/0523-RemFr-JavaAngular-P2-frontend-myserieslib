@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
-import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxSplideModule } from 'ngx-splide';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DemoComponent } from './components/demo/demo.component';
 import { DemoPipe } from './pipes/demo.pipe';
 import { DemoDirective } from './directives/demo.directive';
@@ -43,6 +43,15 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { InputComponent } from './components/comment/input/input.component';
 import { BgLoginComponent } from './components/bg-login/bg-login.component';
+import { StarScoreComponent } from './components/star-score/star-score.component';
+import { StoreModule } from '@ngrx/store';
+import { ModalComponent } from './components/modal/modal.component';
+import { reducer } from './services/store/user.reducer';
+import { JwtInterceptor } from './utils/jwt.interceptor';
+import { TrendingComponent } from './components/trending/trending.component';
+import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -78,9 +87,15 @@ import { BgLoginComponent } from './components/bg-login/bg-login.component';
     SignupPageComponent,
     InputComponent,
     BgLoginComponent,
+    StarScoreComponent,
+    ModalComponent,
+    TrendingComponent,
+    TrendingsPageComponent,
   ],
+  
   imports: [
     MatSelectModule,
+    MatDialogModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -91,7 +106,10 @@ import { BgLoginComponent } from './components/bg-login/bg-login.component';
     MatIconModule,
     NgxSplideModule,
     MatFormFieldModule,
+    StoreModule.forRoot({ userState: reducer }),
+    ToastrModule.forRoot(),
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

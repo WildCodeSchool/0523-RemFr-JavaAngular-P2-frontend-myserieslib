@@ -16,7 +16,7 @@
           <p class="hidden md:block relative text-base font-medium text-white mt-4 mb-6">{{ serie.des }}</p>
         </div>
         <div class="md:flex hidden absolute p-10 w-[50rem] bottom-0 justify-around">
-          <button class="btn-msl flex items-center before:rounded-2xl after:w-[50%] py-3 px-6 gap-3">
+          <button class="btn-msl flex items-center before:rounded-2xl after:w-[50%] py-3 px-6 gap-3" (click)="redirectToDetail(serie.id)">
             <h2 class="text-white text-xl">Trailer</h2>
             <mat-icon class="text-black bg-white rounded-[50%]">play_circle_outline</mat-icon>
           </button>
@@ -27,7 +27,7 @@
         </div>
         <div class="md:hidden flex flex-row-reverse w-[100%] justify-around absolute p-10 bottom-0">
           <app-btn-add class="flex-end"></app-btn-add>
-          <app-btn-trailer></app-btn-trailer>
+          <app-btn-trailer [id]="serie.id"></app-btn-trailer>
         </div>
       </div>
     </splide-slide>

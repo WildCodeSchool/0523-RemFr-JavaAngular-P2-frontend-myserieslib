@@ -1,6 +1,9 @@
 import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
+import { ModalService } from 'src/app/services/modal/modal.service';
+import { selectUser } from 'src/app/services/store/user.reducer';
 @Component({
   selector: 'app-nav-mob',
   templateUrl: './nav-mob.component.html',
@@ -9,8 +12,15 @@ import { filter } from 'rxjs/operators';
 export class NavMobComponent implements OnInit {
   activeTab = 'home';
   isNavbarFixed = false;
+  user: any = {};
 
-  constructor(private elementRef: ElementRef, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private elementRef: ElementRef,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private modalService: ModalService,
+    private store: Store
+  ) {}
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
@@ -23,6 +33,7 @@ export class NavMobComponent implements OnInit {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.activeTab = this.activatedRoute.snapshot.queryParams['activeTab'] || 'home';
     });
+    this.store.select(selectUser).subscribe((user) => (this.user = user));
   }
 
   changeTab(tabName: string): void {
@@ -37,5 +48,9 @@ export class NavMobComponent implements OnInit {
       queryParams: { activeTab: this.activeTab },
       queryParamsHandling: 'merge',
     });
+  }
+
+  redirectToLibrary() {
+    this.modalService.openModal(() => this.router.navigate(['/library']));
   }
 }

@@ -13,7 +13,6 @@ export class SwiperCardsComponent {
   @Input() series: ISeries[] = [];
 
   redirectToDetail(serie: ISeries) {
-    console.log(serie);
     this.router.navigate(['/detail', serie.id]);
   }
 

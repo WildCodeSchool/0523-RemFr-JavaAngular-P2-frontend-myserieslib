@@ -36,7 +36,6 @@ export interface ILibraries {
   comment: string;
   serie: ISeries;
   status: string;
-  image?: string;
 }
 
 export interface IComment {
@@ -54,4 +53,30 @@ export interface IEpisode {
   releaseDate: Date;
   serie: ISeries;
   thumbnail: string;
+}
+
+export interface IUser {
+  id: string;
+  username: string;
+  email: string;
+  JWT: string;
+  pictureUrl: string;
+  role: string;
+}
+
+export interface UserJWT {
+  JWT: string;
+  role: string;
+  id: string;
+}
+
+export interface ILogin {
+  email: string;
+  password: string;
+}
+
+export interface IRegister {
+  nickname: string;
+  email: string;
+  password: string;
 }

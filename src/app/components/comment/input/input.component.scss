@@ -1,0 +1,58 @@
+.div_input {
+    width: calc(100% - (2rem * 2));
+    background-color: #383838;
+    border-radius: 25px;
+    color: white;
+    margin-top: 4rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-bottom: 1.5rem;
+    padding-top: 0.75rem;
+}
+
+.div_star_flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.div_star_flex > p {
+    font-size: 1.2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+form > textarea {
+    width: 90%;
+    height: 6rem;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    color: black;
+    padding: 0.8rem;
+}
+
+form > textarea:focus {
+    outline: none;
+}
+
+form > div {
+    width: 90%;
+    background-color: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+form > div > button {
+    background-color: rgb(71, 71, 254);
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 15px;
+}
