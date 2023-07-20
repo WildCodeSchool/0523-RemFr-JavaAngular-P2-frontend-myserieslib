@@ -12,13 +12,15 @@ export class JwtInterceptor implements HttpInterceptor {
     return this.store.select(selectJWT).pipe(
       take(1),
       switchMap((jwt: string) => {
-        const authRequest = request.clone({
-          setHeaders: {
-            Authorization: `Bearer ${jwt}`,
-          },
-        });
+        if (jwt) {
+          request = request.clone({
+            setHeaders: {
+              Authorization: `Bearer ${jwt}`,
+            },
+          });
+        }
 
-        return next.handle(authRequest);
+        return next.handle(request);
       })
     );
   }

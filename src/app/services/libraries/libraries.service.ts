@@ -25,11 +25,19 @@ export class LibrariesService {
   }
 
   getLibrariesInProgress(): Observable<ILibraries[]> {
-    return this.http.get<ILibraries[]>(`${this.url}/${this.userId}/in_progress`);
+    return this.http.get<ILibraries[]>(`${this.url}/in_progress`);
+  }
+
+  getLibrariesNotStarted(): Observable<ILibraries[]> {
+    return this.http.get<ILibraries[]>(`${this.url}/not_started`);
   }
 
   getLibrariesFinished(): Observable<ILibraries[]> {
-    return this.http.get<ILibraries[]>(`${this.url}/${this.userId}/finished`);
+    return this.http.get<ILibraries[]>(`${this.url}/finished`);
+  }
+
+  getLibrariesRecentlySeen(): Observable<ILibraries[]> {
+    return this.http.get<ILibraries[]>(`${this.url}/recently_seen`);
   }
 
   getComments(id: string): Observable<IComment[]> {
@@ -37,16 +45,20 @@ export class LibrariesService {
   }
 
   getUserSerieDetails(id: string): Observable<ILibraries> {
-    return this.http.get<ILibraries>(`${this.url}/${this.userId}/series/${id}`);
+    return this.http.get<ILibraries>(`${this.url}/series/${id}`);
   }
 
   updateScore(id: string, score: number): Observable<ILibraries> {
     const scoreBody = { score: score };
-    return this.http.put<ILibraries>(`${this.url}/${this.userId}/series/${id}/score`, scoreBody);
+    return this.http.put<ILibraries>(`${this.url}/series/${id}/score`, scoreBody);
   }
 
   updateComment(id: string, comment: string): Observable<ILibraries> {
     const commentBody = { comment: comment };
-    return this.http.put<ILibraries>(`${this.url}/${this.userId}/series/${id}/comment`, commentBody);
+    return this.http.put<ILibraries>(`${this.url}/series/${id}/comment`, commentBody);
+  }
+
+  addSeries(id: string): Observable<ILibraries> {
+    return this.http.post<ILibraries>(`${this.url}/add/${id}`, {});
   }
 }

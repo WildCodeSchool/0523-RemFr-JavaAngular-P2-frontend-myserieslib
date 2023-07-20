@@ -101,7 +101,7 @@ import { JwtInterceptor } from './utils/jwt.interceptor';
     MatFormFieldModule,
     StoreModule.forRoot({ userState: reducer }),
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

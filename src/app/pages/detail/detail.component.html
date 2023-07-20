@@ -19,6 +19,7 @@
       Informations
     </p>
   </div>
+  <button *ngIf="userConnected" (click)="addSeries()">Ajouter à ma bibliothèque</button>
   <div *ngIf="informationsSelected">
     <app-detail-informations [serie]="serie"></app-detail-informations>
   </div>
