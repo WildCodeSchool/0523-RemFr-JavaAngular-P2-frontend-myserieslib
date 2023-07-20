@@ -16,7 +16,6 @@ export class SearchComponent implements OnInit {
   getSeries(props: any) {
     const { search, filter, year, categories, isCompleted } = props;
 
-    // If no categories are selected, get all series
     if ((!categories || categories.length === 0) && !search) {
       this.serieService.getSeries(search, undefined).subscribe((series: ISeries[]) => {
         this.loadSeriesRatings(series);
@@ -25,7 +24,6 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    // Get series for each selected category
     const seriesObservables = categories.map((categoryId: string) => {
       return this.serieService.getSeries(search, filter, categoryId);
     });
@@ -43,7 +41,6 @@ export class SearchComponent implements OnInit {
     this.series = series.filter((serie) => {
       let isMatch = true;
 
-      // Apply filters based on the provided properties
       if (year && year !== '2020') {
         const releaseYear = new Date(serie.releaseDate).getFullYear();
         if (year === '1700s' && releaseYear >= 1970) {
@@ -73,20 +70,15 @@ export class SearchComponent implements OnInit {
 
   private searchNameInSeries(serie: ISeries, search: string, filter: string): boolean {
     if (filter === 'title') {
-      // Search in the series title
       return serie.name.toLowerCase().includes(search.toLowerCase());
     } else if (filter === 'actor') {
-      // Search in the actor names
       return serie.actors.some((actor) => {
         const fullName = `${actor.firstName} ${actor.lastName}`;
         return fullName.toLowerCase().includes(search.toLowerCase());
       });
     } else if (filter === 'producer') {
-      // Search in the producer name
       return serie.producer.toLowerCase().includes(search.toLowerCase());
     }
-
-    // If filter is not recognized, consider it a match
     return true;
   }
 
