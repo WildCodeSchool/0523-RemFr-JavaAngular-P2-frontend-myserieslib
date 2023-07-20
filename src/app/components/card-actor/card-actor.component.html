@@ -1,0 +1,16 @@
+<h2 class="text-white ml-8 text-xl mt-4">Distribution</h2>
+<div class="grid grid-cols-2 gap-4 m-4 items-center justify-center">
+  <div *ngFor="let actor of actors">
+    <div class="relative card-background flex ml-4 mt-4">
+      <img
+        class="rounded-full w-20 h-20 object-cover absolute top-1/2 -translate-y-1/2 -left-3"
+        src="{{ actor.pictureUrl }}"
+        alt=""
+      />
+      <div class="mx-4 ml-16">
+        <p class="text-white text-sm">{{ actor.firstName }}</p>
+        <p class="text-white text-sm">{{ actor.lastName }}</p>
+      </div>
+    </div>
+  </div>
+</div>

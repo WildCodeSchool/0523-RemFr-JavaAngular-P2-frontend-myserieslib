@@ -1,0 +1,22 @@
+<main class="mt-24">
+  <div class="m-8">
+    <div class="first_div">
+      <span>En cours ({{ cardsInProgress?.length }})</span>
+      <div class="container_cards">
+        <app-card-hover *ngFor="let card of cardsInProgress" [card]="card"></app-card-hover>
+      </div>
+    </div>
+    <div class="second_div">
+      <span>Pas encore commencée (0)</span>
+    </div>
+    <div class="third_div">
+      <span>Terminée ({{ cardsFinished?.length }})</span>
+      <div class="container_cards">
+        <app-card-hover *ngFor="let card of cardsFinished" [card]="card"></app-card-hover>
+      </div>
+    </div>
+    <div class="fourth_div">
+      <span>Vue récemment (0)</span>
+    </div>
+  </div>
+</main>

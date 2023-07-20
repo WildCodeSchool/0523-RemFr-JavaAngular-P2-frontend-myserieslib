@@ -1,0 +1,28 @@
+<div>
+  <div class="flex flex-col items-center justify-center lg:flex">
+    <div>
+      <h1 class="text-3xl font-bold text-white mt-12 text-center">{{ serie.name }}</h1>
+      <div class="flex justify-center">
+        <div *ngFor="let category of serie.categories; let index = index" class="inline w-fit mt-4">
+          <p class="text-white inline" *ngIf="index !== 0">&nbsp;-</p>
+          <p class="text-white inline">{{ category.name }}</p>
+        </div>
+      </div>
+      <div class="w-1/2 mx-auto mt-4">
+        <app-rating [rating]="serie.rating"></app-rating>
+      </div>
+      <p class="text-sm text-gray-400 text-center mt-4">{{ serie.description }}</p>
+    </div>
+    <iframe
+      class="youtube-video"
+      [src]="serie.trailerSafe"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <app-card-actor [actors]="serie.actors"></app-card-actor>
+  <app-input *ngIf="userInfo" [userInfo]="userInfo" [serieId]="serie.id"></app-input>
+  <app-comment [serieId]="serie.id"></app-comment>
+</div>

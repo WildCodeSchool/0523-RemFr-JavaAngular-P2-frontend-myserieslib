@@ -1,0 +1,34 @@
+<div class="episode_select">
+  <div>
+    <select
+      name="season"
+      id="season"
+      *ngIf="seasons && seasons.length > 0"
+      [(ngModel)]="selectedSeason"
+      (change)="selectedSeason !== null ? seasonSelect(selectedSeason) : null"
+    >
+      <option *ngFor="let season of seasons" [value]="season" class="p-3">Saison {{ season }}</option>
+    </select>
+  </div>
+</div>
+<div class="episode_cards_container">
+  <div *ngFor="let episode of getFilteredEpisodes(); let i = index" class="card_episode">
+    <div class="card_title">
+      <span>{{ episode.episodeNumber }}.</span>
+      <span>{{ episode.title }}</span>
+    </div>
+    <div class="info_card">
+      <div class="image_container">
+        <img [src]="episode.thumbnail" [alt]="episode.title" />
+      </div>
+      <div class="info_card_right">
+        <div class="info_card_right_desc">
+          <span>{{ episode.description }}</span>
+        </div>
+        <div class="info_card_right_but">
+          <button>X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

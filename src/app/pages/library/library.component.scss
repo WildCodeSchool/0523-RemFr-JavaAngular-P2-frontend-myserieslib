@@ -1,0 +1,18 @@
+main {
+    color: white;
+    height: 100%;
+    margin-top: 6rem;
+}
+
+.container_cards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.first_div,
+.second_div,
+.third_div,
+.fourth_div {
+    margin-top: 1rem;
+}

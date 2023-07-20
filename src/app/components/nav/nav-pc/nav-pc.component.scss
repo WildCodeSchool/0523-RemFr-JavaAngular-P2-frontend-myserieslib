@@ -1,0 +1,28 @@
+.button-container {
+    margin-top: 5px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid transparent;
+    border-bottom-color: transparent;
+    transition: border-bottom-color 0.3s;
+}
+
+.button-container:hover {
+    cursor: pointer;
+    border-bottom-color: white;
+    transition: border-bottom-color 0.3s;
+}
+
+.background-nav {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.separator {
+  display: inline-block;
+  width: 0.125rem;
+  height: 1.5rem;
+  background-color: white;
+  margin: 0 0.625rem;
+  vertical-align: middle;
+}

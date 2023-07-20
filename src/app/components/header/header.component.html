@@ -1,0 +1,37 @@
+<div class="top relative">
+  <splide [options]="options">
+    <splide-slide *ngFor="let serie of seriesTrending">
+      <div class="relative overflow-hidden card">
+        <div class="transition h-[100%] poster">
+          <img [src]="serie.pictureUrlXL" alt="serie.name" class="relative w-[100%] h-[60vh] md:h-[80vh] object-cover" />
+        </div>
+        <div class="details absolute px-10 md:px-16 md:w-[50%] w-full bottom-[10rem] flex flex-col">
+          <h3 class="relative text-xl font-semibold text-white mb-4">En ce moment</h3>
+          <h1 class="relative text-4xl md:text-6xl font-semibold text-white">{{ serie.name }}</h1>
+          <div class="relative flex flex-wrap text-gray-400">
+            <div *ngFor="let category of serie.categories; let index = index" class="flex">
+              <p class="text-base font-medium mt-4 mb-6 inline" *ngIf="index !== 0">&nbsp;-&nbsp;</p>
+              <p class="text-base font-medium mt-4 mb-6 inline">{{ category.name }}</p>
+            </div>
+            <p class="text-base font-medium mt-4 mb-6">&nbsp;|&nbsp;{{ serie.releaseDate }}</p>
+          </div>
+          <p class="hidden md:block relative text-base font-medium text-white mt-4 mb-6">{{ serie.description }}</p>
+        </div>
+        <div class="md:flex hidden absolute p-10 w-[50rem] bottom-0 justify-around">
+          <button class="btn-msl flex items-center before:rounded-2xl after:w-[50%] py-3 px-6 gap-3" (click)="redirectToDetail(serie.id)">
+            <h2 class="text-white text-xl">Bande annonce</h2>
+            <mat-icon class="text-black bg-white rounded-[50%]">play_circle_outline</mat-icon>
+          </button>
+          <button class="btn-msl flex items-center before:rounded-2xl py-2 px-4 ml-8 gap-3">
+            <h3 class="text-white text-xl">Ajouter</h3>
+            <mat-icon class="font-bold text-black bg-white rounded-[50%]">add_circle_outline</mat-icon>
+          </button>
+        </div>
+        <div class="md:hidden flex flex-row-reverse w-[100%] justify-around absolute p-10 bottom-0">
+          <app-btn-add class="flex-end"></app-btn-add>
+          <app-btn-trailer [id]="serie.id"></app-btn-trailer>
+        </div>
+      </div>
+    </splide-slide>
+  </splide>
+</div>

@@ -1,0 +1,12 @@
+<h2 class="text-white ml-8 text-xl mt-12">Commentaires ({{ comments.length }})</h2>
+<div *ngFor="let comment of comments">
+  <div class="m-8 comment-card">
+    <p class="text-white text-xl">{{ comment.userUsername }}</p>
+    <div *ngIf="comment.score">
+      <div class="w-1/4 mt-2">
+        <app-rating [rating]="comment.score"></app-rating>
+      </div>
+    </div>
+    <p class="text-white mt-4">{{ comment.comment }}</p>
+  </div>
+</div>

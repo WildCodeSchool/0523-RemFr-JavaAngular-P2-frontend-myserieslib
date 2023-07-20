@@ -1,0 +1,12 @@
+<div class="div_input">
+  <div class="div_star_flex">
+    <p>Ma note :</p>
+    <app-star-score [scoreUSer]="userInfo.score" [serieId]="serieId"></app-star-score>
+  </div>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <textarea matInput placeholder="Laisser un commentaire" formControlName="message"></textarea>
+    <div>
+      <button type="submit">Commenter</button>
+    </div>
+  </form>
+</div>

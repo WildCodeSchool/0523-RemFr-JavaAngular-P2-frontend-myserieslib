@@ -8,5 +8,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "html.format.wrapLineLength": 120
+  "html.format.wrapLineLength": 120,
+  "terminal.integrated.defaultProfile.windows": "Command Prompt"
 }
