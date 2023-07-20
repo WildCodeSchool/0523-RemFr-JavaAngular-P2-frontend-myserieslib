@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class SeriesService {
-  urlLink = environment.baseApiUrl + '/api/';
+  urlLink = environment.baseApiUrl + '/api';
 
   constructor(public http: HttpClient) {}
 
@@ -23,18 +23,18 @@ export class SeriesService {
     if (category && category !== '0') {
       url += '&category=' + category;
     }
-    return this.http.get<ISeries[]>(this.urlLink + 'series?' + url);
+    return this.http.get<ISeries[]>(this.urlLink + '/series?' + url);
   }
 
   getRating(id: string): Observable<number> {
-    return this.http.get<number>(this.urlLink + 'libraries/' + id + '/ratings');
+    return this.http.get<number>(this.urlLink + '/libraries/' + id + '/ratings');
   }
 
   getSerieById(id: string): Observable<ISeries> {
-    return this.http.get<ISeries>(this.urlLink + 'series/' + id);
+    return this.http.get<ISeries>(this.urlLink + '/series/' + id);
   }
 
   getEpisodes(id: string): Observable<IEpisode[]> {
-    return this.http.get<IEpisode[]>(this.urlLink + 'episodes/series/' + id);
+    return this.http.get<IEpisode[]>(this.urlLink + '/episodes/series/' + id);
   }
 }
