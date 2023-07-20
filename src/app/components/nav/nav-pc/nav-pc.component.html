@@ -10,14 +10,15 @@
         <app-button-acc></app-button-acc>
       </div>
       <div *ngIf="!user.nickname" class="flex gap-4">
-        <a routerLink="/login" class="text-white">Se connecter</a>
-        <a routerLink="/register" class="text-white">S'inscrire</a>
+        <a routerLink="/login" class="text-white">S'identifier</a>
+        <span class="separator"></span>
+        <a routerLink="/login" class="text-white">S'inscrire</a>
       </div>
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
       <ul class="flex flex-col p-4 md:p-2 mt-4 text-white font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0">
         <li>
-          <a href="/" class="button-container" aria-current="page">Home</a>
+          <a href="/" class="button-container" aria-current="page">Accueil</a>
         </li>
         <li>
           <a routerLink="/search" class="button-container">Explorer</a>
