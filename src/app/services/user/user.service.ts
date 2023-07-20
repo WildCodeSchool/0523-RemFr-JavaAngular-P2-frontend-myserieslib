@@ -6,7 +6,6 @@ import { ILogin, IRegister } from 'src/app/utils/interface';
 import jwt_decode from 'jwt-decode';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root',
 })
