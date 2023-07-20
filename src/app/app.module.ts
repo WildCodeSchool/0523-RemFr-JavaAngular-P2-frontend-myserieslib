@@ -48,6 +48,8 @@ import { StoreModule } from '@ngrx/store';
 import { ModalComponent } from './components/modal/modal.component';
 import { reducer } from './services/store/user.reducer';
 import { JwtInterceptor } from './utils/jwt.interceptor';
+import { TrendingComponent } from './components/trending/trending.component';
+import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +87,8 @@ import { JwtInterceptor } from './utils/jwt.interceptor';
     BgLoginComponent,
     StarScoreComponent,
     ModalComponent,
+    TrendingComponent,
+    TrendingsPageComponent,
   ],
   imports: [
     MatSelectModule,
