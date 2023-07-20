@@ -52,7 +52,6 @@ import { TrendingComponent } from './components/trending/trending.component';
 import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.component';
 import { ToastrModule } from 'ngx-toastr';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +91,6 @@ import { ToastrModule } from 'ngx-toastr';
     TrendingComponent,
     TrendingsPageComponent,
   ],
-  
   imports: [
     MatSelectModule,
     MatDialogModule,

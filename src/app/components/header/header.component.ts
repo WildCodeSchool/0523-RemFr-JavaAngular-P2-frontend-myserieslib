@@ -1,33 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TrendingsService } from 'src/app/services/trendings/trendings.service';
+import { ISeries } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
-  constructor(public router: Router) {}
-  moments = [
-    {
-      id: '711d0860-3317-4e4b-8541-ef5c16442e3c',
-      title: 'Stranger Things',
-      img: 'assets/Stranger-things-bg.png',
-      des: 'Quand un jeune garçon disparaît, une petite ville découvre une affaire mystérieuse, des expériences secrètes, des forces surnaturelles terrifiantes... et une fillette.',
-      episodes: 4,
-      category: 'Science-fiction',
-      releaseDate: '2016',
-    },
-    {
-      id: '9eb78add-f29f-45dc-afbc-5489f17007d4',
-      title: 'The Witcher',
-      img: 'assets/witcher-bg.jpg',
-      des: 'Geralt de Riv, un chasseur de monstres mutant, poursuit son destin dans un monde chaotique où les humains se révèlent souvent plus vicieux que les bêtes.',
-      episodes: 3,
-      category: 'Fantastique',
-      releaseDate: '2019',
-    },
-  ];
+export class HeaderComponent implements OnInit {
+  constructor(public router: Router, public trendingService: TrendingsService) {}
+
+  seriesTrending: ISeries[] = [];
+
+  ngOnInit(): void {
+    this.trendingService.getTrendings().subscribe((data) => {
+      this.seriesTrending = data.map((serie) => {
+        serie.releaseDate = new Date(serie.releaseDate).getFullYear().toString();
+        return serie;
+      });
+    });
+  }
+  getReleaseYear(date: string) {
+    return new Date(date).getFullYear();
+  }
 
   options = {
     type: 'loop',
