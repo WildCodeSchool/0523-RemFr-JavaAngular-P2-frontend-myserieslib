@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { ICategories } from 'src/app/utils/interface';
@@ -8,7 +8,7 @@ import { ICategories } from 'src/app/utils/interface';
   templateUrl: './filter-search-bar.component.html',
   styleUrls: ['./filter-search-bar.component.scss'],
 })
-export class FilterSearchBarComponent {
+export class FilterSearchBarComponent implements OnInit {
   categories: ICategories[] = [{ id: '0', name: 'Toutes catégories' }];
 
   @Output() getSeries: EventEmitter<any> = new EventEmitter<any>();
@@ -24,13 +24,20 @@ export class FilterSearchBarComponent {
 
   formSearch: FormControl = new FormControl('');
   formFilter: FormControl = new FormControl('title');
+  formDate: FormControl = new FormControl('Année');
+  formStatus: FormControl = new FormControl('Status');
   formCategories: FormControl = new FormControl('0');
 
   onSubmit() {
+    const selectedCategories = Array.isArray(this.formCategories.value)
+      ? this.formCategories.value
+      : [this.formCategories.value];
     this.getSeries.emit({
       search: this.formSearch.value,
       filter: this.formFilter.value,
-      categories: this.formCategories.value,
+      year: this.formDate.value,
+      isCompleted: this.formStatus.value,
+      categories: selectedCategories,
     });
   }
 }

@@ -11,13 +11,6 @@ export class CardsComponent {
   constructor(public serieService: SeriesService, public router: Router) {}
   @Input() series: ISeries[] = [];
 
-  toggleShowName(serie: ISeries) {
-    serie.show = !serie.show;
-    this.serieService.getRating(serie.id).subscribe((rating: number) => {
-      serie.rating = rating;
-    });
-  }
-
   redirectToDetail(serie: ISeries) {
     this.router.navigate(['/detail', serie.id]);
   }
