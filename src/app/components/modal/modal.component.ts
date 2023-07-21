@@ -17,6 +17,6 @@ export class ModalComponent {
 
   redirectToRegister() {
     this.modalService.closeModal();
-    this.router.navigate(['/register']);
+    this.router.navigate(['/login/register']);
   }
 }
