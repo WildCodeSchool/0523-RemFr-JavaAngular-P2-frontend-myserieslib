@@ -9,6 +9,7 @@ import { ILibraries } from 'src/app/utils/interface';
 })
 export class LibraryComponent implements OnInit {
   cardsInProgress: ILibraries[] | undefined;
+  cardsNotStarted: ILibraries[] | undefined;
   cardsFinished: ILibraries[] | undefined;
 
   constructor(private librariesService: LibrariesService) {}
@@ -16,6 +17,11 @@ export class LibraryComponent implements OnInit {
   ngOnInit(): void {
     this.librariesService.getLibrariesInProgress().subscribe((res) => {
       this.cardsInProgress = res.map((item: ILibraries) => {
+        return { ...item };
+      });
+    });
+    this.librariesService.getLibrariesNotStarted().subscribe((res) => {
+      this.cardsNotStarted = res.map((item: ILibraries) => {
         return { ...item };
       });
     });

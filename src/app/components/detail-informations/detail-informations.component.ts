@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, Output } from '@angular/core';
 import { ILibraries, ISeries } from 'src/app/utils/interface';
 import { SeriesService } from 'src/app/services/series/series.service';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';

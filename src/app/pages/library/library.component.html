@@ -7,7 +7,10 @@
       </div>
     </div>
     <div class="second_div">
-      <span>Pas encore commencée (0)</span>
+      <span>Pas encore commencée ({{ cardsNotStarted?.length }})</span>
+      <div class="container_cards">
+        <app-card-hover *ngFor="let card of cardsNotStarted" [card]="card"></app-card-hover>
+      </div>
     </div>
     <div class="third_div">
       <span>Terminée ({{ cardsFinished?.length }})</span>

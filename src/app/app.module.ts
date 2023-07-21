@@ -91,6 +91,7 @@ import { ToastrModule } from 'ngx-toastr';
     TrendingComponent,
     TrendingsPageComponent,
   ],
+
   imports: [
     MatSelectModule,
     MatDialogModule,
@@ -107,8 +108,7 @@ import { ToastrModule } from 'ngx-toastr';
     StoreModule.forRoot({ userState: reducer }),
     ToastrModule.forRoot(),
   ],
-
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
