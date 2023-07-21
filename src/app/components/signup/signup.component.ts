@@ -13,21 +13,29 @@ import { IRegister } from 'src/app/utils/interface';
 export class SignupComponent {
   signUpForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private toastr: ToastrService, private router: Router) {
-    this.signUpForm = this.fb.group({
-      nickname: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(20),
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]+$'),
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
+    this.signUpForm = this.fb.group(
+      {
+        nickname: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.maxLength(20),
+            Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]+$'),
+          ],
         ],
-      ],
-      confirmPassword: ['', [Validators.required]],
-    }, { validators: passwordMatcher });
+        confirmPassword: ['', [Validators.required]],
+      },
+      { validators: passwordMatcher }
+    );
   }
 
   isFormValid(): boolean {
@@ -51,5 +59,5 @@ function passwordMatcher(control: AbstractControl): { [key: string]: boolean } |
   const password = control.get('password');
   const confirmPassword = control.get('confirmPassword');
 
-  return password && confirmPassword && password.value === confirmPassword.value ? null : { 'passwordMismatch': true };
+  return password && confirmPassword && password.value === confirmPassword.value ? null : { passwordMismatch: true };
 }
