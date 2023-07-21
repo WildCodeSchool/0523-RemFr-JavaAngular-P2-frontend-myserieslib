@@ -20,3 +20,26 @@
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(25, 25, 27) 100%);
   z-index: 1;
 }
+
+button {
+  border: 3px solid white;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 25px;
+  font-weight: bolder;
+  transition: 0.2s ease-in;
+}
+
+button:hover {
+  background-color: white;
+  color: #28165e;
+  transition: 0.2s ease-in;
+}
+
+.button_div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}

@@ -1,6 +1,6 @@
-<h2 class="text-white ml-8 text-xl mt-12">Commentaires ({{ comments.length }})</h2>
+<h2 class="text-white ml-8 text-xl mt-12">Commentaires ({{ commentsLength }})</h2>
 <div *ngFor="let comment of comments">
-  <div class="m-8 comment-card">
+  <div class="m-8 comment-card" *ngIf="comment.comment || comment.score">
     <p class="text-white text-xl">{{ comment.userUsername }}</p>
     <div *ngIf="comment.score">
       <div class="w-1/4 mt-2">

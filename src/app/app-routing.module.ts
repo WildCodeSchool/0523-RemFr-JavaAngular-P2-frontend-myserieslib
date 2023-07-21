@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: DetailComponent },
   { path: 'sign-up', component: SignupPageComponent },
   { path: 'login', component: LoginPageComponent },
+  { path: 'login/:register', component: LoginPageComponent },
   { path: 'trending', component: TrendingsPageComponent },
   {
     path: 'dashboard',

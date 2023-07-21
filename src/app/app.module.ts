@@ -105,6 +105,7 @@ import { MainComponent } from './components/dashboard/main/main.component';
     CategoriesComponent,
     MainComponent,
   ],
+
   imports: [
     MatSelectModule,
     MatDialogModule,
@@ -121,8 +122,7 @@ import { MainComponent } from './components/dashboard/main/main.component';
     StoreModule.forRoot({ userState: reducer }),
     ToastrModule.forRoot(),
   ],
-
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
