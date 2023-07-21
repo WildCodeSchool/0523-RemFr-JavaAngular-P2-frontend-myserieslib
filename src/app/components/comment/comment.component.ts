@@ -9,11 +9,19 @@ import { IComment } from 'src/app/utils/interface';
 export class CommentComponent implements OnChanges {
   @Input() serieId = '';
   comments: IComment[] = [];
+  commentsLenght = 0;
   constructor(public librariesService: LibrariesService) {}
   ngOnChanges(): void {
     this.librariesService.getComments(this.serieId).subscribe((data) => {
       this.comments = data;
       this.comments.map((comment) => (comment.score = Number(comment.score)));
+      this.commentsLenght = this.comments.length;
+      if (
+        this.comments.some((comment) => comment.score === null) ||
+        this.comments.some((comment) => comment.comment === null)
+      ) {
+        this.commentsLenght -= 1;
+      }
     });
   }
 }

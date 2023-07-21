@@ -21,7 +21,7 @@ export class LibrariesService {
   }
 
   getLibraries(): Observable<ILibraries[]> {
-    return this.http.get<ILibraries[]>(`${this.url}/${this.userId}`);
+    return this.http.get<ILibraries[]>(`${this.url}/user`);
   }
 
   getLibrariesInProgress(): Observable<ILibraries[]> {

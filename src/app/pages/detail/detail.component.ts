@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';
 import { SeriesService } from 'src/app/services/series/series.service';
 import { selectUser } from 'src/app/services/store/user.reducer';
-import { ISeries, IUser, UserJWT } from 'src/app/utils/interface';
+import { ILibraries, ISeries } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-detail',
@@ -24,10 +23,13 @@ export class DetailComponent implements OnInit {
   id = this.route.snapshot.paramMap.get('id') || '';
 
   informationsSelected = true;
+  serie!: ISeries;
+  user: any = {};
+  userInfo!: ILibraries;
 
-  serie: ISeries | undefined;
+  isInLibrary = false;
 
-  userConnected = false;
+  userData!: ILibraries[];
 
   showInformations() {
     this.informationsSelected = true;
@@ -42,11 +44,13 @@ export class DetailComponent implements OnInit {
       this.serie = data;
       this.serie.trailerSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.serie.trailerURL);
     });
-    const user$: Observable<IUser> = this.store.select(selectUser);
-    user$.subscribe((user: UserJWT) => {
-      if (user.JWT) {
-        this.userConnected = !this.userConnected;
-      }
+    this.librariesService.getLibraries().subscribe((data) => {
+      this.userData = data;
+      this.isInLibrary = this.userData.some((library) => library.serie.id === this.serie.id);
+    });
+    this.store.select(selectUser).subscribe((user) => (this.user = user));
+    this.librariesService.getUserSerieDetails(this.serie.id).subscribe((data: ILibraries) => {
+      this.userInfo = data;
     });
   }
 

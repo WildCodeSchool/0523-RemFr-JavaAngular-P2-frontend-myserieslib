@@ -5,13 +5,13 @@
       <img src="assets/Logos/logo_mobile.png" class="h-12 mr-1 md:hidden" alt="MSL Logo" />
     </a>
     <div class="flex md:order-2">
-      <p class="text-white pr-4" *ngIf="user.username">Bonjour {{ user.nickname }}</p>
-      <div *ngIf="user.username">
+      <p class="text-white pr-4" *ngIf="user.nickname">Bonjour {{ user.nickname }}</p>
+      <div *ngIf="user.nickname">
         <app-button-acc></app-button-acc>
       </div>
-      <div *ngIf="!user.username" class="flex gap-4">
+      <div *ngIf="!user.nickname" class="flex gap-4">
         <a routerLink="/login" class="text-white">Se connecter</a>
-        <a routerLink="/register" class="text-white">S'inscrire</a>
+        <a routerLink="/sign-up" class="text-white">S'inscrire</a>
       </div>
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">

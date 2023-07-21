@@ -22,7 +22,24 @@
 }
 
 button {
-  border: 1px solid white;
-  padding: 0.25rem 0.5rem;
+  border: 3px solid white;
+  padding: 0.5rem 1rem;
   color: white;
+  border-radius: 25px;
+  font-weight: bolder;
+  transition: 0.2s ease-in;
+}
+
+button:hover {
+  background-color: white;
+  color: #28165e;
+  transition: 0.2s ease-in;
+}
+
+.button_div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
 }
