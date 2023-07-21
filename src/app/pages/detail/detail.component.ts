@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ToastrService } from 'ngx-toastr';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';
 import { SeriesService } from 'src/app/services/series/series.service';
 import { selectUser } from 'src/app/services/store/user.reducer';
@@ -18,7 +19,8 @@ export class DetailComponent implements OnInit {
     public route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private librariesService: LibrariesService,
-    private store: Store
+    private store: Store,
+    private toastr: ToastrService
   ) {}
   id = this.route.snapshot.paramMap.get('id') || '';
 
@@ -56,5 +58,7 @@ export class DetailComponent implements OnInit {
 
   addSeries(): void {
     this.librariesService.addSeries(this.id).subscribe();
+    this.isInLibrary = true;
+    this.toastr.success('Ajout de ' + this.serie.name + ' à la bibliothèque');
   }
 }
