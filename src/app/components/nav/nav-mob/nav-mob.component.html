@@ -1,39 +1,39 @@
 <footer class="lg:hidden fixed z-999 bottom-0 w-full px-1" appGlass>
   <div class="container" [ngClass]="{ 'fixed-navbar': isNavbarFixed }" id="navbar-container">
-    <div class="tab-bar mt-1 relative rounded-md flex flex-col box-content w-full p-1">
-      <ul class="flex justify-around items-center h-[70px]">
+    <div class="tab-bar mt-1 relative rounded-md flex flex-col box-content w-full p-1 overflow-hidden">
+      <ul class="flex justify-around items-center h-[70px] overflow-hidden">
         <li
-          class="before:rounded-full p-1"
+          class="before:rounded-full p-1 after:hidden"
           (click)="changeTab('home')"
           [ngClass]="{ 'btn-msl': activeTab === 'home' }"
           aria-hidden="true"
         >
           <a routerLink="/">
-            <img class="w-6 h-6" src="assets/Icons/home.svg" alt="logo" />
+            <img class="w-6 h-6" src="assets/icons/home.svg" alt="logo" />
           </a>
         </li>
         <li
-          class="before:rounded-full p-1"
+          class="before:rounded-full p-1 after:hidden"
           (click)="changeTab('search')"
           [ngClass]="{ 'btn-msl': activeTab === 'search' }"
           aria-hidden="true"
         >
           <a routerLink="/search">
-            <img class="w-6 h-6" src="assets/Icons/explore.svg" alt="logo" />
+            <img class="w-6 h-6" src="assets/icons/explore.svg" alt="logo" />
           </a>
         </li>
         <li
-          class="before:rounded-full p-1"
+          class="before:rounded-full p-1 after:hidden"
           (click)="changeTab('library')"
           [ngClass]="{ 'btn-msl': activeTab === 'library' }"
           aria-hidden="true"
         >
           <a (click)="redirectToLibrary()">
-            <img class="w-6 h-6" src="assets/Icons/lib.svg" alt="logo" />
+            <img class="w-6 h-6" src="assets/icons/lib.svg" alt="logo" />
           </a>
         </li>
         <li
-          class="before:rounded-full p-1 h-8"
+          class="before:rounded-full p-1 h-8 after:hidden"
           (click)="changeTab('favorite')"
           [ngClass]="{ 'btn-msl': activeTab === 'favorite' }"
           aria-hidden="true"

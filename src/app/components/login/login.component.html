@@ -3,8 +3,8 @@
   <div class="text-white relative z-1 mt-[10rem] text-center flex items-center flex-col">
     <input class="signIn" type="checkbox" id="signIn" name="signIn" />
     <label for="signIn" class="block-diff">
-      <span class="inline-block">Sign In</span>
-      <span class="float-right">Sign Up</span>
+      <span class="inline-block">S'identifier</span>
+      <span class="float-right">S'inscrire</span>
     </label>
     <div class="card-3d-wrap mx-auto bg-transparent">
       <div class="card-3d-wrapper">
@@ -26,7 +26,7 @@
                   for="input1"
                   class="pointer-events-none absolute left-4 md:left-[2rem] top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-white transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-valid:-translate-y-[1.15rem] peer-valid:scale-[0.8] motion-reduce:transition-none"
                 >
-                  Email ou nom d'utilisateur
+                  Email
                 </label>
                 <mat-error
                   *ngIf="
@@ -34,7 +34,7 @@
                     (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
                   "
                 >
-                  <div *ngIf="loginForm.get('email')?.hasError('required')">Email ou nom d'utilisateur requis</div>
+                  <div *ngIf="loginForm.get('email')?.hasError('required')">Email requis</div>
                 </mat-error>
               </div>
               <div class="mt-5 relative flex items-center flex-col mb-10">
