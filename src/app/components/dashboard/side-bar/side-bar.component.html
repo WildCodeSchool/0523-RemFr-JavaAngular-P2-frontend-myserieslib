@@ -1,0 +1,30 @@
+<div class="min-h-screen container mx-auto px-2">
+  <div class="xl:grid grid-cols-8 gap-10 items-start md:py-12 py-6">
+    <div class="col-span-2 sticky border border-gray-800 p-6 rounded-md xl:mb-0 mb-5" appGlass>
+      <ng-container *ngFor="let link of SideLinks; let index = index">
+        <a
+            [routerLink]="['/dashboard', { outlets: { dashboardOutlet: [link.link] } }]"
+            [ngClass]="{
+            'bg-white text-subMain': isActive(link),
+            'hover:text-white hover:bg-main': !isActive(link),
+            'rounded-sm font-medium text-sm transitions flex gap-3 items-center p-4': true
+            }"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <mat-icon>{{ link.icon }}</mat-icon> <p>{{ link.name }}</p>
+        </a>
+      </ng-container>
+    </div>
+    <div
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-delay="10"
+      data-aos-offset="200"
+      class="col-span-6 rounded-md bg-dry border border-gray-800 p-6"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+

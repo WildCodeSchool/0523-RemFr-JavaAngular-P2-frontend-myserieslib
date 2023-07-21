@@ -51,6 +51,13 @@ import { JwtInterceptor } from './utils/jwt.interceptor';
 import { TrendingComponent } from './components/trending/trending.component';
 import { TrendingsPageComponent } from './pages/trendings-page/trendings-page.component';
 import { ToastrModule } from 'ngx-toastr';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { SideBarComponent } from './components/dashboard/side-bar/side-bar.component';
+import { AddSerieComponent } from './components/dashboard/admin/add-serie/add-serie.component';
+import { UsersComponent } from './components/dashboard/admin/users/users.component';
+import { SerieListComponent } from './components/dashboard/admin/serie-list/serie-list.component';
+import { CategoriesComponent } from './components/dashboard/admin/categories/categories.component';
+import { MainComponent } from './components/dashboard/main/main.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +97,13 @@ import { ToastrModule } from 'ngx-toastr';
     ModalComponent,
     TrendingComponent,
     TrendingsPageComponent,
+    DashboardComponent,
+    SideBarComponent,
+    AddSerieComponent,
+    UsersComponent,
+    SerieListComponent,
+    CategoriesComponent,
+    MainComponent,
   ],
   imports: [
     MatSelectModule,
