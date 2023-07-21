@@ -3,16 +3,17 @@
     <div class="col-span-2 sticky border border-gray-800 p-6 rounded-md xl:mb-0 mb-5" appGlass>
       <ng-container *ngFor="let link of SideLinks; let index = index">
         <a
-            [routerLink]="['/dashboard', { outlets: { dashboardOutlet: [link.link] } }]"
-            [ngClass]="{
+          [routerLink]="['/dashboard', { outlets: { dashboardOutlet: [link.link] } }]"
+          [ngClass]="{
             'bg-white text-subMain': isActive(link),
             'hover:text-white hover:bg-main': !isActive(link),
             'rounded-sm font-medium text-sm transitions flex gap-3 items-center p-4': true
-            }"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
+          }"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
         >
-          <mat-icon>{{ link.icon }}</mat-icon> <p>{{ link.name }}</p>
+          <mat-icon>{{ link.icon }}</mat-icon>
+          <p>{{ link.name }}</p>
         </a>
       </ng-container>
     </div>
@@ -27,4 +28,3 @@
     </div>
   </div>
 </div>
-

@@ -8,9 +8,8 @@ describe('SerieListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SerieListComponent ]
-    })
-    .compileComponents();
+      declarations: [SerieListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SerieListComponent);
     component = fixture.componentInstance;
