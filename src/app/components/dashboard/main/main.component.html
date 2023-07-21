@@ -1,1 +1,22 @@
-<p class="text-white font-3xl">main works!</p>
+<div class="text-white">
+    <h2 class="text-xl font-bold">Dashboard</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+        <div
+            *ngFor="let data of DashboardData; let i = index"
+            appGlass
+            class="p-4 rounded bg-main border border-gray-500 grid grid-cols-4 gap-2"
+        >
+            <div
+            [ngClass]="['col-span-1', 'rounded-full', 'h-12', 'w-12', 'flex-colo', data.bg]"
+            >
+                <mat-icon class="m-auto">{{ data.icon }}</mat-icon>
+            </div>
+            <div class="col-span-3">
+                <h2>{{ data.title }}</h2>
+                <p class="mt-2 font-bold">{{ data.total }}</p>
+            </div>
+        </div>
+    </div>
+    <h3 class="text-md font-medium my-6 text-border">Recent Movies</h3>
+    <app-serie-table [series]="seriesTrending"></app-serie-table>
+</div>

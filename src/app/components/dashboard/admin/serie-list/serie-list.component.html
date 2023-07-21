@@ -1,1 +1,7 @@
-<p class="text-white font-3xl">serie-list works!</p>
+<div class="text-white">
+    <div class="flex justify-between mb-10">
+        <h2 class="text-xl font-bold">All Series</h2>
+        <app-filter-search-bar (getSeries)="getSeries($event)"></app-filter-search-bar>
+    </div>
+    <app-serie-table [series]="series"></app-serie-table>
+</div>

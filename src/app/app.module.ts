@@ -58,6 +58,7 @@ import { UsersComponent } from './components/dashboard/admin/users/users.compone
 import { SerieListComponent } from './components/dashboard/admin/serie-list/serie-list.component';
 import { CategoriesComponent } from './components/dashboard/admin/categories/categories.component';
 import { MainComponent } from './components/dashboard/main/main.component';
+import { SerieTableComponent } from './components/dashboard/table/serie-table/serie-table.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { MainComponent } from './components/dashboard/main/main.component';
     SerieListComponent,
     CategoriesComponent,
     MainComponent,
+    SerieTableComponent,
   ],
 
   imports: [

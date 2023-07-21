@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 interface SidebarLink {
   name: string;
@@ -41,8 +41,9 @@ export class SideBarComponent {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
+
   isActive(link: SidebarLink): boolean {
-    return this.router.isActive(link.link, true);
+    return this.activatedRoute.firstChild?.snapshot.url[0].path === link.link;
   }
 }
