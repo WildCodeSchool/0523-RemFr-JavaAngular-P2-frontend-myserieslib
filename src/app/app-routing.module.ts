@@ -13,6 +13,9 @@ import { MainComponent } from './components/dashboard/main/main.component';
 import { AddSerieComponent } from './components/dashboard/admin/add-serie/add-serie.component';
 import { CategoriesComponent } from './components/dashboard/admin/categories/categories.component';
 import { UsersComponent } from './components/dashboard/admin/users/users.component';
+import { UpdateProfileComponent } from './pages/profile/updateProfile/update-profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +37,8 @@ const routes: Routes = [
       { path: 'users', component: UsersComponent, outlet: 'dashboardOutlet' },
     ],
   },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'update-profile', component: UpdateProfileComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

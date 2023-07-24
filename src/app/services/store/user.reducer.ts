@@ -18,11 +18,13 @@ export function reducer(state = initialState, action: any): UserState {
       return { ...state, user: action.payload };
     case 'USER_JWT':
       return { ...state, user: { ...state.user, JWT: action.payload } };
-    case 'USER_NICKNAME':
-      return { ...state, user: { ...state.user, nickname: action.payload } };
+    case 'USER':
+      return { ...state, user: { ...state.user, ...action.payload } };
     case 'USER_LOGOUT':
       localStorage.removeItem('jwt');
       localStorage.removeItem('nickname');
+      localStorage.removeItem('pictureUrl');
+      localStorage.removeItem('email');
       return { ...state, user: { ...initialState } };
     default:
       return state;

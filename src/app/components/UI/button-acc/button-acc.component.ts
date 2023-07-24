@@ -10,6 +10,7 @@ import { selectUser } from 'src/app/services/store/user.reducer';
 export class ButtonAccComponent implements OnInit {
   open = false;
   user: any = {};
+
   constructor(private elementRef: ElementRef, private store: Store) {}
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
