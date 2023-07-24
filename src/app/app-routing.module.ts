@@ -32,9 +32,6 @@ const routes: Routes = [
       { path: 'add-serie', component: AddSerieComponent, outlet: 'dashboardOutlet' },
       { path: 'categories', component: CategoriesComponent, outlet: 'dashboardOutlet' },
       { path: 'users', component: UsersComponent, outlet: 'dashboardOutlet' },
-      // { path: 'profile', component: ProfileComponent, outlet: 'dashboardOutlet' },
-      // { path: 'favorites', component: FavoritesComponent, outlet: 'dashboardOutlet' },
-      // { path: 'password', component: ChangePasswordComponent, outlet: 'dashboardOutlet' },
     ],
   },
 ];

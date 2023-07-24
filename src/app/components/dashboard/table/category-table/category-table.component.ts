@@ -16,8 +16,6 @@ export class CategoryTableComponent {
   constructor(private modalService: ModalService) {}
   openCategoryModal(category?: ICategories): void {
     this.editCategory.emit(category);
-    this.modalService.openCategoryModal((result: any) => {
-      console.log(result);
-    }, category);
+    this.modalService.openCategoryModal((result: any) => {}, category);
   }
 }

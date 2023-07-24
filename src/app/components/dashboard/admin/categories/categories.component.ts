@@ -23,8 +23,6 @@ export class CategoriesComponent implements OnInit {
   }
 
   openCategoryModal(category?: ICategories): void {
-    this.modalService.openCategoryModal((result: any) => {
-      console.log('Huy');
-    });
+    this.modalService.openCategoryModal((result: any) => {});
   }
 }

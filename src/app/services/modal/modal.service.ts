@@ -28,7 +28,6 @@ export class ModalService {
   }
 
   openCategoryModal(callback: any, category?: any): void {
-    console.log(category);
     const dialogRef = this.dialog.open(CategoryModalComponent, {
       width: '20rem',
       data: {
@@ -36,7 +35,6 @@ export class ModalService {
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      // You can handle the result here if needed after the modal is closed
       callback(result);
     });
   }

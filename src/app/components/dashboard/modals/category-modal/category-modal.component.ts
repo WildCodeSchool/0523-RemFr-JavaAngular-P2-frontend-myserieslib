@@ -17,12 +17,11 @@ export class CategoryModalComponent {
 
   submitCategory(): void {
     if (!this.category) {
-      // Emit the categoryName to trigger the addCategory method in the parent component
       this.addCategory.emit(this.categoryName);
-      this.categoryName = ''; // Reset the categoryName
+      this.categoryName = '';
     } else {
-      this.updateCategory.emit(this.category.name); // Emit the selectedCategory to trigger the updateCategory method in the parent component
+      this.updateCategory.emit(this.category.name);
+      this.modalService.closeModal();
     }
-    this.modalService.closeModal();
   }
 }
