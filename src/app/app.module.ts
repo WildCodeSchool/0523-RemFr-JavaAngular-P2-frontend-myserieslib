@@ -59,6 +59,10 @@ import { SerieListComponent } from './components/dashboard/admin/serie-list/seri
 import { CategoriesComponent } from './components/dashboard/admin/categories/categories.component';
 import { MainComponent } from './components/dashboard/main/main.component';
 import { SerieTableComponent } from './components/dashboard/table/serie-table/serie-table.component';
+import { CategoryTableComponent } from './components/dashboard/table/category-table/category-table.component';
+import { CategoryModalComponent } from './components/dashboard/modals/category-modal/category-modal.component';
+import { UsersTableComponent } from './components/dashboard/table/users-table/users-table.component';
+import { UploaderComponent } from './components/uploader/uploader.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +110,10 @@ import { SerieTableComponent } from './components/dashboard/table/serie-table/se
     CategoriesComponent,
     MainComponent,
     SerieTableComponent,
+    CategoryTableComponent,
+    CategoryModalComponent,
+    UsersTableComponent,
+    UploaderComponent,
   ],
 
   imports: [

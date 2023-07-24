@@ -58,6 +58,7 @@ export interface IEpisode {
 export interface IUser {
   id: string;
   username: string;
+  nickname: string;
   email: string;
   JWT: string;
   pictureUrl: string;

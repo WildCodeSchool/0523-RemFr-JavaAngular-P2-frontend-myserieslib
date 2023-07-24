@@ -2,15 +2,29 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/internal/Observable';
 import { ILogin, IRegister } from 'src/app/utils/interface';
 import jwt_decode from 'jwt-decode';
 import { environment } from 'src/environments/environment';
+import { IUser } from 'src/app/utils/interface';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   constructor(private store: Store, private http: HttpClient, private router: Router) {}
+
+  getUser(): Observable<IUser[]> {
+    return this.http.get<any[]>(environment.baseApiUrl + '/api/users').pipe(
+      map((data) =>
+        data.map((user) => ({
+          ...user,
+          role: user.role.name || 'user',
+        }))
+      )
+    );
+  }
 
   getJWT(): void {
     const jwt = localStorage.getItem('jwt');

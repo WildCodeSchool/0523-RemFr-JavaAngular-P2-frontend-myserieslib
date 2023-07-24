@@ -10,6 +10,7 @@ import { SeriesService } from 'src/app/services/series/series.service';
 })
 export class SerieListComponent implements OnInit {
   series: ISeries[] = [];
+  totalSeries = 0;
 
   constructor(public serieService: SeriesService) {}
 
@@ -87,6 +88,7 @@ export class SerieListComponent implements OnInit {
         series.releaseDate = new Date(series.releaseDate).getFullYear().toString();
         return { ...series, show: false };
       });
+      this.totalSeries = this.series.length;
     });
   }
 }

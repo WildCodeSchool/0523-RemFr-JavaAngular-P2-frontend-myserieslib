@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { selectUser } from '../store/user.reducer';
 import { IUser, UserJWT } from 'src/app/utils/interface';
 import { Observable } from 'rxjs';
+import { CategoryModalComponent } from 'src/app/components/dashboard/modals/category-modal/category-modal.component';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,20 @@ export class ModalService {
       } else {
         callback(user);
       }
+    });
+  }
+
+  openCategoryModal(callback: any, category?: any): void {
+    console.log(category);
+    const dialogRef = this.dialog.open(CategoryModalComponent, {
+      width: '20rem',
+      data: {
+        category: category,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      // You can handle the result here if needed after the modal is closed
+      callback(result);
     });
   }
 
