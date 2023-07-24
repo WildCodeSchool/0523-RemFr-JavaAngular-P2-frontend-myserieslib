@@ -2,15 +2,9 @@
   <table class="w-full table-auto border border-border divide-y divide-border">
     <thead>
       <tr appGlass>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          No
-        </th>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          Name
-        </th>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          Actions
-        </th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">No</th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Name</th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Actions</th>
       </tr>
     </thead>
     <tbody class="bg-main divide-y divide-gray-600">
@@ -19,11 +13,12 @@
         <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 truncate">{{ category.name }}</td>
         <td class="flex items-center py-3">
           <ng-container>
-            <button 
+            <button
               class="text-sm border border-border bg-dry flex-rows gap-2 text-border rounded py-2 px-2"
               (click)="openCategoryModal(category)"
             >
-              Edit <mat-icon class="text-sm text-green-500 border-2 border-green-500 rounded-md">edit</mat-icon>
+              Edit
+              <mat-icon class="text-sm text-green-500 border-2 border-green-500 rounded-md">edit</mat-icon>
             </button>
             <button class="bg-[#fe5388] ml-3 text-white rounded flex-colo w-8 h-8">
               <mat-icon class="text-white">delete</mat-icon>
@@ -34,4 +29,3 @@
     </tbody>
   </table>
 </div>
-

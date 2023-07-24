@@ -2,24 +2,12 @@
   <table class="w-full table-auto border border-border divide-y divide-border">
     <thead>
       <tr appGlass>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          Poster
-        </th>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          Name
-        </th>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          Category
-        </th>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          Year
-        </th>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          Status
-        </th>
-        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">
-          Actions
-        </th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Poster</th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Name</th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Category</th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Year</th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Status</th>
+        <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Actions</th>
       </tr>
     </thead>
     <tbody class="bg-main divide-y divide-gray-600">
@@ -39,11 +27,14 @@
           </div>
         </td>
         <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3">{{ serie.releaseDate }}</td>
-        <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3">{{ serie.isCompleted ? 'Ended' : 'Returning' }}</td>
+        <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3">
+          {{ serie.isCompleted ? 'Ended' : 'Returning' }}
+        </td>
         <td class="flex items-center justify-around py-6">
           <ng-container>
             <button class="text-sm border border-border bg-dry flex-rows gap-2 text-border rounded py-2 px-2">
-              Edit <mat-icon class="text-sm text-green-500 border-2 border-green-500 rounded-md">edit</mat-icon>
+              Edit
+              <mat-icon class="text-sm text-green-500 border-2 border-green-500 rounded-md">edit</mat-icon>
             </button>
             <button class="bg-[#fe5388] text-white rounded flex-colo w-8 h-8">
               <mat-icon class="text-white">delete</mat-icon>

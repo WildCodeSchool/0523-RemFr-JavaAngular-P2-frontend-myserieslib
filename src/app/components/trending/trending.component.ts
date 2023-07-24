@@ -11,7 +11,7 @@ import { ISeries } from 'src/app/utils/interface';
 export class TrendingComponent implements OnInit {
   trendingSeries: ISeries[] = [];
 
- constructor(private trendingService: TrendingsService, private router: Router){}
+  constructor(private trendingService: TrendingsService, private router: Router) {}
 
   ngOnInit(): void {
     this.getTrendingSeries();
