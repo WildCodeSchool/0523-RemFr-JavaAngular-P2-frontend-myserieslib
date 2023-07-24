@@ -13,4 +13,12 @@ export class CategoriesService {
   getCategories(): Observable<ICategories[]> {
     return this.http.get<ICategories[]>(environment.baseApiUrl + '/api/categories');
   }
+
+  deleteCategory(category: ICategories): Observable<ICategories[]> {
+    return this.http.delete<ICategories[]>(environment.baseApiUrl + '/api/categories/' + category.id);
+  }
+
+  postCategory(category: ICategories): Observable<ICategories[]> {
+    return this.http.post<ICategories[]>(environment.baseApiUrl + '/api/categories', category);
+  }
 }

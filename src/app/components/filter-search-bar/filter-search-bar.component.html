@@ -1,63 +1,54 @@
-<div class="mt-14 p-10 md:mt-28 flex flex-col md:flex-row">
-  <div class="left text-white md:w-1/2">
-    <h1 class="text-2xl md:text-6xl font-bold">Rechercher une série</h1>
-    <p class="hidden text-base font-medium mt-4 mb-6 md:block">
-      Quand on aime la TV, pourquoi s'en priver ? Des sitcoms aux séries dramatiques en passant par les émissions de
-      téléréalité, retrouvez le meilleur des séries à regarder.
-    </p>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="mt-5 btn-msl before:rounded-xl after:hidden w-[100%] mb-5">
+    <input
+      [formControl]="formSearch"
+      class="bg-transparent outline-none relative z-50 w-[20rem] md:w-[30rem] text-white rounded-xl p-3 m-1 pl-8"
+      matInput
+      placeholder="Rechercher une série"
+    />
+    <img src="assets/icons/loupe.png" class="absolute w-4 img top-1/2 -translate-y-1/2 left-3" />
   </div>
-  <div class="flex w-full flex-col items-center">
-    <form (ngSubmit)="onSubmit()">
-      <div class="mt-5 btn-msl before:rounded-xl after:hidden w-[100%] mb-5">
-        <input
-          [formControl]="formSearch"
-          class="bg-transparent outline-none relative z-50 w-[20rem] md:w-[30rem] text-white rounded-xl p-3 m-1 pl-8"
-          matInput
-          placeholder="Rechercher une série"
-        />
-        <img src="assets/icons/loupe.png" class="absolute w-4 img top-1/2 -translate-y-1/2 left-3" />
-      </div>
-      <div class="p-1 flex flex-wrap md:w-[100%] relative rounded-md justify-between overflow-hidden" appGlass>
-        <select
-          matNativeControl
-          [formControl]="formFilter"
-          (change)="onSubmit()"
-          class="text-white bg-gray-700 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-3 m-1"
-        >
-          <option value="title">Titre</option>
-          <option value="Actor">Acteur</option>
-          <option value="Producer">Producteur</option>
-        </select>
-        <select
-          matNativeControl
-          class="text-white bg-gray-700 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-3 m-1"
-          [formControl]="formDate"
-          (change)="onSubmit()"
-        >
-          <option selected>Année</option>
-          <option value="1700s">1700s</option>
-          <option value="1900s">1700-1900</option>
-          <option value="2000s">2000-2023</option>
-        </select>
-        <select
-          matNativeControl
-          class="text-white bg-gray-700 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-2 m-1"
-          [formControl]="formCategories"
-          (change)="onSubmit()"
-        >
-          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
-        </select>
-        <select
-          matNativeControl
-          class="text-white bg-gray-700 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-3 m-1"
-          [formControl]="formStatus"
-          (change)="onSubmit()"
-        >
-          <option selected>Status</option>
-          <option value="false">En cours</option>
-          <option value="true">Terminée</option>
-        </select>
-      </div>
-    </form>
+  <div class="p-1 flex flex-wrap md:w-[100%] relative rounded-md justify-between overflow-hidden" appGlass>
+    <select
+      matNativeControl
+      [formControl]="formFilter"
+      (change)="onSubmit()"
+      class="text-white bg-gray-700 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-3 m-1"
+    >
+      <option value="title">Titre</option>
+      <option value="Actor">Acteur</option>
+      <option value="Producer">Producteur</option>
+    </select>
+    <select
+      matNativeControl
+      class="text-white bg-gray-700 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-3 m-1"
+      [formControl]="formDate"
+      (change)="onSubmit()"
+    >
+      <option selected>Année</option>
+      <option value="1700s">1700s</option>
+      <option value="1900s">1700-1900</option>
+      <option value="2000s">2000-2023</option>
+    </select>
+    <select
+      matNativeControl
+      class="text-white bg-gray-700 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-2 m-1"
+      [formControl]="formCategories"
+      (change)="onSubmit()"
+    >
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+    <select
+      matNativeControl
+      class="text-white bg-gray-700 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-3 m-1"
+      [formControl]="formStatus"
+      (change)="onSubmit()"
+    >
+      <option selected>Status</option>
+      <option value="false">En cours</option>
+      <option value="true">Terminée</option>
+    </select>
   </div>
-</div>
+</form>
+
