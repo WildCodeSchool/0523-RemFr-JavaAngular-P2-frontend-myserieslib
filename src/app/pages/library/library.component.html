@@ -19,7 +19,10 @@
       </div>
     </div>
     <div class="fourth_div">
-      <span>Vue récemment (0)</span>
+      <span>Vue récemment :</span>
+      <div class="container_cards">
+        <app-history-card *ngFor="let card of cardsHistory" [card]="card"></app-history-card>
+      </div>
     </div>
   </div>
 </main>

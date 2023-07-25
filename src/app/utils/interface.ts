@@ -46,6 +46,7 @@ export interface IComment {
 }
 
 export interface IEpisode {
+  id: string;
   episodeNumber: number;
   title: string;
   seasonNumber: number;
@@ -82,4 +83,8 @@ export interface IRegister {
   nickname: string;
   email: string;
   password: string;
+}
+
+export interface IHistory {
+  episode: IEpisode;
 }

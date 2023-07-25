@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { HistoryService } from 'src/app/services/history/history.service';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';
 import { SeriesService } from 'src/app/services/series/series.service';
 import { selectUser } from 'src/app/services/store/user.reducer';
@@ -23,7 +24,12 @@ export class DetailEpisodesComponent implements OnInit {
 
   episodesCheckboxesIndex: number[] = [];
 
-  constructor(public serieService: SeriesService, private store: Store, private librariesService: LibrariesService) {}
+  constructor(
+    public serieService: SeriesService,
+    private store: Store,
+    private librariesService: LibrariesService,
+    private historyService: HistoryService
+  ) {}
 
   ngOnInit(): void {
     this.serieService.getEpisodes(this.id).subscribe((data) => {
@@ -86,6 +92,8 @@ export class DetailEpisodesComponent implements OnInit {
 
       if (episode.showCheckbox) {
         this.episodesCheckboxesIndex.push(episodeIndex);
+        this.historyService.addEpisode(episode.id).subscribe();
+        console.log(episode.id);
       } else {
         const indexToRemove = this.episodesCheckboxesIndex.indexOf(episodeIndex);
         if (indexToRemove !== -1) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HistoryService } from 'src/app/services/history/history.service';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';
-import { ILibraries } from 'src/app/utils/interface';
+import { IHistory, ILibraries } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-library',
@@ -12,7 +13,9 @@ export class LibraryComponent implements OnInit {
   cardsNotStarted: ILibraries[] | undefined;
   cardsFinished: ILibraries[] | undefined;
 
-  constructor(private librariesService: LibrariesService) {}
+  cardsHistory: IHistory[] | undefined;
+
+  constructor(private librariesService: LibrariesService, private historyService: HistoryService) {}
 
   ngOnInit(): void {
     this.librariesService.getLibrariesInProgress().subscribe((res) => {
@@ -27,6 +30,11 @@ export class LibraryComponent implements OnInit {
     });
     this.librariesService.getLibrariesFinished().subscribe((res) => {
       this.cardsFinished = res.map((item: ILibraries) => {
+        return { ...item };
+      });
+    });
+    this.historyService.getHistory().subscribe((res) => {
+      this.cardsHistory = res.map((item: IHistory) => {
         return { ...item };
       });
     });
