@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { IEpisode, ISeries } from 'src/app/utils/interface';
+import { ICategories, IEpisode, ISeries } from 'src/app/utils/interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -36,5 +36,17 @@ export class SeriesService {
 
   getEpisodes(id: string): Observable<IEpisode[]> {
     return this.http.get<IEpisode[]>(this.urlLink + '/episodes/series/' + id);
+  }
+
+  getCategories(): Observable<ICategories[]> {
+    return this.http.get<ICategories[]>( `${environment.baseApiUrl}/api/categories`);
+  }
+
+  getSeriesByCategory(categoryId: string): Observable<ISeries[]> {
+    return this.http.get<ISeries[]>(`${environment.baseApiUrl}/api/categories`);
+  }
+
+  getTopSeriesByCategory(categoryId: string, limit: number): Observable<ISeries[]> {
+    return this.http.get<ISeries[]>(`${environment.baseApiUrl}/api/series/categories/${categoryId}/series?limit=${limit}`);
   }
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IComment, ILibraries, UserJWT } from 'src/app/utils/interface';
+import { ICategories, IComment, ILibraries, UserJWT } from 'src/app/utils/interface';
 import { selectUser } from '../store/user.reducer';
 import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
@@ -70,5 +70,9 @@ export class LibrariesService {
 
   addSeries(id: string): Observable<ILibraries> {
     return this.http.post<ILibraries>(`${this.url}/add/${id}`, {});
+  }
+
+  getSuggestions(userId: string, limit = 10): Observable<ICategories[]> {
+    return this.http.get<ICategories[]>(`${environment.baseApiUrl}/api/libraries/users/${userId}/frequent-categories?limit=${limit}`);
   }
 }

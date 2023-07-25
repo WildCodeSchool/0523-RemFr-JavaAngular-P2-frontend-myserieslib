@@ -16,6 +16,8 @@ import { UsersComponent } from './components/dashboard/admin/users/users.compone
 import { UpdateProfileComponent } from './pages/profile/updateProfile/update-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from './core/auth.guard';
+import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
+import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +41,8 @@ const routes: Routes = [
   },
   { path: 'profile', component: ProfileComponent },
   { path: 'update-profile', component: UpdateProfileComponent, canActivate: [AuthGuard] },
+  { path: 'retrieve-password/:token', component: RetrievePasswordComponent },
+  { path: 'forgotten-password', component: ForgottenPasswordComponent },
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@
             <app-rating [rating]="series.rating"></app-rating>
           </div>
           <div class="text-center mt-4">
-            <div *ngFor="let category of trendingSeries; let index = index" class="inline w-fit">
+            <div *ngFor="let category of series.categories; let index = index" class="inline w-fit">
               <p class="text-white inline" *ngIf="index !== 0">-</p>
               <p class="text-white text-sm inline">{{ category.name }}</p>
             </div>
@@ -27,3 +27,8 @@
       </div>
     </div>
   </div>
+  <app-category [categories]="categories" [seriesByCategory]="seriesByCategory"></app-category>
+
+  
+  
+  

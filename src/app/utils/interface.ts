@@ -3,6 +3,7 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 export interface ICategories {
   id: string;
   name: string;
+  series?: ISeries[];
 }
 
 export interface ISeries {
