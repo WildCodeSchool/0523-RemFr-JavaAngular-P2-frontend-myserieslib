@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getTrendingSeries();
     this.getTopRatedSeries();
+    this.getSuggestions();
   }
 
   getTrendingSeries() {
@@ -42,12 +43,14 @@ export class HomeComponent implements OnInit {
 
   getSuggestions():void{
     const jwt = localStorage.getItem('jwt');
+    
     if (jwt) {
       const decoded:any = jwt_decode(jwt);
-      const userId = decoded.userId;
+      const userId = decoded.sub;
       this.libraryService.getSuggestions(userId).subscribe(res => {
         this.suggestions = res;
       });
     }
+    
   }
 }

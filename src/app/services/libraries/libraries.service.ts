@@ -73,6 +73,6 @@ export class LibrariesService {
   }
 
   getSuggestions(userId: string, limit = 10): Observable<ICategories[]> {
-    return this.http.get<ICategories[]>(`${environment.baseApiUrl}/api/libraries/users/${userId}/frequenquent-categories?limit=${limit}`);
+    return this.http.get<ICategories[]>(`${environment.baseApiUrl}/api/libraries/users/${userId}/frequent-categories?limit=${limit}`);
   }
 }
