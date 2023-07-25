@@ -18,6 +18,7 @@ export class FilterSearchBarComponent implements OnInit {
   ngOnInit(): void {
     this.categoriesService.getCategories().subscribe((categories: ICategories[]) => {
       this.categories = categories;
+      this.categories.sort((a, b) => a.name.localeCompare(b.name));
       this.categories.unshift({ id: '', name: 'Toutes catégories' });
     });
   }

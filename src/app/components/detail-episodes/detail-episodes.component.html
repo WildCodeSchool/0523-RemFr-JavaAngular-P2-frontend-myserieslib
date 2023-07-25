@@ -25,6 +25,11 @@
         <div class="info_card_right_desc">
           <span>{{ episode.description }}</span>
         </div>
+        <div *ngIf="!!isInLibrary && user.nickname" class="input_div">
+          <div class="input_div_in">
+            <input [(ngModel)]="episode.showCheckbox" type="checkbox" (change)="onCheckboxChange(episode)" />
+          </div>
+        </div>
       </div>
     </div>
   </div>

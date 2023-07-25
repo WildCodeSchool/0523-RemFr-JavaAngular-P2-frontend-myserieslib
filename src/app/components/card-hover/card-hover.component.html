@@ -1,4 +1,8 @@
-<div (click)="toggleCard()" [ngStyle]="{ 'background-image': 'url(' + card?.serie?.pictureUrlXS + ')' }" class="cards">
+<div
+  (click)="toggleCard()"
+  [ngStyle]="{ 'background-image': 'url(' + card?.serie?.pictureUrlXS + ')' }"
+  [ngClass]="isClicked ? 'notClicked' : 'cards'"
+>
   <div class="cards_in" [hidden]="!isClicked">
     <div class="cards_in_container">
       <div class="cards_in_title">
@@ -9,7 +13,7 @@
       </div>
       <div class="cards_in_button">
         <button
-          class="mt-4 bg-gray-900 btn-msl text-white px-2 md:px-2 md:py-1 before:rounded-full"
+          class="mt-4 bg-gray-900 btn-msl after:hidden text-white px-2 md:px-2 md:py-1 before:rounded-full"
           (click)="redirectToDetail(card!.serie)"
         >
           Voir plus
