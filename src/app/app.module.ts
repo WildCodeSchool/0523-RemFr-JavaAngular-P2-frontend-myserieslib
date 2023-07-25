@@ -63,6 +63,8 @@ import { CategoryTableComponent } from './components/dashboard/table/category-ta
 import { CategoryModalComponent } from './components/dashboard/modals/category-modal/category-modal.component';
 import { UsersTableComponent } from './components/dashboard/table/users-table/users-table.component';
 import { UploaderComponent } from './components/uploader/uploader.component';
+import { CategoryComponent } from './components/category/category.component';
+import { SuggestionsComponent } from './components/suggestions/suggestions.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +116,8 @@ import { UploaderComponent } from './components/uploader/uploader.component';
     CategoryModalComponent,
     UsersTableComponent,
     UploaderComponent,
+    CategoryComponent,
+    SuggestionsComponent,
   ],
 
   imports: [

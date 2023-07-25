@@ -1,5 +1,5 @@
   <div class="my-8 text-white p-2" *ngFor="let category of categories">
-    <h1 class="ml-4 text-2xl font-bold mb-4">Top 10 dans la categorie {{ category.name }}</h1>
+    <h1 class="ml-4 text-2xl font-bold mb-4">Top 10 dans la catégorie {{ category.name }}</h1>
     <splide [options]="options">
       <splide-slide *ngFor="let serie of category.series">
         <div class="relative h-[13rem] md:h-[18rem] overflow-hidden rounded-xl drop-shadow-lg card">
