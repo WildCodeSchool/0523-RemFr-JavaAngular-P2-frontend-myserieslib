@@ -63,11 +63,14 @@ import { CategoryTableComponent } from './components/dashboard/table/category-ta
 import { CategoryModalComponent } from './components/dashboard/modals/category-modal/category-modal.component';
 import { UsersTableComponent } from './components/dashboard/table/users-table/users-table.component';
 import { UploaderComponent } from './components/uploader/uploader.component';
+import { CategoryComponent } from './components/category/category.component';
+import { SuggestionsComponent } from './components/suggestions/suggestions.component';
 import { UpdateProfileComponent } from './pages/profile/updateProfile/update-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginModalComponent } from './components/modal/login-modal/login-modal.component';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
+
 
 @NgModule({
   declarations: [
@@ -119,6 +122,8 @@ import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten
     CategoryModalComponent,
     UsersTableComponent,
     UploaderComponent,
+    CategoryComponent,
+    SuggestionsComponent,
     UpdateProfileComponent,
     ProfileComponent,
     LoginModalComponent,
