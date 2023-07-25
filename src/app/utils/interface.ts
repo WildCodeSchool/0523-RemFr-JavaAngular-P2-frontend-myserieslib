@@ -37,6 +37,7 @@ export interface ILibraries {
   comment: string;
   serie: ISeries;
   status: string;
+  checkedEpisodes: number[];
 }
 
 export interface IComment {
@@ -54,6 +55,7 @@ export interface IEpisode {
   releaseDate: Date;
   serie: ISeries;
   thumbnail: string;
+  showCheckbox?: boolean;
 }
 
 export interface IUser {

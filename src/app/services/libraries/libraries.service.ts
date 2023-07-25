@@ -58,6 +58,16 @@ export class LibrariesService {
     return this.http.put<ILibraries>(`${this.url}/series/${id}/comment`, commentBody);
   }
 
+  updateCheckboxesList(id: string, checkboxes: number[]): Observable<ILibraries> {
+    const checkboxeBody = { checkboxes: checkboxes };
+    return this.http.put<ILibraries>(`${this.url}/series/${id}/checkboxe-episode`, checkboxeBody);
+  }
+
+  updateStatus(id: string, status: string): Observable<ILibraries> {
+    const statusBody = { status: status };
+    return this.http.put<ILibraries>(`${this.url}/series/${id}/status`, statusBody);
+  }
+
   addSeries(id: string): Observable<ILibraries> {
     return this.http.post<ILibraries>(`${this.url}/add/${id}`, {});
   }

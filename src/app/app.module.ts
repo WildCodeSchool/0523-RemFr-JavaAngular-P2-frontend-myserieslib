@@ -65,6 +65,10 @@ import { UsersTableComponent } from './components/dashboard/table/users-table/us
 import { UploaderComponent } from './components/uploader/uploader.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SuggestionsComponent } from './components/suggestions/suggestions.component';
+import { UpdateProfileComponent } from './pages/profile/updateProfile/update-profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginModalComponent } from './components/modal/login-modal/login-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -118,6 +122,9 @@ import { SuggestionsComponent } from './components/suggestions/suggestions.compo
     UploaderComponent,
     CategoryComponent,
     SuggestionsComponent,
+    UpdateProfileComponent,
+    ProfileComponent,
+    LoginModalComponent,
   ],
 
   imports: [

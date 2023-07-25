@@ -1,0 +1,24 @@
+<div class="mt-32 flex justify-center flex-col">
+    <h1 class="text-3xl mt-8 text-center text-white">Votre profil</h1>
+    <div class="flex justify-center gap-4 mt-8">
+    <div>
+      <div class="mt-4 text-white flex">
+        <p class="font-medium">Nom: &nbsp;</p>
+        <p>{{user.nickname}}</p>
+      </div>
+      <div class="mt-4 text-white flex ">
+        <p class="font-medium">Email: &nbsp;</p>
+        <p>{{user.email}}</p>
+      </div>
+      <div class="mt-4 text-white flex">
+        <p class="font-medium">Image: &nbsp;</p>
+        <p>{{user.pictureUrl}}</p>
+      </div>
+      <div class="flex justify-center mt-4">
+        <button class="mt-4 bg-gray-900 btn-msl text-white px-2 md:px-2 md:py-1 before:rounded-full" (click)="updateProfile()">
+          Modifier
+        </button>
+      </div>    </div>
+    <img src={{user.pictureUrl}} alt="image" class="rounded-xl max-w-xs	">
+  </div>
+</div>
