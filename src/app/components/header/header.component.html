@@ -3,7 +3,11 @@
     <splide-slide *ngFor="let serie of seriesTrending">
       <div class="relative overflow-hidden card">
         <div class="transition h-[100%] poster">
-          <img [src]="serie.pictureUrlXL" alt="serie.name" class="relative w-[100%] h-[60vh] md:h-[80vh] object-cover" />
+          <img
+            [src]="serie.pictureUrlXL"
+            alt="serie.name"
+            class="relative w-[100%] h-[60vh] md:h-[80vh] object-cover"
+          />
         </div>
         <div class="details absolute px-10 md:px-16 md:w-[50%] w-full bottom-[10rem] flex flex-col">
           <h3 class="relative text-xl font-semibold text-white mb-4">En ce moment</h3>
@@ -18,7 +22,10 @@
           <p class="hidden md:block relative text-base font-medium text-white mt-4 mb-6">{{ serie.description }}</p>
         </div>
         <div class="md:flex hidden absolute p-10 w-[50rem] bottom-0 justify-around">
-          <button class="btn-msl flex items-center before:rounded-2xl after:w-[50%] py-3 px-6 gap-3" (click)="redirectToDetail(serie.id)">
+          <button
+            class="btn-msl flex items-center before:rounded-2xl after:w-[50%] py-3 px-6 gap-3"
+            (click)="redirectToDetail(serie.id)"
+          >
             <h2 class="text-white text-xl">Bande annonce</h2>
             <mat-icon class="text-black bg-white rounded-[50%]">play_circle_outline</mat-icon>
           </button>
