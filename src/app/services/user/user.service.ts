@@ -48,6 +48,15 @@ export class UserService {
     }
   }
 
+  isJWTValid(JWT: string): boolean {
+    const decoded: any = jwt_decode(JWT);
+    const expirationDate = new Date(decoded.exp * 1000);
+    if (expirationDate > new Date()) {
+      this.store.dispatch({ type: 'USER_JWT', payload: JWT });
+    }
+    return expirationDate > new Date();
+  }
+
   login(user: ILogin) {
     return this.http.post(environment.baseApiUrl + '/api/auth/login', user).subscribe(
       (res: any) => {
@@ -102,5 +111,22 @@ export class UserService {
         this.toaster.error("Une erreur s'est produite lors de la mise à jour de votre profil");
       }
     );
+  }
+
+  changePassword(password: string) {
+    return this.http.post(`${environment.baseApiUrl}/api/users/change-password`, password).subscribe(
+      () => {
+        this.toaster.success('Votre mot de passe a bien été mis à jour');
+        this.router.navigate(['/login']);
+      },
+      (error: any) => {
+        this.toaster.error("Une erreur s'est produite lors de la mise à jour de votre mot de passe");
+      }
+    );
+  }
+
+  sendNewPasswordLink(email: string) {
+    this.http.get(`${environment.baseApiUrl}/api/users/retrievePassword/${email}`).subscribe();
+    this.toaster.success('Un email vous a été envoyé');
   }
 }
