@@ -11,6 +11,7 @@ export class CommentComponent implements OnChanges {
   comments: IComment[] = [];
   commentsLength = 0;
   constructor(public librariesService: LibrariesService) {}
+
   ngOnChanges(): void {
     this.librariesService.getComments(this.serieId).subscribe((data) => {
       this.comments = data;

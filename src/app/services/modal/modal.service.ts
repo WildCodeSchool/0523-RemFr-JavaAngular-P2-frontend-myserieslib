@@ -6,6 +6,7 @@ import { selectUser } from '../store/user.reducer';
 import { IUser, UserJWT } from 'src/app/utils/interface';
 import { Observable } from 'rxjs';
 import { CategoryModalComponent } from 'src/app/components/dashboard/modals/category-modal/category-modal.component';
+import { LoginModalComponent } from 'src/app/components/modal/login-modal/login-modal.component';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,12 @@ export class ModalService {
       } else {
         callback(user);
       }
+    });
+  }
+
+  openLoginModal(): void {
+    this.dialog.open(LoginModalComponent, {
+      width: '400px',
     });
   }
 
