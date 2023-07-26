@@ -11,11 +11,11 @@
     </div>
     <button
       class="btn-msl h-10 flex items-center before:rounded-2xl after:hidden py-2 px-4 ml-8 gap-3"
-      (click)="openCategoryModal()"
+      (click)="openAddModal()"
     >
       <h3 class="text-white text-xl">Ajouter</h3>
       <mat-icon class="font-bold text-black bg-white rounded-[50%]">add_circle_outline</mat-icon>
     </button>
   </div>
-  <app-category-table [categories]="categories" (editCategory)="openCategoryModal($event)"></app-category-table>
+  <app-category-table [categories]="categories" (updateCategoryEvent)="onCategoryDeleted()"></app-category-table>
 </div>

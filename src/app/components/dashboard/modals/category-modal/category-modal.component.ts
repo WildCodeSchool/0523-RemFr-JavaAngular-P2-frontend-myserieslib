@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ICategories } from 'src/app/utils/interface';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
 
 @Component({
   selector: 'app-category-modal',
@@ -8,20 +9,32 @@ import { ModalService } from 'src/app/services/modal/modal.service';
   styleUrls: ['./category-modal.component.scss'],
 })
 export class CategoryModalComponent {
-  @Input() categoryName = '';
-  @Input() category?: ICategories;
-  @Output() addCategory: EventEmitter<string> = new EventEmitter<string>();
-  @Output() updateCategory: EventEmitter<string> = new EventEmitter<string>();
-
-  constructor(private modalService: ModalService) {}
-
+  categoryName = '';
+  constructor(
+    public categoriesService: CategoriesService,
+    private dialogRef: MatDialogRef<CategoryModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public category?: ICategories | null
+  ) {
+    this.categoryName = category ? category.name : '';
+  }
   submitCategory(): void {
-    if (!this.category) {
-      this.addCategory.emit(this.categoryName);
-      this.categoryName = '';
+    if (this.category) {
+      const newCategory: ICategories = {
+        id: this.category.id,
+        name: this.categoryName,
+      };
+      this.categoriesService.updateCategory(newCategory).subscribe(() => {
+        this.dialogRef.close(newCategory);
+      });
     } else {
-      this.updateCategory.emit(this.category.name);
-      this.modalService.closeModal();
+      console.log(this.categoryName);
+      const newCategory: ICategories = {
+        id: '',
+        name: this.categoryName,
+      };
+      this.categoriesService.postCategory(this.categoryName).subscribe(() => {
+        this.dialogRef.close(newCategory);
+      });
     }
   }
 }
