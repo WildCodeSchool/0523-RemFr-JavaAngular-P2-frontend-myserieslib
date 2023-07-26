@@ -88,7 +88,8 @@
 
 .completion_bar > span {
     font-size: 0.6rem;
-    color: black;
+    color: white;
+    text-shadow: 0 0 3px #01696c, 0 0 5px #000000;
     font-weight: bolder;
     z-index: 6;
 }
@@ -98,7 +99,9 @@
     height: 100%;
     left: 0;
     border-radius: 15px;
-    background-color: #08F7FE;
+    // background-color: #08F7FE;
+    background: rgb(9,251,211);
+background: linear-gradient(95deg, rgba(9,251,211,1) 0%, rgba(254,83,187,1) 100%);
     z-index: 5;
 }
 
