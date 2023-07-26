@@ -32,8 +32,4 @@ export class CardHoverComponent implements OnInit {
   redirectToDetail(serie: ISeries) {
     this.router.navigate(['/detail', serie.id]);
   }
-
-  onClick(): void {
-    console.log(this.card);
-  }
 }
