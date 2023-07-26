@@ -1,0 +1,67 @@
+.container_cards {
+    width: 10rem;
+    height: 9rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.div_img {
+    width: 100%;
+    height: 70%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+}
+
+.div_img:hover {
+    transform: rotate(5deg);
+    transition: 0.1s ease-in;
+}
+
+.title_div {
+    width: 100%;
+    height: 30%;
+    display: flex;
+}
+
+.episode_title {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.episode_title > span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.episode_season_number {
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .container_cards {
+        width: calc(10rem / 1.5);
+        height: calc(9rem / 1.5);
+        margin: 0.5rem;
+    }
+    .title_div {
+        font-size: 0.8rem;
+    }
+    .episode_season_number {
+        width: 35%;
+    }
+    .episode_title {
+        width: 65%;
+    }
+}

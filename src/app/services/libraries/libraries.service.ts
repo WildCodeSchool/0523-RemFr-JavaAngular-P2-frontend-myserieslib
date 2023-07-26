@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ICategories, IComment, ILibraries, UserJWT } from 'src/app/utils/interface';
 import { selectUser } from '../store/user.reducer';
-import { IUser } from 'src/app/utils/interface';
 import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -73,6 +73,8 @@ export class LibrariesService {
   }
 
   getSuggestions(userId: string, limit = 10): Observable<ICategories[]> {
-    return this.http.get<ICategories[]>(`${environment.baseApiUrl}/api/libraries/users/${userId}/frequent-categories?limit=${limit}`);
+    return this.http.get<ICategories[]>(
+      `${environment.baseApiUrl}/api/libraries/users/${userId}/frequent-categories?limit=${limit}`
+    );
   }
 }

@@ -13,23 +13,20 @@
 </div>
 <div class="episode_cards_container">
   <div *ngFor="let episode of getFilteredEpisodes(); let i = index" class="card_episode">
-    <div class="card_title">
-      <span>{{ episode.episodeNumber }}.</span>
-      <span>{{ episode.title }}</span>
+    <div class="episode_title">
+      <span>{{ episode.episodeNumber }}. {{ episode.title }}</span>
     </div>
-    <div class="info_card">
-      <div class="image_container">
-        <img [src]="episode.thumbnail" [alt]="episode.title" />
-      </div>
-      <div class="info_card_right">
-        <div class="info_card_right_desc">
-          <span>{{ episode.description }}</span>
-        </div>
-        <div *ngIf="!!isInLibrary && user.nickname" class="input_div">
-          <div class="input_div_in">
-            <input [(ngModel)]="episode.showCheckbox" type="checkbox" (change)="onCheckboxChange(episode)" />
+    <div class="episode_infos">
+      <div class="episode_second_info">
+        <div class="episode_thumbnail" [ngStyle]="{ 'background-image': 'url(' + episode.thumbnail + ')' }"></div>
+        <div class="episode_description">
+          <div class="episode_description_first">
+            <p>{{ episode.description }}</p>
           </div>
         </div>
+      </div>
+      <div class="episode_date_check">
+        <input [(ngModel)]="episode.showCheckbox" type="checkbox" (change)="onCheckboxChange(episode)" />
       </div>
     </div>
   </div>

@@ -68,9 +68,9 @@ import { SuggestionsComponent } from './components/suggestions/suggestions.compo
 import { UpdateProfileComponent } from './pages/profile/updateProfile/update-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginModalComponent } from './components/modal/login-modal/login-modal.component';
+import { HistoryCardComponent } from './components/history-card/history-card.component';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
-
 
 @NgModule({
   declarations: [
@@ -127,6 +127,7 @@ import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten
     UpdateProfileComponent,
     ProfileComponent,
     LoginModalComponent,
+    HistoryCardComponent,
     RetrievePasswordComponent,
     ForgottenPasswordComponent,
   ],
