@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LibrariesService } from 'src/app/services/libraries/libraries.service';
 import { ICategories, ISeries } from 'src/app/utils/interface';
-import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +11,7 @@ export class SuggestionsComponent {
   
   @Input() frequentCategories: ICategories[] = [];
 
-  constructor(private libraryService: LibrariesService, private router: Router) { }
+  constructor(private router: Router) { }
 
 
   redirectToDetail(serie: ISeries) {
