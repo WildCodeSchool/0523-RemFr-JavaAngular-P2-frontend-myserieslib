@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoriesService } from 'src/app/services/categories/categories.service';
-import { SeriesService } from 'src/app/services/series/series.service';
 import { TrendingsService } from 'src/app/services/trendings/trendings.service';
 import { ICategories, ISeries } from 'src/app/utils/interface';
 
@@ -16,7 +14,7 @@ export class TrendingComponent implements OnInit {
   categories: ICategories[] = [];
   seriesByCategory: { [category: string]: ISeries[] } = {};
 
- constructor(private trendingService: TrendingsService, private router: Router, private categoryService: CategoriesService, private seriesService: SeriesService){}
+ constructor(private trendingService: TrendingsService, private router: Router){}
 
  ngOnInit(): void {
   this.getTrendingSeries();

@@ -21,4 +21,8 @@ export class CategoriesService {
   postCategory(category: ICategories): Observable<ICategories[]> {
     return this.http.post<ICategories[]>(environment.baseApiUrl + '/api/categories', category);
   }
+
+  getCategoriesWithSeries(): Observable<ICategories[]> {
+    return this.http.get<ICategories[]>(environment.baseApiUrl + '/api/categories/categoriesWithSeries');
+  }
 }

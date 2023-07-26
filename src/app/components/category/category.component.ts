@@ -1,38 +1,30 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
-import { SeriesService } from 'src/app/services/series/series.service';
 import { ICategories, ISeries } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
   @Input() categories: ICategories[] = [];
   @Input() seriesByCategory: { [category: string]: ISeries[] } = {};
 
-  constructor(private categoryService: CategoriesService, private seriesService: SeriesService, private router: Router){}
+  constructor(private categoryService: CategoriesService, private router: Router) {}
   ngOnInit(): void {
-    this.getCategories();
-    this.getSeriesByCategory();
+    this.getCategoriesWithSeries();
   }
 
-  getCategories(): void {
-    this.categoryService.getCategories().subscribe((categories: ICategories[]) => {
-        this.categories.unshift({ id: '0', name: 'Toutes catégories', series: [] });
-        this.categories = categories;
-    });
-  }
-  
-  getSeriesByCategory(): void {
-    const limit = 10;
-    this.categoryService.getCategories().subscribe((categories: ICategories[]) => {
+  getCategoriesWithSeries(): void {
+    this.categoryService.getCategoriesWithSeries().subscribe((categories: ICategories[]) => {
+      categories = categories.filter((category) => category.series && category.series.length > 0);
+      this.categories = categories;
       categories.forEach((category) => {
-        this.seriesService.getTopSeriesByCategory(category.id, limit).subscribe((series: ISeries[]) => {
-          this.seriesByCategory[category.name] = series;
-        });
+        if (category.series && category.series.length > 0) {
+          this.seriesByCategory[category.name] = category.series;
+        }
       });
     });
   }
