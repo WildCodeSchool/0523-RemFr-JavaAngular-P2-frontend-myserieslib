@@ -39,7 +39,7 @@ export class SeriesService {
   }
 
   getCategories(): Observable<ICategories[]> {
-    return this.http.get<ICategories[]>( `${environment.baseApiUrl}/api/categories`);
+    return this.http.get<ICategories[]>(`${environment.baseApiUrl}/api/categories`);
   }
 
   getSeriesByCategory(categoryId: string): Observable<ISeries[]> {
@@ -47,6 +47,8 @@ export class SeriesService {
   }
 
   getTopSeriesByCategory(categoryId: string, limit: number): Observable<ISeries[]> {
-    return this.http.get<ISeries[]>(`${environment.baseApiUrl}/api/series/categories/${categoryId}/series?limit=${limit}`);
+    return this.http.get<ISeries[]>(
+      `${environment.baseApiUrl}/api/series/categories/${categoryId}/series?limit=${limit}`
+    );
   }
 }

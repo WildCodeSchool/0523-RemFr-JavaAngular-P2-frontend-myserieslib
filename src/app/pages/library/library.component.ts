@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HistoryService } from 'src/app/services/history/history.service';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';
-import { IHistory, ILibraries } from 'src/app/utils/interface';
+import { SeriesService } from 'src/app/services/series/series.service';
+import { IEpisode, IHistory, ILibraries } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-library',
@@ -14,6 +16,8 @@ export class LibraryComponent implements OnInit {
   cardsFinished: ILibraries[] | undefined;
 
   cardsHistory: IHistory[] | undefined;
+
+  episodesList: IEpisode[] | undefined;
 
   constructor(private librariesService: LibrariesService, private historyService: HistoryService) {}
 
