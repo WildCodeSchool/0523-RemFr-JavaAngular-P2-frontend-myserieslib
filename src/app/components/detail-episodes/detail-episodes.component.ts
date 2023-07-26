@@ -93,7 +93,6 @@ export class DetailEpisodesComponent implements OnInit {
       if (episode.showCheckbox) {
         this.episodesCheckboxesIndex.push(episodeIndex);
         this.historyService.addEpisode(episode.id).subscribe();
-        console.log(episode.id);
       } else {
         const indexToRemove = this.episodesCheckboxesIndex.indexOf(episodeIndex);
         if (indexToRemove !== -1) {
