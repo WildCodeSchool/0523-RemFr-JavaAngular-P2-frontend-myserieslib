@@ -16,7 +16,7 @@ export class TrendingComponent implements OnInit {
   categories: ICategories[] = [];
   seriesByCategory: { [category: string]: ISeries[] } = {};
 
- constructor(private trendingService: TrendingsService, private router: Router, private categoryService: CategoriesService, private seriesService: SeriesService){}
+ constructor(private trendingService: TrendingsService, private router: Router){}
 
  ngOnInit(): void {
   this.getTrendingSeries();
