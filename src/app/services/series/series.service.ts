@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs/internal/Observable';
 import { ICategories, IEpisode, ISeries } from 'src/app/utils/interface';
 import { environment } from 'src/environments/environment';
@@ -10,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class SeriesService {
   urlLink = environment.baseApiUrl + '/api';
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient, private toaster: ToastrService) {}
 
   getSeries(search?: string, filter?: string, category?: string): Observable<ISeries[]> {
     let url = '';
@@ -39,7 +40,7 @@ export class SeriesService {
   }
 
   getCategories(): Observable<ICategories[]> {
-    return this.http.get<ICategories[]>( `${environment.baseApiUrl}/api/categories`);
+    return this.http.get<ICategories[]>(`${environment.baseApiUrl}/api/categories`);
   }
 
   getSeriesByCategory(categoryId: string): Observable<ISeries[]> {
@@ -47,6 +48,15 @@ export class SeriesService {
   }
 
   getTopSeriesByCategory(categoryId: string, limit: number): Observable<ISeries[]> {
-    return this.http.get<ISeries[]>(`${environment.baseApiUrl}/api/series/categories/${categoryId}/series?limit=${limit}`);
+    return this.http.get<ISeries[]>(
+      `${environment.baseApiUrl}/api/series/categories/${categoryId}/series?limit=${limit}`
+    );
+  }
+
+  createSeries(serie: ISeries) {
+    return this.http.post<ISeries>(this.urlLink + '/series', serie).subscribe(
+      () => this.toaster.success('Serie créée avec succès'),
+      () => this.toaster.error('Echec lors de la création')
+    );
   }
 }
