@@ -15,25 +15,18 @@ export class CategoryComponent implements OnInit {
 
   constructor(private categoryService: CategoriesService, private seriesService: SeriesService, private router: Router){}
   ngOnInit(): void {
-    this.getCategories();
-    this.getSeriesByCategory();
+    this.getCategoriesWithSeries();
   }
 
-  getCategories(): void {
-    this.categoryService.getCategories().subscribe((categories: ICategories[]) => {
-        this.categories.unshift({ id: '0', name: 'Toutes catégories', series: [] });
+  getCategoriesWithSeries(): void {
+    this.categoryService.getCategoriesWithSeries().subscribe((categories: ICategories[]) => {
+        categories = categories.filter(category => category.series && category.series.length > 0); // Filtering out categories with no series.
         this.categories = categories;
-    });
-  }
-  
-  getSeriesByCategory(): void {
-    const limit = 10;
-    this.categoryService.getCategories().subscribe((categories: ICategories[]) => {
-      categories.forEach((category) => {
-        this.seriesService.getTopSeriesByCategory(category.id, limit).subscribe((series: ISeries[]) => {
-          this.seriesByCategory[category.name] = series;
+        categories.forEach((category) => {
+          if (category.series && category.series.length > 0) { // Add this check
+            this.seriesByCategory[category.name] = category.series;
+          }
         });
-      });
     });
   }
   redirectToDetail(serie: ISeries) {
