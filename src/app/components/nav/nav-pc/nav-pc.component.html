@@ -29,6 +29,9 @@
         <li>
           <a routerLink="/trending" class="button-container">Tendances</a>
         </li>
+        <li *ngIf="isAdmin">
+          <a routerLink="/dashboard" class="button-container">Admin</a>
+        </li>
       </ul>
     </div>
   </div>
