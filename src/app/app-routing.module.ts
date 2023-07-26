@@ -18,6 +18,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from './core/auth.guard';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
+import { AdminGuard } from './core/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AdminGuard],
     children: [
       { path: 'main', component: MainComponent, outlet: 'dashboardOutlet' },
       { path: 'serie-list', component: SerieListComponent, outlet: 'dashboardOutlet' },
