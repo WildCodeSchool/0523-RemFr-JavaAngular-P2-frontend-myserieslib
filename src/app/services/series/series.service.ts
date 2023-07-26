@@ -59,4 +59,18 @@ export class SeriesService {
       () => this.toaster.error('Echec lors de la création')
     );
   }
+
+  updateSeries(id: string, serie: ISeries) {
+    return this.http.put<ISeries>(this.urlLink + '/series/' + id, serie).subscribe(
+      () => this.toaster.success('Serie modifiée avec succès'),
+      () => this.toaster.error('Echec lors de la modification')
+    );
+  }
+
+  deleteSeries(id: string) {
+    return this.http.delete<ISeries>(this.urlLink + '/series/' + id).subscribe(
+      () => this.toaster.success('Serie supprimée avec succès'),
+      () => this.toaster.error('Echec lors de la suppression')
+    );
+  }
 }

@@ -1,5 +1,5 @@
 <form class="flex text-white flex-col gap-6" [formGroup]="addSerieForm" (ngSubmit)="onSubmit()">
-    <h2 class="text-xl font-bold">Créer une série</h2>
+    <h2 class="text-xl font-bold">{{title}}</h2>
     <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
             <label class="block text-gray-200" for="serieTitle">Titre</label>
@@ -103,7 +103,7 @@
     <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
             <label for="category" class="block mb-2 text-sm font-medium">Catégories</label>
-            <mat-select formControlName="category" multiple appGlass class="text-white">
+            <mat-select formControlName="category" [compareWith]="compareCategories"  multiple appGlass class="text-white">
               <mat-option *ngFor="let category of categories" [value]="category" class="text-white">{{category.name}}</mat-option>
             </mat-select>
         </div>
@@ -120,7 +120,7 @@
         </div>
     </div>
     <div class="w-full grid lg:grid-cols-2 gap-6 items-start">
-      <mat-select formControlName="actors" multiple appGlass class="text-white">
+      <mat-select formControlName="actors" multiple appGlass [compareWith]="compareActors" class="text-white">
         <mat-option *ngFor="let actor of actors" [value]="actor" class="text-white">{{actor.firstName + ' ' + actor.lastName}}</mat-option>
       </mat-select>
         <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-4 grid-cols-2 gap-4">
