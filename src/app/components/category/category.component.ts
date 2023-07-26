@@ -7,26 +7,26 @@ import { ICategories, ISeries } from 'src/app/utils/interface';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
   @Input() categories: ICategories[] = [];
   @Input() seriesByCategory: { [category: string]: ISeries[] } = {};
 
-  constructor(private categoryService: CategoriesService, private seriesService: SeriesService, private router: Router){}
+  constructor(private categoryService: CategoriesService, private router: Router) {}
   ngOnInit(): void {
     this.getCategoriesWithSeries();
   }
 
   getCategoriesWithSeries(): void {
     this.categoryService.getCategoriesWithSeries().subscribe((categories: ICategories[]) => {
-        categories = categories.filter(category => category.series && category.series.length > 0); // Filtering out categories with no series.
-        this.categories = categories;
-        categories.forEach((category) => {
-          if (category.series && category.series.length > 0) { // Add this check
-            this.seriesByCategory[category.name] = category.series;
-          }
-        });
+      categories = categories.filter((category) => category.series && category.series.length > 0);
+      this.categories = categories;
+      categories.forEach((category) => {
+        if (category.series && category.series.length > 0) {
+          this.seriesByCategory[category.name] = category.series;
+        }
+      });
     });
   }
   redirectToDetail(serie: ISeries) {
