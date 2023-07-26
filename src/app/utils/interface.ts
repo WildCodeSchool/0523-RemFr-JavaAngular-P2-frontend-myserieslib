@@ -87,5 +87,6 @@ export interface IRegister {
 }
 
 export interface IHistory {
+  addedDate: Date;
   episode: IEpisode;
 }

@@ -16,3 +16,42 @@ main {
 .fourth_div {
     margin-top: 1rem;
 }
+
+.container_cards_carousel {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.left, .right {
+    height: 9rem;
+    width: 2rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .left, .right {
+        height: 6rem;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

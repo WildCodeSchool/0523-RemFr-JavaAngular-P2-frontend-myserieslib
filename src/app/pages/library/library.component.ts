@@ -37,6 +37,35 @@ export class LibraryComponent implements OnInit {
       this.cardsHistory = res.map((item: IHistory) => {
         return { ...item };
       });
+      this.cardsHistory.sort((a, b) => {
+        return new Date(b.addedDate).getTime() - new Date(a.addedDate).getTime();
+      });
     });
+  }
+
+  checkOverflow(element: HTMLElement) {
+    return element.offsetWidth < element.scrollWidth;
+  }
+
+  onClickLeft(): void {
+    const containerCard = document.querySelector('.carouselContainer');
+    const card = document.querySelector('.cardWidth') as HTMLElement;
+
+    if (containerCard && card) {
+      const cardStyle = getComputedStyle(card);
+      const cardWidth = card.offsetWidth + parseFloat(cardStyle.marginLeft) + parseFloat(cardStyle.marginRight);
+      containerCard.scrollLeft -= cardWidth;
+    }
+  }
+
+  onClickRight(): void {
+    const containerCard = document.querySelector('.carouselContainer');
+    const card = document.querySelector('.cardWidth') as HTMLElement;
+
+    if (containerCard && card) {
+      const cardStyle = getComputedStyle(card);
+      const cardWidth = card.offsetWidth + parseFloat(cardStyle.marginLeft) + parseFloat(cardStyle.marginRight);
+      containerCard.scrollLeft += cardWidth;
+    }
   }
 }

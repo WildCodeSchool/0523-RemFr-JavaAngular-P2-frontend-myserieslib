@@ -48,3 +48,20 @@
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 600px) {
+    .container_cards {
+        width: calc(10rem / 1.5);
+        height: calc(9rem / 1.5);
+        margin: 0.5rem;
+    }
+    .title_div {
+        font-size: 0.8rem;
+    }
+    .episode_season_number {
+        width: 35%;
+    }
+    .episode_title {
+        width: 65%;
+    }
+}
