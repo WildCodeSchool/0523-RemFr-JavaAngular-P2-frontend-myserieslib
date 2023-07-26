@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
-import { SeriesService } from 'src/app/services/series/series.service';
 import { ICategories, ISeries } from 'src/app/utils/interface';
 
 @Component({
