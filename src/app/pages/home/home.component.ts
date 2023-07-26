@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TrendingsService } from 'src/app/services/trendings/trendings.service';
-import { ISeries } from 'src/app/utils/interface';
+import { ICategories, ISeries } from 'src/app/utils/interface';
 import { SafeResourceUrl } from '@angular/platform-browser';
+import { LibrariesService } from 'src/app/services/libraries/libraries.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +15,14 @@ export class HomeComponent implements OnInit {
   title2 = 'Séries tendances';
   trendingSeries: ISeries[] = [];
   topRatedSeries: ISeries[] = [];
+  suggestions: ICategories[] = [];
 
-  constructor(public trendingsService: TrendingsService) {}
+  constructor(public trendingsService: TrendingsService, private libraryService: LibrariesService) {}
 
   ngOnInit(): void {
     this.getTrendingSeries();
     this.getTopRatedSeries();
+    this.getSuggestions();
   }
 
   getTrendingSeries() {
@@ -35,5 +39,18 @@ export class HomeComponent implements OnInit {
         return { ...series, show: false };
       });
     });
+  }
+
+  getSuggestions():void{
+    const jwt = localStorage.getItem('jwt');
+    
+    if (jwt) {
+      const decoded:any = jwt_decode(jwt);
+      const userId = decoded.sub;
+      this.libraryService.getSuggestions(userId).subscribe(res => {
+        this.suggestions = res;
+      });
+    }
+    
   }
 }

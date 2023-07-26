@@ -26,7 +26,7 @@ export class SideBarComponent {
     },
     {
       name: 'Add Serie',
-      link: 'add-serie',
+      link: 'serie',
       icon: 'library_add',
     },
     {

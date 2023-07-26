@@ -13,6 +13,12 @@ import { MainComponent } from './components/dashboard/main/main.component';
 import { AddSerieComponent } from './components/dashboard/admin/add-serie/add-serie.component';
 import { CategoriesComponent } from './components/dashboard/admin/categories/categories.component';
 import { UsersComponent } from './components/dashboard/admin/users/users.component';
+import { UpdateProfileComponent } from './pages/profile/updateProfile/update-profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { AuthGuard } from './core/auth.guard';
+import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
+import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
+import { AdminGuard } from './core/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,14 +32,20 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AdminGuard],
     children: [
       { path: 'main', component: MainComponent, outlet: 'dashboardOutlet' },
       { path: 'serie-list', component: SerieListComponent, outlet: 'dashboardOutlet' },
-      { path: 'add-serie', component: AddSerieComponent, outlet: 'dashboardOutlet' },
+      { path: 'serie', component: AddSerieComponent, outlet: 'dashboardOutlet' },
+      { path: 'serie/:id', component: AddSerieComponent, outlet: 'dashboardOutlet' },
       { path: 'categories', component: CategoriesComponent, outlet: 'dashboardOutlet' },
       { path: 'users', component: UsersComponent, outlet: 'dashboardOutlet' },
     ],
   },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'update-profile', component: UpdateProfileComponent, canActivate: [AuthGuard] },
+  { path: 'retrieve-password/:token', component: RetrievePasswordComponent },
+  { path: 'forgotten-password', component: ForgottenPasswordComponent },
 ];
 
 @NgModule({

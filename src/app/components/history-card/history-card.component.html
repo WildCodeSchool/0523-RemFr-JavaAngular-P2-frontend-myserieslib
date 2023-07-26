@@ -1,0 +1,15 @@
+<div class="container_cards">
+  <div
+    (click)="redirectToDetail()"
+    [ngStyle]="{ 'background-image': 'url(' + card?.episode?.thumbnail + ')' }"
+    class="div_img"
+  ></div>
+  <div class="title_div">
+    <div class="episode_season_number">
+      <span>E{{ card?.episode?.episodeNumber }}.S{{ card?.episode?.seasonNumber }}</span>
+    </div>
+    <div class="episode_title">
+      <span>{{ card?.episode?.title }}</span>
+    </div>
+  </div>
+</div>

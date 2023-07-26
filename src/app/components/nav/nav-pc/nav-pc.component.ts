@@ -13,12 +13,17 @@ export class NavPcComponent implements OnInit {
   constructor(private modalService: ModalService, private router: Router, private store: Store) {}
   isActive = false;
   user: any = {};
-
+  isAdmin = false;
   redirectToLibrary() {
     this.modalService.openModal(() => this.router.navigate(['/library']));
   }
 
   ngOnInit(): void {
-    this.store.select(selectUser).subscribe((user) => (this.user = user));
+    this.store.select(selectUser).subscribe((user) => {
+      this.user = user;
+      if (user.role.name === 'admin') {
+        this.isAdmin = true;
+      }
+    });
   }
 }

@@ -3,6 +3,7 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 export interface ICategories {
   id: string;
   name: string;
+  series?: ISeries[];
 }
 
 export interface ISeries {
@@ -36,6 +37,7 @@ export interface ILibraries {
   comment: string;
   serie: ISeries;
   status: string;
+  checkedEpisodes: number[];
 }
 
 export interface IComment {
@@ -45,6 +47,7 @@ export interface IComment {
 }
 
 export interface IEpisode {
+  id: string;
   episodeNumber: number;
   title: string;
   seasonNumber: number;
@@ -53,6 +56,7 @@ export interface IEpisode {
   releaseDate: Date;
   serie: ISeries;
   thumbnail: string;
+  showCheckbox?: boolean;
 }
 
 export interface IUser {
@@ -80,4 +84,9 @@ export interface IRegister {
   nickname: string;
   email: string;
   password: string;
+}
+
+export interface IHistory {
+  addedDate: Date;
+  episode: IEpisode;
 }

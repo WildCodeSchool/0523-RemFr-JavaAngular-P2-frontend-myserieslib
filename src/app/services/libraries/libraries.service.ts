@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IComment, ILibraries, UserJWT } from 'src/app/utils/interface';
+import { ICategories, IComment, ILibraries, UserJWT } from 'src/app/utils/interface';
 import { selectUser } from '../store/user.reducer';
-import { IUser } from 'src/app/utils/interface';
 import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -58,7 +58,23 @@ export class LibrariesService {
     return this.http.put<ILibraries>(`${this.url}/series/${id}/comment`, commentBody);
   }
 
+  updateCheckboxesList(id: string, checkboxes: number[]): Observable<ILibraries> {
+    const checkboxeBody = { checkboxes: checkboxes };
+    return this.http.put<ILibraries>(`${this.url}/series/${id}/checkboxe-episode`, checkboxeBody);
+  }
+
+  updateStatus(id: string, status: string): Observable<ILibraries> {
+    const statusBody = { status: status };
+    return this.http.put<ILibraries>(`${this.url}/series/${id}/status`, statusBody);
+  }
+
   addSeries(id: string): Observable<ILibraries> {
     return this.http.post<ILibraries>(`${this.url}/add/${id}`, {});
+  }
+
+  getSuggestions(userId: string, limit = 10): Observable<ICategories[]> {
+    return this.http.get<ICategories[]>(
+      `${environment.baseApiUrl}/api/libraries/users/${userId}/frequent-categories?limit=${limit}`
+    );
   }
 }

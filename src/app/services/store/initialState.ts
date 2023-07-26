@@ -3,5 +3,6 @@ export const initialState: any = {
     id: '',
     JWT: '',
     role: '',
+    pictureUrl: '',
   },
 };

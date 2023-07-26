@@ -26,6 +26,6 @@
     <app-detail-informations [serie]="serie"></app-detail-informations>
   </div>
   <div *ngIf="!informationsSelected">
-    <app-detail-episodes [id]="id"></app-detail-episodes>
+    <app-detail-episodes [id]="id" [isInLibrary]="isInLibrary"></app-detail-episodes>
   </div>
 </div>
