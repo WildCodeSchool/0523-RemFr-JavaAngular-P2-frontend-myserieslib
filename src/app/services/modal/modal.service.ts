@@ -34,12 +34,6 @@ export class ModalService {
     });
   }
 
-  openLoginModal(): void {
-    this.dialog.open(LoginModalComponent, {
-      width: '400px',
-    });
-  }
-
   openCategoryModal(callback: any, category?: ICategories): void {
     const dialogRef = this.dialog.open(CategoryModalComponent, {
       width: '20rem',

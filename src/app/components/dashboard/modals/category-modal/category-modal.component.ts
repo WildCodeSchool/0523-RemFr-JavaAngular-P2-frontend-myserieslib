@@ -27,10 +27,9 @@ export class CategoryModalComponent {
         this.dialogRef.close(newCategory);
       });
     } else {
-      console.log(this.categoryName);
-      const newCategory: ICategories = {
+      const newCategory = {
         id: '',
-        name: this.categoryName,
+        categoryName: this.categoryName,
       };
       this.categoriesService.postCategory(this.categoryName).subscribe(() => {
         this.dialogRef.close(newCategory);

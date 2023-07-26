@@ -11,7 +11,7 @@ export class CategoriesService {
   constructor(public http: HttpClient) {}
 
   getCategories(): Observable<ICategories[]> {
-    return this.http.get<ICategories[]>(environment.baseApiUrl + '/api/categories');
+    return this.http.get<ICategories[]>(environment.baseApiUrl + '/api/categories/allCategories');
   }
 
   deleteCategory(categoryId: string): Observable<ICategories> {
@@ -22,9 +22,8 @@ export class CategoriesService {
     return this.http.put<ICategories[]>(environment.baseApiUrl + '/api/categories/' + category.id, category);
   }
 
-  postCategory(categoryName: string): Observable<ICategories> {
-    const requestBody = { categoryName: categoryName };
-    return this.http.post<ICategories>(environment.baseApiUrl + '/api/categories', requestBody);
+  postCategory(categoryName: string): Observable<ICategories[]> {
+    return this.http.post<ICategories[]>(environment.baseApiUrl + '/api/categories', categoryName);
   }
 
   getCategoriesWithSeries(): Observable<ICategories[]> {
