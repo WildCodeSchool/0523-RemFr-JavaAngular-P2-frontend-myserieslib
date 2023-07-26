@@ -57,7 +57,7 @@ export class AddSerieComponent implements OnInit {
       this.actors = actors;
     });
     if (this.id) {
-      this.title = 'éditer une série';
+      this.title = 'Éditer une série';
       this.serieService.getSerieById(this.id).subscribe((serie) => {
         this.addSerieForm.setValue({
           name: serie.name,

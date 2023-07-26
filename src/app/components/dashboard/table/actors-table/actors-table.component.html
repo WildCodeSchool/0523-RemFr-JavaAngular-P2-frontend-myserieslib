@@ -1,0 +1,49 @@
+<div class="flex">
+  <!-- First table: Left side -->
+  <div class="w-1/2 pr-2">
+    <div class="overflow-x-scroll overflow-hidden relative w-full">
+      <table class="w-full table-auto border border-border divide-y divide-border">
+        <thead>
+          <tr appGlass>
+            <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Avatar</th>
+            <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Full name</th>
+          </tr>
+        </thead>
+        <tbody class="bg-main divide-y divide-gray-600">
+          <tr *ngFor="let actor of actors.slice(0, half); let i = index">
+            <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3">
+              <div class="w-16 p-1 bg-dry border border-border h-16 rounded-full">
+                <img class="h-full w-full rounded-full object-cover" [src]="actor.pictureUrl" [alt]="actor.firstName" />
+              </div>
+            </td>
+            <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 truncate">{{ actor.firstName }} {{ actor.lastName }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Second table: Right side -->
+  <div class="w-1/2 pl-2">
+    <div class="overflow-x-scroll overflow-hidden relative w-full">
+      <table class="w-full table-auto border border-border divide-y divide-border">
+        <thead>
+          <tr appGlass>
+            <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Avatar</th>
+            <th scope="col" class="text-sm text-left text-main font-semibold px-6 py-3 uppercase">Full name</th>
+          </tr>
+        </thead>
+        <tbody class="bg-main divide-y divide-gray-600">
+          <tr *ngFor="let actor of actors.slice(half); let i = index">
+            <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3">
+              <div class="w-16 p-1 bg-dry border border-border h-16 rounded-full">
+                <img class="h-full w-full rounded-full object-cover" [src]="actor.pictureUrl" [alt]="actor.firstName" />
+              </div>
+            </td>
+            <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 truncate">{{ actor.firstName }} {{ actor.lastName }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

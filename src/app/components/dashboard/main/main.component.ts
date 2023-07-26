@@ -4,6 +4,7 @@ import { TrendingsService } from 'src/app/services/trendings/trendings.service';
 import { SeriesService } from 'src/app/services/series/series.service';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { ActorsService } from 'src/app/services/actors/actors.service';
 
 @Component({
   selector: 'app-main',
@@ -30,6 +31,12 @@ export class MainComponent implements OnInit {
       title: 'Total Users',
       total: 134,
     },
+    {
+      bg: 'bg-yellow-500',
+      icon: 'recent_actors',
+      title: 'Total Actors',
+      total: 20,
+    },
   ];
 
   seriesTrending: ISeries[] = [];
@@ -38,7 +45,8 @@ export class MainComponent implements OnInit {
     public trendingService: TrendingsService,
     public seriesService: SeriesService,
     public categoriesService: CategoriesService,
-    public userService: UserService
+    public userService: UserService,
+    public actorsService: ActorsService
   ) {}
 
   ngOnInit(): void {
@@ -56,6 +64,9 @@ export class MainComponent implements OnInit {
     });
     this.userService.getUser().subscribe((users) => {
       this.DashboardData[2].total = users.length;
+    });
+    this.actorsService.getActors().subscribe((actors) => {
+      this.DashboardData[3].total = actors.length;
     });
   }
 }

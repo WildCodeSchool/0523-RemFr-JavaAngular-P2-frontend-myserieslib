@@ -64,7 +64,18 @@
         placeholder="Ajouter une image"
       />
       <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
-        <img src="{{ addSerieForm.value.pictureUrlXL }}" alt="" class="w-full h-full object-cover rounded" />
+        <img
+          *ngIf="!addSerieForm.value.pictureUrlXL"
+          src="assets/imgPreview.jpg"
+          alt="Preview"
+          class="w-full h-full object-cover rounded"
+        />
+        <img
+          *ngIf="addSerieForm.value.pictureUrlXL"
+          [src]="addSerieForm.value.pictureUrlXL"
+          alt="Selected Image"
+          class="w-full h-full object-cover rounded"
+        />
       </div>
     </div>
 
@@ -79,7 +90,18 @@
         placeholder="Ajouter une image"
       />
       <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
-        <img src="{{ addSerieForm.value.pictureUrlXS }}" alt="" class="w-full h-full object-cover rounded" />
+        <img
+          *ngIf="!addSerieForm.value.pictureUrlXS"
+          src="assets/imgPreview.jpg"
+          alt="Preview"
+          class="w-full h-full object-cover rounded"
+        />
+        <img
+          *ngIf="addSerieForm.value.pictureUrlXS"
+          [src]="addSerieForm.value.pictureUrlXS"
+          alt="Selected Image"
+          class="w-full h-full object-cover rounded"
+        />
       </div>
     </div>
   </div>
