@@ -38,76 +38,85 @@ option {
     background-color: rgba(255, 255, 255, 0.093);
     border-radius: 15px;
     width: 90%;
+    height: 15rem;
     color: white;
     box-shadow: 1px -1.5px 0px 0px rgba(255, 255, 255, 0.33);
     -webkit-box-shadow: 1px -1.5px 0px 0px rgba(255,255,255,0.33);
     -moz-box-shadow: 1px -1.5px 0px 0px rgba(255,255,255,0.33);
     margin-top: 1rem;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.card_title {
-    display: flex;
-    font-size: 1.3rem;
-    overflow: hidden;
+.episode_title {
+    width: calc(100% - (1rem * 2));
+    height: 15%;
     margin: 0.75rem 1rem;
-}
-
-.card_title > span:nth-child(1) {
-    margin-right: 0.5rem;
-}
-
-.card_title > span:nth-child(2) {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.info_card {
     display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
-.image_container {
-    width: 35%;
-    margin: 0rem 1rem 1rem 1rem;
+.episode_infos {
+    width: calc(100% - (1rem * 2));
+    height: 85%;
+    margin: 0rem 1rem 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.image_container > img {
+.episode_second_info {
+    display: flex;
     width: 100%;
+    height: 80%;
+}
+
+.episode_thumbnail {
     height: 100%;
+    width: 14rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 15px;
 }
 
-.info_card_right {
+.episode_description {
+    width: calc(100% - (14rem - 1rem));
+    height: 100%;
+    margin-left: 1rem;
     display: flex;
-    width: 65%;
     flex-direction: column;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
 }
 
-.info_card_right_desc {
+.episode_description_first {
     width: 100%;
-    height: 70%;
-    overflow: scroll;
-}
-
-.input_div {
-    width: 100%;
-    height: 30%;
+    height: 100%;
     display: flex;
-    flex-direction: column-reverse;
+    text-indent: 16px;
 }
 
-.input_div_in {
+.episode_description_first > p {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.episode_date_check {
+    width: 100%;
+    height: 15%;
+    display: flex;
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
 }
 
-.input_div_in > input {
+.episode_date_check > input {
+    scale: 1.5;
     cursor: pointer;
-    scale: 2;
-    margin: 0.25rem;
+    margin-right: 0.5rem;
 }
 
 ::-webkit-scrollbar {
@@ -116,4 +125,27 @@ option {
 
 select {
   text-indent: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .card_episode {
+        height: 10rem;
+    }
+    .episode_title {
+        margin: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    .episode_second_info {
+        height: 65%;
+    }
+    .episode_thumbnail {
+        height: 100%;
+        width: 9rem;
+    }
+    .episode_description {
+        margin-left: 0.5rem;
+        width: calc(100% - (9rem - 0.5rem));
+        font-size: 0.8rem;
+        height: 90%;
+    }
 }
