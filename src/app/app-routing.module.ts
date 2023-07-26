@@ -36,7 +36,8 @@ const routes: Routes = [
     children: [
       { path: 'main', component: MainComponent, outlet: 'dashboardOutlet' },
       { path: 'serie-list', component: SerieListComponent, outlet: 'dashboardOutlet' },
-      { path: 'add-serie', component: AddSerieComponent, outlet: 'dashboardOutlet' },
+      { path: 'serie', component: AddSerieComponent, outlet: 'dashboardOutlet' },
+      { path: 'serie/:id', component: AddSerieComponent, outlet: 'dashboardOutlet' },
       { path: 'categories', component: CategoriesComponent, outlet: 'dashboardOutlet' },
       { path: 'users', component: UsersComponent, outlet: 'dashboardOutlet' },
     ],
