@@ -17,20 +17,22 @@
                 <img class="h-full w-full rounded-full object-cover" [src]="actor.pictureUrl" [alt]="actor.firstName" />
               </div>
             </td>
-            <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 truncate">{{ actor.firstName }} {{ actor.lastName }}</td>
+            <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 truncate">
+              {{ actor.firstName }} {{ actor.lastName }}
+            </td>
             <td class="flex items-center py-6">
-                <ng-container>
-                    <button
-                    class="text-sm border border-border bg-dry flex-rows gap-2 text-border rounded py-2 px-2"
-                    (click)="openUpdateModal(actor)"
-                    >
-                    Edit
-                    <mat-icon class="text-sm text-green-500 border-2 border-green-500 rounded-md">edit</mat-icon>
-                    </button>
-                    <button (click)="deleteCategory(actor)" class="bg-[#fe5388] ml-3 text-white rounded flex-colo w-8 h-8">
-                    <mat-icon class="text-white">delete</mat-icon>
-                    </button>
-                </ng-container>
+              <ng-container>
+                <button
+                  class="text-sm border border-border bg-dry flex-rows gap-2 text-border rounded py-2 px-2"
+                  (click)="openUpdateModal(actor)"
+                >
+                  Edit
+                  <mat-icon class="text-sm text-green-500 border-2 border-green-500 rounded-md">edit</mat-icon>
+                </button>
+                <button (click)="deleteCategory(actor)" class="bg-[#fe5388] ml-3 text-white rounded flex-colo w-8 h-8">
+                  <mat-icon class="text-white">delete</mat-icon>
+                </button>
+              </ng-container>
             </td>
           </tr>
         </tbody>
@@ -56,20 +58,22 @@
                 <img class="h-full w-full rounded-full object-cover" [src]="actor.pictureUrl" [alt]="actor.firstName" />
               </div>
             </td>
-            <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 truncate">{{ actor.firstName }} {{ actor.lastName }}</td>
+            <td class="text-sm text-left leading-6 whitespace-nowrap px-5 py-3 truncate">
+              {{ actor.firstName }} {{ actor.lastName }}
+            </td>
             <td class="flex items-center py-6">
-                <ng-container>
-                    <button
-                    class="text-sm border border-border bg-dry flex-rows gap-2 text-border rounded py-2 px-2"
-                    (click)="openUpdateModal(actor)"
-                    >
-                    Edit
-                    <mat-icon class="text-sm text-green-500 border-2 border-green-500 rounded-md">edit</mat-icon>
-                    </button>
-                    <button (click)="deleteCategory(actor)" class="bg-[#fe5388] ml-3 text-white rounded flex-colo w-8 h-8">
-                    <mat-icon class="text-white">delete</mat-icon>
-                    </button>
-                </ng-container>
+              <ng-container>
+                <button
+                  class="text-sm border border-border bg-dry flex-rows gap-2 text-border rounded py-2 px-2"
+                  (click)="openUpdateModal(actor)"
+                >
+                  Edit
+                  <mat-icon class="text-sm text-green-500 border-2 border-green-500 rounded-md">edit</mat-icon>
+                </button>
+                <button (click)="deleteCategory(actor)" class="bg-[#fe5388] ml-3 text-white rounded flex-colo w-8 h-8">
+                  <mat-icon class="text-white">delete</mat-icon>
+                </button>
+              </ng-container>
             </td>
           </tr>
         </tbody>
