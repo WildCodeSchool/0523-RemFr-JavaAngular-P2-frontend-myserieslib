@@ -11,15 +11,19 @@ export class CategoriesService {
   constructor(public http: HttpClient) {}
 
   getCategories(): Observable<ICategories[]> {
-    return this.http.get<ICategories[]>(environment.baseApiUrl + '/api/categories');
+    return this.http.get<ICategories[]>(environment.baseApiUrl + '/api/categories/allCategories');
   }
 
-  deleteCategory(category: ICategories): Observable<ICategories[]> {
-    return this.http.delete<ICategories[]>(environment.baseApiUrl + '/api/categories/' + category.id);
+  deleteCategory(categoryId: string): Observable<ICategories> {
+    return this.http.delete<ICategories>(environment.baseApiUrl + '/api/categories/' + categoryId);
   }
 
-  postCategory(category: ICategories): Observable<ICategories[]> {
-    return this.http.post<ICategories[]>(environment.baseApiUrl + '/api/categories', category);
+  updateCategory(category: ICategories): Observable<ICategories[]> {
+    return this.http.put<ICategories[]>(environment.baseApiUrl + '/api/categories/' + category.id, category);
+  }
+
+  postCategory(categoryName: string): Observable<ICategories[]> {
+    return this.http.post<ICategories[]>(environment.baseApiUrl + '/api/categories', categoryName);
   }
 
   getCategoriesWithSeries(): Observable<ICategories[]> {

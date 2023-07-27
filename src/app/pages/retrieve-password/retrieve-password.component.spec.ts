@@ -8,9 +8,8 @@ describe('RetrievePasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RetrievePasswordComponent ]
-    })
-    .compileComponents();
+      declarations: [RetrievePasswordComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RetrievePasswordComponent);
     component = fixture.componentInstance;

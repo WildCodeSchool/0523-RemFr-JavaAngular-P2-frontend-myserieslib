@@ -1,7 +1,7 @@
 <div class="relative" [class.open]="open" (click)="open = false">
   <button type="button" class="btn btn-ghost btn-circle avatar mr-3" (click)="open = !open; $event.stopPropagation()">
     <div class="btn-msl h-8 before:rounded-full after:h-[5rem]">
-      <img [src]="user.pictureUrl" alt="avatar" class="rounded-full w-full h-full">
+      <img [src]="user.pictureUrl" alt="avatar" class="rounded-full w-full h-full" />
     </div>
   </button>
   <ul *ngIf="open" class="absolute ml-[-2rem] mt-2 text-xs text-white shadow bg-base-100 rounded-box w-[10rem]">

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ISeries } from 'src/app/utils/interface';
 import { TrendingsService } from 'src/app/services/trendings/trendings.service';
+import { SeriesService } from 'src/app/services/series/series.service';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-main',
@@ -31,7 +34,12 @@ export class MainComponent implements OnInit {
 
   seriesTrending: ISeries[] = [];
 
-  constructor(public trendingService: TrendingsService) {}
+  constructor(
+    public trendingService: TrendingsService,
+    public seriesService: SeriesService,
+    public categoriesService: CategoriesService,
+    public userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.trendingService.getTrendings().subscribe((data) => {
@@ -39,6 +47,15 @@ export class MainComponent implements OnInit {
         serie.releaseDate = new Date(serie.releaseDate).getFullYear().toString();
         return serie;
       });
+    });
+    this.seriesService.getSeries().subscribe((series: ISeries[]) => {
+      this.DashboardData[0].total = series.length;
+    });
+    this.categoriesService.getCategories().subscribe((categories) => {
+      this.DashboardData[1].total = categories.length;
+    });
+    this.userService.getUser().subscribe((users) => {
+      this.DashboardData[2].total = users.length;
     });
   }
 }

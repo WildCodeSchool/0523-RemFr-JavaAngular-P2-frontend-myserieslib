@@ -5,14 +5,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-suggestions',
   templateUrl: './suggestions.component.html',
-  styleUrls: ['./suggestions.component.scss']
+  styleUrls: ['./suggestions.component.scss'],
 })
 export class SuggestionsComponent {
-  
   @Input() frequentCategories: ICategories[] = [];
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router) {}
 
   redirectToDetail(serie: ISeries) {
     this.router.navigate(['/detail', serie.id]);
@@ -31,5 +29,4 @@ export class SuggestionsComponent {
       },
     },
   };
-    
 }
