@@ -5,12 +5,13 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 import { ToastrService } from 'ngx-toastr';
 import { Store } from '@ngrx/store';
 import { selectUser } from 'src/app/services/store/user.reducer';
+
 @Component({
-  selector: 'app-btn-add',
-  templateUrl: './btn-add.component.html',
-  styleUrls: ['./btn-add.component.scss'],
+  selector: 'app-btn-add-desktop',
+  templateUrl: './btn-add-desktop.component.html',
+  styleUrls: ['./btn-add-desktop.component.scss'],
 })
-export class BtnAddComponent implements OnInit {
+export class BtnAddDesktopComponent implements OnInit {
   @Input() id = '';
   isAlreadyInLibrary = false;
 
@@ -23,7 +24,6 @@ export class BtnAddComponent implements OnInit {
   ) {}
 
   user: any = {};
-
   ngOnInit(): void {
     this.store.select(selectUser).subscribe((user) => {
       this.user = user;
@@ -33,6 +33,10 @@ export class BtnAddComponent implements OnInit {
         this.isAlreadyInLibrary = data.some((library) => library.serie.id === this.id);
       });
     }
+  }
+
+  redirectToSerie() {
+    this.router.navigate(['/detail', this.id]);
   }
 
   addSerieToLibrary() {

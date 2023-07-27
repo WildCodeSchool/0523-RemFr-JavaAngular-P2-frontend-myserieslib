@@ -59,6 +59,10 @@ body {
   transition: .3s!important;
 }
 
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .btn-msl:before {
   content: ""!important;
   position: absolute!important;
@@ -133,4 +137,20 @@ body {
 
 .mat-mdc-select {
   border-radius: 10px;
+}
+
+.mat-mdc-form-field-infix {
+  min-width: 4rem !important;
+}
+
+.mat-mdc-select-arrow svg {
+  color: white !important;
+}
+
+.mat-mdc-paginator-icon{
+  fill: rgb(170, 170, 170) !important;
+}
+
+.mat-mdc-paginator-container {
+  color: white !important;
 }

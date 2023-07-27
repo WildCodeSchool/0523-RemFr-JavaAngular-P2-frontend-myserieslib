@@ -42,8 +42,4 @@ export class HeaderComponent implements OnInit {
       },
     },
   };
-
-  redirectToDetail(id: string) {
-    this.router.navigate(['/detail', id]);
-  }
 }

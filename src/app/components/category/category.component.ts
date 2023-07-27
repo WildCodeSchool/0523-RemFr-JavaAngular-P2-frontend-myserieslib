@@ -9,6 +9,7 @@ import { ICategories, ISeries } from 'src/app/utils/interface';
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
+  
   @Input() categories: ICategories[] = [];
   @Input() seriesByCategory: { [category: string]: ISeries[] } = {};
 
@@ -28,9 +29,11 @@ export class CategoryComponent implements OnInit {
       });
     });
   }
+
   redirectToDetail(serie: ISeries) {
     this.router.navigate(['/detail', serie.id]);
   }
+  
   options = {
     type: 'loop',
     gap: '2rem',
@@ -45,4 +48,5 @@ export class CategoryComponent implements OnInit {
       },
     },
   };
+
 }

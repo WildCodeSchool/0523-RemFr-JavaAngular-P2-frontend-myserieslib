@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgMode
 import { MatIconModule } from '@angular/material/icon';
 import { NgxSplideModule } from 'ngx-splide';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -74,6 +75,9 @@ import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten
 import { EpisodeListComponent } from './components/dashboard/admin/episode-list/episode-list.component';
 import { EpisodeTableComponent } from './components/dashboard/table/episode-table/episode-table.component';
 import { AddEpisodeComponent } from './components/dashboard/admin/add-episode/add-episode.component';
+import { KeepWatchingComponent } from './components/keep-watching/keep-watching.component';
+import { CommentsComponent } from './components/dashboard/admin/comments/comments.component';
+import { BtnAddDesktopComponent } from './components/UI/btn-add-desktop/btn-add-desktop.component';
 
 @NgModule({
   declarations: [
@@ -136,6 +140,9 @@ import { AddEpisodeComponent } from './components/dashboard/admin/add-episode/ad
     EpisodeListComponent,
     EpisodeTableComponent,
     AddEpisodeComponent,
+    KeepWatchingComponent,
+    CommentsComponent,
+    BtnAddDesktopComponent,
   ],
 
   imports: [
@@ -150,6 +157,7 @@ import { AddEpisodeComponent } from './components/dashboard/admin/add-episode/ad
     HttpClientModule,
     MatIconModule,
     NgxSplideModule,
+    MatPaginatorModule,
     MatFormFieldModule,
     StoreModule.forRoot({ userState: reducer }),
     ToastrModule.forRoot(),
