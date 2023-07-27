@@ -42,8 +42,10 @@ export interface ILibraries {
 
 export interface IComment {
   comment: string;
-  userUsername: string;
+  userNickname: string;
   score: number | null;
+  serieName: string;
+  id: string;
 }
 
 export interface IEpisode {

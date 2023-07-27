@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICategories, IComment, ILibraries, UserJWT } from 'src/app/utils/interface';
+import { ICategories, IComment, ILibraries, ISeries, UserJWT } from 'src/app/utils/interface';
 import { selectUser } from '../store/user.reducer';
 import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
@@ -44,6 +44,14 @@ export class LibrariesService {
     return this.http.get<IComment[]>(`${this.url}/${id}/comments`);
   }
 
+  getCommentsWithLimit(pages: number, limit: number): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`${this.url}/filtered?page=${pages}&size=${limit}`);
+  }
+
+  deleteComment(id: string): Observable<void> {
+    return this.http.put<void>(`${this.url}/${id}`, {});
+  }
+
   getUserSerieDetails(id: string): Observable<ILibraries> {
     return this.http.get<ILibraries>(`${this.url}/series/${id}`);
   }
@@ -76,5 +84,9 @@ export class LibrariesService {
     return this.http.get<ICategories[]>(
       `${environment.baseApiUrl}/api/libraries/users/${userId}/frequent-categories?limit=${limit}`
     );
+  }
+
+  getSeriesInProgress(userId: string): Observable<ISeries[]> {
+    return this.http.get<ISeries[]>(`${environment.baseApiUrl}/api/libraries/in-progress?userId=${userId}`);
   }
 }

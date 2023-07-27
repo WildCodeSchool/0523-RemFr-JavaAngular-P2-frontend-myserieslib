@@ -20,17 +20,17 @@ export class SideBarComponent {
       icon: 'dashboard',
     },
     {
-      name: 'Series List',
+      name: 'Liste des séries',
       link: 'serie-list',
       icon: 'movie_filter',
     },
     {
-      name: 'Add Serie',
+      name: 'Ajouter une série',
       link: 'serie',
       icon: 'library_add',
     },
     {
-      name: 'Categories',
+      name: 'Catégories',
       link: 'categories',
       icon: 'library_books',
     },
@@ -40,9 +40,19 @@ export class SideBarComponent {
       icon: 'recent_actors',
     },
     {
-      name: 'Users',
+      name: 'Actors',
+      link: 'actors',
+      icon: 'recent_actors',
+    },
+    {
+      name: 'Utilisateurs',
       link: 'users',
       icon: 'supervisor_account',
+    },
+    {
+      name: 'Commentaires',
+      link: 'comments',
+      icon: 'notes',
     },
   ];
 

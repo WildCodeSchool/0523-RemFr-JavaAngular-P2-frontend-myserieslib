@@ -19,6 +19,7 @@ import { AuthGuard } from './core/auth.guard';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
 import { AdminGuard } from './core/admin.guard';
+import { CommentsComponent } from './components/dashboard/admin/comments/comments.component';
 import { ActorsComponent } from './components/dashboard/admin/actors/actors.component';
 
 const routes: Routes = [
@@ -42,6 +43,7 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent, outlet: 'dashboardOutlet' },
       { path: 'actors', component: ActorsComponent, outlet: 'dashboardOutlet' },
       { path: 'users', component: UsersComponent, outlet: 'dashboardOutlet' },
+      { path: 'comments', component: CommentsComponent, outlet: 'dashboardOutlet' },
     ],
   },
   { path: 'profile', component: ProfileComponent },
