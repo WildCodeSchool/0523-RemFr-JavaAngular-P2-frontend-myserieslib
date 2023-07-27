@@ -40,17 +40,17 @@
       />
       <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
         <ng-container *ngIf="imageActor || actor?.pictureUrl">
-            <img
+          <img
             [src]="imageActor || actor?.pictureUrl"
             alt="Selected Image"
             class="w-full h-full object-cover rounded"
-            />
+          />
         </ng-container>
         <img
-            *ngIf="!imageActor && !actor?.pictureUrl"
-            src="assets/imgPreview.png"
-            alt="Preview"
-            class="w-full h-full object-cover rounded"
+          *ngIf="!imageActor && !actor?.pictureUrl"
+          src="assets/imgPreview.png"
+          alt="Preview"
+          class="w-full h-full object-cover rounded"
         />
       </div>
     </div>
@@ -62,4 +62,3 @@
     </button>
   </form>
 </div>
-

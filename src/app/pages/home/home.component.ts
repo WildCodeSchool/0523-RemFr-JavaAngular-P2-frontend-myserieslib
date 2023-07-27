@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
       const decoded: any = jwt_decode(jwt);
       const userId = decoded.sub;
       this.libraryService.getSeriesInProgress(userId).subscribe((progress) => {
-      this.keepWatching = progress;
+        this.keepWatching = progress;
       });
     }
   }

@@ -3,7 +3,6 @@ import { ICategories } from 'src/app/utils/interface';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { ToastrService } from 'ngx-toastr';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-table',
@@ -15,12 +14,8 @@ export class CategoryTableComponent {
   @Output() updateCategoryEvent = new EventEmitter<ICategories>();
 
   constructor(
-    
     private modalService: ModalService,
-   
     private categoriesService: CategoriesService,
-    private toastr: ToastrService
-  ,
     private toastr: ToastrService
   ) {}
 
@@ -30,7 +25,7 @@ export class CategoryTableComponent {
         this.updateCategoryEvent.emit();
       },
       (error) => {
-        console.error('Error deleting category:', error);
+        this.toastr.error(error.error.message);
       }
     );
   }

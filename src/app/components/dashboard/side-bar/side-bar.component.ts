@@ -40,11 +40,6 @@ export class SideBarComponent {
       icon: 'recent_actors',
     },
     {
-      name: 'Actors',
-      link: 'actors',
-      icon: 'recent_actors',
-    },
-    {
       name: 'Utilisateurs',
       link: 'users',
       icon: 'supervisor_account',

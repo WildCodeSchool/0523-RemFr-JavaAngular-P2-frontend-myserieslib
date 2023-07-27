@@ -8,9 +8,8 @@ describe('BtnAddDesktopComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BtnAddDesktopComponent ]
-    })
-    .compileComponents();
+      declarations: [BtnAddDesktopComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BtnAddDesktopComponent);
     component = fixture.componentInstance;
