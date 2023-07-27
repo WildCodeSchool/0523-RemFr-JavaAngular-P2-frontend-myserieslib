@@ -12,4 +12,12 @@ export class ActorsTableComponent {
   get half(): number {
     return Math.ceil(this.actors.length / 2);
   }
+
+  openUpdateModal(actor: IActors): void {
+    console.log(actor);
+  }
+
+  deleteCategory(actor: IActors): void {
+    console.log(actor);
+  }
 }

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IUser } from 'src/app/utils/interface';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-users-table',
@@ -8,4 +9,17 @@ import { IUser } from 'src/app/utils/interface';
 })
 export class UsersTableComponent {
   @Input() users: IUser[] = [];
+  @Output() updateUser = new EventEmitter<IUser>();
+  constructor(private userService: UserService) {}
+
+  deleteUser(user: IUser): void {
+    this.userService.deleteUser(user.id).subscribe(
+      () => {
+        this.updateUser.emit();
+      },
+      (error) => {
+        console.error('Error deleting user:', error);
+      }
+    );
+  }
 }

@@ -19,4 +19,8 @@ export class ActorsComponent implements OnInit {
       this.totalActors = actors.length;
     });
   }
+
+  openAddModal(): void {
+    console.log('openAddModal');
+  }
 }

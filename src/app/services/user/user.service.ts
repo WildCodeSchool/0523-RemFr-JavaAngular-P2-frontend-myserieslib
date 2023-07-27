@@ -129,4 +129,12 @@ export class UserService {
     this.http.get(`${environment.baseApiUrl}/api/users/retrievePassword/${email}`).subscribe();
     this.toaster.success('Un email vous a été envoyé');
   }
+
+  findUserByNickname(nickname: string): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.baseApiUrl}/api/users/find/${nickname}`);
+  }
+
+  deleteUser(id: string): Observable<IUser> {
+    return this.http.delete<IUser>(environment.baseApiUrl + '/api/users/' + id);
+  }
 }
