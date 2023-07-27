@@ -1,3 +1,4 @@
-<button class="btn-msl flex items-center before:rounded-full p-1 cursor-pointer gap-3">
-  <mat-icon class="font-bold text-black bg-white rounded-[50%] ">add_circle_outline</mat-icon>
+<button [ngClass]="{'hidden': isAlreadyInLibrary}" class="btn-msl flex items-center before:rounded-full p-1 cursor-pointer gap-3" (click)="addSerieToLibrary()">
+  <mat-icon class="font-bold text-black bg-white rounded-[50%] text-shadow">add_circle_outline</mat-icon>
 </button>
+

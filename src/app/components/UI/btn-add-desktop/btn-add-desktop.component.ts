@@ -1,21 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';
-
 @Component({
-  selector: 'app-btn-add',
-  templateUrl: './btn-add.component.html',
-  styleUrls: ['./btn-add.component.scss'],
+  selector: 'app-btn-add-desktop',
+  templateUrl: './btn-add-desktop.component.html',
+  styleUrls: ['./btn-add-desktop.component.scss'],
 })
-export class BtnAddComponent implements OnInit {
+export class BtnAddDesktopComponent implements OnInit {
   @Input() id = '';
   isAlreadyInLibrary = true;
 
-  constructor(private libraryService: LibrariesService) {}
+  constructor(private libraryService: LibrariesService, private router: Router) {}
 
   ngOnInit(): void {
     this.libraryService.getLibraries().subscribe((data) => {
       this.isAlreadyInLibrary = data.some((library) => library.serie.id === this.id);
     });
+  }
+
+  redirectToSerie() {
+    this.router.navigate(['/detail', this.id]);
   }
 
   addSerieToLibrary() {
