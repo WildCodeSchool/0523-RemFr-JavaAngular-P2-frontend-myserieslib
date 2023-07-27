@@ -20,24 +20,29 @@ export class SideBarComponent {
       icon: 'dashboard',
     },
     {
-      name: 'Series List',
+      name: 'Liste des séries',
       link: 'serie-list',
       icon: 'movie_filter',
     },
     {
-      name: 'Add Serie',
+      name: 'Ajouter une série',
       link: 'serie',
       icon: 'library_add',
     },
     {
-      name: 'Categories',
+      name: 'Catégories',
       link: 'categories',
       icon: 'library_books',
     },
     {
-      name: 'Users',
+      name: 'Utilisateurs',
       link: 'users',
       icon: 'supervisor_account',
+    },
+    {
+      name: 'Commentaires',
+      link: 'comments',
+      icon: 'notes',
     },
   ];
 
