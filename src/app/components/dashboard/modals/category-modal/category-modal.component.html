@@ -1,19 +1,26 @@
-<!-- <div class="h-40 bg-indigo-900 bg-opacity-75"> -->
-<div class="flex flex-col items-center bg-zinc-800 border border-gray-400 w-full p-10 h-full text-white rounded-md overflow-hidden">
-    <h2 class="text-3xl font-bold">{{ category ? 'Update' : 'Create' }}</h2>
-    <form class="flex flex-col gap-6 text-left mt-6">
-      <div class="mb-4">
-        <label class="block text-sm font-medium text-white">Category Name</label>
-        <input
-          placeholder="{{ category ? category.name : 'Add new category' }}"
-          type="text"
-          appGlass
-          [(ngModel)]="categoryName"
-          class="w-full outline-none mt-1 p-2 text-sm text-white bg-main border border-border rounded"
-        />
-      </div>
-      <button (click)="submitCategory()" class="btn-msl w-full flex-rows gap-4 py-1 text-lg before:rounded-xl after:hidden text-white">
-        {{ category ? 'Update' : 'Add' }}
-      </button>
-    </form>
+<div
+  class="flex flex-col items-center bg-zinc-800 border border-gray-400 w-full p-10 h-full text-white rounded-md overflow-hidden"
+>
+  <h2 class="text-3xl font-bold">{{ category ? 'Update' : 'Create' }}</h2>
+  <form class="flex flex-col gap-6 text-left mt-6">
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-white">Category Name</label>
+      <!-- Add an input field and bind it to the categoryName property using ngModel -->
+      <input
+        matInput
+        placeholder="{{ category ? category.name : 'Add new category' }}"
+        type="text"
+        appGlass
+        [(ngModel)]="categoryName"
+        name="categoryName"
+        class="w-full outline-none mt-1 p-2 text-sm text-white bg-main border border-border rounded"
+      />
+    </div>
+    <button
+      (click)="submitCategory()"
+      class="btn-msl w-full flex-rows gap-4 py-1 text-lg before:rounded-xl after:hidden text-white"
+    >
+      {{ category ? 'Update' : 'Add' }}
+    </button>
+  </form>
 </div>

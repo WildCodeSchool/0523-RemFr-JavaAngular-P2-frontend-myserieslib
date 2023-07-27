@@ -9,8 +9,6 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 })
 export class CategoriesComponent implements OnInit {
   categories: ICategories[] = [];
-  selectedCategory?: ICategories;
-  categoryName = '';
   totalCategories = 0;
 
   constructor(public categoriesService: CategoriesService, private modalService: ModalService) {}
@@ -22,7 +20,13 @@ export class CategoriesComponent implements OnInit {
     });
   }
 
-  openCategoryModal(category?: ICategories): void {
-    this.modalService.openCategoryModal((result: any) => {});
+  openAddModal(): void {
+    this.modalService.openCategoryModal(() => {
+      this.ngOnInit();
+    });
+  }
+
+  onCategoryDeleted(): void {
+    this.ngOnInit();
   }
 }

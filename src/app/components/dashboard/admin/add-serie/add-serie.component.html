@@ -1,150 +1,141 @@
 <form class="flex text-white flex-col gap-6" [formGroup]="addSerieForm" (ngSubmit)="onSubmit()">
-    <h2 class="text-xl font-bold">{{title}}</h2>
-    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <label class="block text-gray-200" for="serieTitle">Titre</label>
-            <input
-            class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
-            type="text"
-            appGlass
-            id="serieTitle"
-            placeholder="Ajouter un titre"
-            formControlName="name"
-            />
-        </div>
-
-        <div>
-            <label class="text-gray-200 flex">Statut</label>
-            <div class="mt-1 flex">
-            <div class="flex items-center w-[10rem] pl-4 border border-gray-500 rounded-md" appGlass>
-                <input
-                type="checkbox"
-                formControlName="isCompleted"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600"
-                />
-                <label class="w-full py-4 ml-2 text-sm font-medium text-gray-300 dark:text-gray-300">Terminée</label>
-            </div>
-            </div>
-        </div>
-    </div>
-    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <label class="block text-gray-200" for="producer">Producteur</label>
-            <input
-            class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
-            type="text"
-            appGlass
-            id="producer"
-            formControlName="producer"
-            placeholder="Ajouter un producteur"
-            />
-        </div>
-
-        <div>
-            <label class="block text-gray-200" for="releaseDate">Date de sortie</label>
-            <input
-            class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
-            type="date"
-            appGlass
-            id="releaseDate"
-            formControlName="releaseDate"
-            placeholder="Ajouter une date de sortie"
-            />
-        </div>
-    </div>
-    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="flex flex-col gap-2">
-            <p class="text-border font-semibold text-sm">
-            Image XL
-            </p>
-            <input
-            class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
-            type="text"
-            appGlass
-            id="pictureUrlXl"
-            formControlName="pictureUrlXL"
-            placeholder="Ajouter une image"
-            />
-            <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
-                <img
-                    src="{{addSerieForm.value.pictureUrlXL}}"
-                    alt=""
-                    class="w-full h-full object-cover rounded"
-                />
-            </div>
-        </div>
-
-        <div class="flex flex-col gap-2">
-            <p class="text-border font-semibold text-sm">
-            Image XS
-            </p>
-            <input
-            class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
-            type="text"
-            appGlass
-            id="pictureUrlXs"
-            formControlName="pictureUrlXS"
-            placeholder="Ajouter une image"
-            />
-            <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
-                <img
-                    src="{{addSerieForm.value.pictureUrlXS}}"
-                    alt=""
-                    class="w-full h-full object-cover rounded"
-                />
-            </div>
-        </div>
-    </div>
-    <div class="w-full gap-6 text-white">
-        <label for="description" class="block mb-2 text-sm font-medium">Description</label>
-        <textarea id="description" rows="4" formControlName="description" class="block p-2.5 w-full text-sm rounded-lg border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Write serie description here..." appGlass></textarea>
+  <h2 class="text-xl font-bold">{{ title }}</h2>
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label class="block text-gray-200" for="serieTitle">Titre</label>
+      <input
+        class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+        type="text"
+        appGlass
+        id="serieTitle"
+        placeholder="Ajouter un titre"
+        formControlName="name"
+      />
     </div>
 
-    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <label for="category" class="block mb-2 text-sm font-medium">Catégories</label>
-            <mat-select formControlName="category" [compareWith]="compareCategories"  multiple appGlass class="text-white">
-              <mat-option *ngFor="let category of categories" [value]="category" class="text-white">{{category.name}}</mat-option>
-            </mat-select>
+    <div>
+      <label class="text-gray-200 flex">Statut</label>
+      <div class="mt-1 flex">
+        <div class="flex items-center w-[10rem] pl-4 border border-gray-500 rounded-md" appGlass>
+          <input
+            type="checkbox"
+            formControlName="isCompleted"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600"
+          />
+          <label class="w-full py-4 ml-2 text-sm font-medium text-gray-300 dark:text-gray-300">Terminée</label>
         </div>
-        <div>
-            <label for="trailer" class="block mb-2 text-sm font-medium">Trailer</label>
-            <input
-                class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
-                type="text"
-                appGlass
-                id="trailer"
-                formControlName="trailerURL"
-                placeholder="Ajouter un lien vers le trailer"
-            />
-        </div>
+      </div>
     </div>
-    <div class="w-full grid lg:grid-cols-2 gap-6 items-start">
-      <mat-select formControlName="actors" multiple appGlass [compareWith]="compareActors" class="text-white">
-        <mat-option *ngFor="let actor of actors" [value]="actor" class="text-white">{{actor.firstName + ' ' + actor.lastName}}</mat-option>
+  </div>
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label class="block text-gray-200" for="producer">Producteur</label>
+      <input
+        class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+        type="text"
+        appGlass
+        id="producer"
+        formControlName="producer"
+        placeholder="Ajouter un producteur"
+      />
+    </div>
+
+    <div>
+      <label class="block text-gray-200" for="releaseDate">Date de sortie</label>
+      <input
+        class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+        type="date"
+        appGlass
+        id="releaseDate"
+        formControlName="releaseDate"
+        placeholder="Ajouter une date de sortie"
+      />
+    </div>
+  </div>
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="flex flex-col gap-2">
+      <p class="text-border font-semibold text-sm">Image XL</p>
+      <input
+        class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+        type="text"
+        appGlass
+        id="pictureUrlXl"
+        formControlName="pictureUrlXL"
+        placeholder="Ajouter une image"
+      />
+      <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
+        <img src="{{ addSerieForm.value.pictureUrlXL }}" alt="" class="w-full h-full object-cover rounded" />
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <p class="text-border font-semibold text-sm">Image XS</p>
+      <input
+        class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+        type="text"
+        appGlass
+        id="pictureUrlXs"
+        formControlName="pictureUrlXS"
+        placeholder="Ajouter une image"
+      />
+      <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
+        <img src="{{ addSerieForm.value.pictureUrlXS }}" alt="" class="w-full h-full object-cover rounded" />
+      </div>
+    </div>
+  </div>
+  <div class="w-full gap-6 text-white">
+    <label for="description" class="block mb-2 text-sm font-medium">Description</label>
+    <textarea
+      id="description"
+      rows="4"
+      formControlName="description"
+      class="block p-2.5 w-full text-sm rounded-lg border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+      placeholder="Write serie description here..."
+      appGlass
+    ></textarea>
+  </div>
+
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="category" class="block mb-2 text-sm font-medium">Catégories</label>
+      <mat-select formControlName="category" [compareWith]="compareCategories" multiple appGlass class="text-white">
+        <mat-option *ngFor="let category of categories" [value]="category" class="text-white">
+          {{ category.name }}
+        </mat-option>
       </mat-select>
-        <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-4 grid-cols-2 gap-4">
-            <ng-container *ngFor="let user of addSerieForm.value.actors; let i = index">
-            <div
-                class="p-2 italic text-xs text-text rounded flex-colo bg-main border border-gray-500"
-                appGlass
-            >
-                <img
-                [src]="user.pictureUrl"
-                [alt]="user.lastname"
-                class="w-full h-24 object-cover rounded mb-2"
-                />
-                <p>{{ user.firstName + ' ' + user.lastName }}</p>
-                <div class="flex-rows mt-2 w-full gap-2">
-                </div>
-            </div>
-            </ng-container>
+    </div>
+    <div>
+      <label for="trailer" class="block mb-2 text-sm font-medium">Trailer</label>
+      <input
+        class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+        type="text"
+        appGlass
+        id="trailer"
+        formControlName="trailerURL"
+        placeholder="Ajouter un lien vers le trailer"
+      />
+    </div>
+  </div>
+  <div class="w-full grid lg:grid-cols-2 gap-6 items-start">
+    <mat-select formControlName="actors" multiple appGlass [compareWith]="compareActors" class="text-white">
+      <mat-option *ngFor="let actor of actors" [value]="actor" class="text-white">
+        {{ actor.firstName + ' ' + actor.lastName }}
+      </mat-option>
+    </mat-select>
+    <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-4 grid-cols-2 gap-4">
+      <ng-container *ngFor="let user of addSerieForm.value.actors; let i = index">
+        <div class="p-2 italic text-xs text-text rounded flex-colo bg-main border border-gray-500" appGlass>
+          <img [src]="user.pictureUrl" [alt]="user.lastname" class="w-full h-24 object-cover rounded mb-2" />
+          <p>{{ user.firstName + ' ' + user.lastName }}</p>
+          <div class="flex-rows mt-2 w-full gap-2"></div>
         </div>
+      </ng-container>
     </div>
-    <div class="py-6 flex justify-center">
-        <button class="w-[70%] btn-msl flex-rows gap-6 font-medium text-white py-4 after:hidden before:rounded-full">
-            <mat-icon>unarchive</mat-icon>
-            Publier la série
-        </button>
-    </div>
-  </form>
+  </div>
+  <div class="py-6 flex justify-center">
+    <button class="w-[70%] btn-msl flex-rows gap-6 font-medium text-white py-4 after:hidden before:rounded-full">
+      <mat-icon>unarchive</mat-icon>
+      Publier la série
+    </button>
+  </div>
+</form>

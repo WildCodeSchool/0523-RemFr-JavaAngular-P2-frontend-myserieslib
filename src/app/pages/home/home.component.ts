@@ -41,16 +41,15 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getSuggestions():void{
+  getSuggestions(): void {
     const jwt = localStorage.getItem('jwt');
-    
+
     if (jwt) {
-      const decoded:any = jwt_decode(jwt);
+      const decoded: any = jwt_decode(jwt);
       const userId = decoded.sub;
-      this.libraryService.getSuggestions(userId).subscribe(res => {
+      this.libraryService.getSuggestions(userId).subscribe((res) => {
         this.suggestions = res;
       });
     }
-    
   }
 }
