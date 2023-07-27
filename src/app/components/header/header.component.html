@@ -21,21 +21,9 @@
           </div>
           <p class="hidden md:block relative text-base font-medium text-white mt-4 mb-6 text-shadow">{{ serie.description }}</p>
         </div>
-        <div class="md:flex hidden absolute p-10 w-[50rem] bottom-0 justify-around">
-          <button
-            class="btn-msl flex items-center before:rounded-2xl after:w-[50%] py-3 px-6 gap-3"
-            (click)="redirectToDetail(serie.id)"
-          >
-            <h2 class="text-white text-xl text-shadow">Bande annonce</h2>
-            <mat-icon class="text-black bg-white rounded-[50%]">play_circle_outline</mat-icon>
-          </button>
-          <button class="btn-msl flex items-center before:rounded-2xl py-2 px-4 ml-8 gap-3">
-            <h3 class="text-white text-xl text-shadow">Ajouter</h3>
-            <mat-icon class="font-bold text-black bg-white rounded-[50%]">add_circle_outline</mat-icon>
-          </button>
-        </div>
+            <app-btn-add-desktop [id]="serie.id" ></app-btn-add-desktop>
         <div class="md:hidden flex flex-row-reverse w-[100%] justify-around absolute p-10 bottom-0">
-          <app-btn-add class="flex-end"></app-btn-add>
+          <app-btn-add class="flex-end" [id]="serie.id"></app-btn-add>
           <app-btn-trailer [id]="serie.id"></app-btn-trailer>
         </div>
       </div>

@@ -87,8 +87,6 @@ export class LibrariesService {
   }
 
   getSeriesInProgress(userId: string): Observable<ISeries[]> {
-    return this.http.get<ISeries[]>(
-      `${environment.baseApiUrl}/api/libraries/in-progress?userId=${userId}`
-    );
+    return this.http.get<ISeries[]>(`${environment.baseApiUrl}/api/libraries/in-progress?userId=${userId}`);
   }
 }

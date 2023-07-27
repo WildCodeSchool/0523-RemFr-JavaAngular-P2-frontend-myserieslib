@@ -74,7 +74,7 @@ import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-pa
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
 import { KeepWatchingComponent } from './components/keep-watching/keep-watching.component';
 import { CommentsComponent } from './components/dashboard/admin/comments/comments.component';
-
+import { BtnAddDesktopComponent } from './components/UI/btn-add-desktop/btn-add-desktop.component';
 
 @NgModule({
   declarations: [
@@ -136,7 +136,7 @@ import { CommentsComponent } from './components/dashboard/admin/comments/comment
     ForgottenPasswordComponent,
     KeepWatchingComponent,
     CommentsComponent,
-
+    BtnAddDesktopComponent,
   ],
 
   imports: [
