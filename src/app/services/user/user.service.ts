@@ -19,7 +19,7 @@ export class UserService {
   isRedirectionAllowed = false;
 
   getUser(): Observable<IUser[]> {
-    return this.http.get<any[]>(environment.baseApiUrl + '/api/users').pipe(
+    return this.http.get<any[]>(environment.baseApiUrl + '/api/users/active').pipe(
       map((data) =>
         data.map((user) => ({
           ...user,

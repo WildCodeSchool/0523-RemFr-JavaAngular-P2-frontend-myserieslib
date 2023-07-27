@@ -73,6 +73,7 @@ import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-pa
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
 import { ActorsComponent } from './components/dashboard/admin/actors/actors.component';
 import { ActorsTableComponent } from './components/dashboard/table/actors-table/actors-table.component';
+import { ActorModalComponent } from './components/dashboard/modals/actor-modal/actor-modal.component';
 
 @NgModule({
   declarations: [
@@ -134,6 +135,7 @@ import { ActorsTableComponent } from './components/dashboard/table/actors-table/
     ForgottenPasswordComponent,
     ActorsComponent,
     ActorsTableComponent,
+    ActorModalComponent,
   ],
 
   imports: [

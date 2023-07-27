@@ -1,0 +1,65 @@
+<div
+  class="flex flex-col items-center bg-zinc-800 border border-gray-400 w-full p-10 h-full text-white rounded-md overflow-hidden"
+>
+  <h2 class="text-3xl font-bold">{{ actor ? 'Update' : 'Create' }}</h2>
+  <form class="flex flex-col gap-6 text-left mt-6">
+    <div class="mb-1">
+      <label class="block text-sm font-medium text-white">First Name</label>
+      <input
+        matInput
+        placeholder="{{ actor ? actor.firstName : 'Add first name' }}"
+        type="text"
+        appGlass
+        [(ngModel)]="firstNameActor"
+        name="firstNameActor"
+        class="w-full outline-none mt-1 p-2 text-sm text-white bg-main border border-border rounded"
+      />
+    </div>
+    <div class="mb-1">
+      <label class="block text-sm font-medium text-white">Last Name</label>
+      <input
+        matInput
+        placeholder="{{ actor ? actor.lastName : 'Add last name' }}"
+        type="text"
+        appGlass
+        [(ngModel)]="lastNameActor"
+        name="lastNameActor"
+        class="w-full outline-none mt-1 p-2 text-sm text-white bg-main border border-border rounded"
+      />
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-white">Avatar</label>
+      <input
+        matInput
+        placeholder="{{ actor ? actor.pictureUrl : 'Add link image' }}"
+        type="text"
+        appGlass
+        [(ngModel)]="imageActor"
+        name="imageActor"
+        class="w-full outline-none mt-1 p-2 text-sm text-white bg-main border border-border rounded"
+      />
+      <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
+        <ng-container *ngIf="imageActor || actor?.pictureUrl">
+            <img
+            [src]="imageActor || actor?.pictureUrl"
+            alt="Selected Image"
+            class="w-full h-full object-cover rounded"
+            />
+        </ng-container>
+        <img
+            *ngIf="!imageActor && !actor?.pictureUrl"
+            src="assets/imgPreview.png"
+            alt="Preview"
+            class="w-full h-full object-cover rounded"
+        />
+      </div>
+    </div>
+    <button
+      (click)="submitActor()"
+      class="btn-msl w-full flex-rows gap-4 py-1 text-lg before:rounded-xl after:hidden text-white"
+    >
+      {{ actor ? 'Update' : 'Add' }}
+    </button>
+  </form>
+</div>
+

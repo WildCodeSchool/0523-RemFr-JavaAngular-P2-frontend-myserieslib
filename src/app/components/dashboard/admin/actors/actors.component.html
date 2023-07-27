@@ -10,12 +10,14 @@
       </div>
     </div>
     <div class="flex flex-col items-center">
-      <form>
+      <form (ngSubmit)="onSubmit()">
         <div class="relative rounded-xl w-[100%] mb-8 border border-gray-400">
           <input
             class="outline-none w-[20rem] md:w-[30rem] text-white rounded-xl p-5 pl-10"
             matInput
             appGlass
+            [(ngModel)]="searchName"
+            name="searchName"
             placeholder="Rechercher un actor"
           />
           <mat-icon class="absolute m-0 top-5 left-2">search</mat-icon>
@@ -30,5 +32,5 @@
       </button>
     </div>
   </div>
-  <app-actors-table [actors]="actors"></app-actors-table>
+  <app-actors-table [actors]="actors" (updateActorEvent)="onActorUpdate()"></app-actors-table>
 </div>
