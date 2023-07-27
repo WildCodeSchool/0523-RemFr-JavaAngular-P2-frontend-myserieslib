@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgMode
 import { MatIconModule } from '@angular/material/icon';
 import { NgxSplideModule } from 'ngx-splide';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -72,6 +73,8 @@ import { HistoryCardComponent } from './components/history-card/history-card.com
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
 import { KeepWatchingComponent } from './components/keep-watching/keep-watching.component';
+import { CommentsComponent } from './components/dashboard/admin/comments/comments.component';
+
 
 @NgModule({
   declarations: [
@@ -132,6 +135,8 @@ import { KeepWatchingComponent } from './components/keep-watching/keep-watching.
     RetrievePasswordComponent,
     ForgottenPasswordComponent,
     KeepWatchingComponent,
+    CommentsComponent,
+
   ],
 
   imports: [
@@ -146,6 +151,7 @@ import { KeepWatchingComponent } from './components/keep-watching/keep-watching.
     HttpClientModule,
     MatIconModule,
     NgxSplideModule,
+    MatPaginatorModule,
     MatFormFieldModule,
     StoreModule.forRoot({ userState: reducer }),
     ToastrModule.forRoot(),

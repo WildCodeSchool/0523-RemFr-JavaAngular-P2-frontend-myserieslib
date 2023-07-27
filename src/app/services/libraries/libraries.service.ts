@@ -44,6 +44,14 @@ export class LibrariesService {
     return this.http.get<IComment[]>(`${this.url}/${id}/comments`);
   }
 
+  getCommentsWithLimit(pages: number, limit: number): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`${this.url}/filtered?page=${pages}&size=${limit}`);
+  }
+
+  deleteComment(id: string): Observable<void> {
+    return this.http.put<void>(`${this.url}/${id}`, {});
+  }
+
   getUserSerieDetails(id: string): Observable<ILibraries> {
     return this.http.get<ILibraries>(`${this.url}/series/${id}`);
   }
