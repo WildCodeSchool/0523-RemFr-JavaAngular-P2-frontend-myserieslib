@@ -71,6 +71,9 @@ import { LoginModalComponent } from './components/modal/login-modal/login-modal.
 import { HistoryCardComponent } from './components/history-card/history-card.component';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
+import { EpisodeListComponent } from './components/dashboard/admin/episode-list/episode-list.component';
+import { EpisodeTableComponent } from './components/dashboard/table/episode-table/episode-table.component';
+import { AddEpisodeComponent } from './components/dashboard/admin/add-episode/add-episode.component';
 
 @NgModule({
   declarations: [
@@ -130,6 +133,9 @@ import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten
     HistoryCardComponent,
     RetrievePasswordComponent,
     ForgottenPasswordComponent,
+    EpisodeListComponent,
+    EpisodeTableComponent,
+    AddEpisodeComponent,
   ],
 
   imports: [

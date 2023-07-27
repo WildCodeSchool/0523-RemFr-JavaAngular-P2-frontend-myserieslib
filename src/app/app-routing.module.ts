@@ -19,6 +19,8 @@ import { AuthGuard } from './core/auth.guard';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
 import { AdminGuard } from './core/admin.guard';
+import { EpisodeListComponent } from './components/dashboard/admin/episode-list/episode-list.component';
+import { AddEpisodeComponent } from './components/dashboard/admin/add-episode/add-episode.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,6 +42,8 @@ const routes: Routes = [
       { path: 'serie/:id', component: AddSerieComponent, outlet: 'dashboardOutlet' },
       { path: 'categories', component: CategoriesComponent, outlet: 'dashboardOutlet' },
       { path: 'users', component: UsersComponent, outlet: 'dashboardOutlet' },
+      { path: 'episode-list', component: EpisodeListComponent, outlet: 'dashboardOutlet' },
+      { path: 'episode', component: AddEpisodeComponent, outlet: 'dashboardOutlet' },
     ],
   },
   { path: 'profile', component: ProfileComponent },

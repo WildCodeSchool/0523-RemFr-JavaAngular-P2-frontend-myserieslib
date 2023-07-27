@@ -1,0 +1,26 @@
+<div class="text-white">
+  <div class="container_div">
+    <div class="flex justify-between mb-10">
+      <div appGlass class="p-4 rounded mt-5 h-20 bg-main border border-gray-500 grid grid-cols-4 gap-2">
+        <div [ngClass]="['col-span-1', 'rounded-full', 'h-12', 'w-12', 'flex-colo', 'bg-[#fe5388]']">
+          <mat-icon class="m-auto">movie_filter</mat-icon>
+        </div>
+        <div class="col-span-3">
+          <h2>Total Épisodes</h2>
+          <p class="mt-2 font-bold">{{ totalEpisodes }}</p>
+        </div>
+      </div>
+    </div>
+    <select
+      name="series"
+      id="series"
+      (change)="getFilteredEpisodes()"
+      [(ngModel)]="selectedSerie"
+      class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+    >
+      <option value="">-----</option>
+      <option [value]="serie.id" *ngFor="let serie of series">{{ serie.name }}</option>
+    </select>
+  </div>
+  <app-episode-table [episodes]="episodes" (episodeDeleted)="onDeleteEpisode($event)"></app-episode-table>
+</div>
