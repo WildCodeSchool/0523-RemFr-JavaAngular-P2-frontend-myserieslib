@@ -1,0 +1,26 @@
+<div class="my-8 text-white p-2"  *ngIf="seriesInProgress.length > 0" >
+    <h1 class="ml-4 text-2xl font-bold mb-4">Poursuivre la lecture </h1>
+    <splide [options]="options">
+      <splide-slide *ngFor="let serie of seriesInProgress">
+        <div class="relative h-[13rem] md:h-[18rem] overflow-hidden rounded-xl drop-shadow-lg card">
+          <div class="transition h-[100%] rounded-xl poster">
+            <img [src]="serie.pictureUrlXS" alt="{{ serie.name }}" class="w-[100%] h-[100%] object-cover rounded-xl" />
+          </div>
+          <div class="details absolute w-[100%] bottom-[-180px] flex flex-col items-center">
+            <h1 class="text-sm md:text-lg font-bold">{{ serie.name }}</h1>
+  
+            <div class="w-1/2 md:w-1/4 mx-auto md:mt-4">
+              <app-rating [rating]="serie.rating"></app-rating>
+            </div>
+            <p class="text-sm mb-5">{{ serie.releaseDate }}</p>
+            <div class="flex justify-center gap-4 mt-4">
+              <button class="btn-msl px-2 md:px-4 md:py-1 before:rounded-full" (click)="redirectToDetail(serie)">
+                Voir plus
+              </button>
+            </div>
+          </div>
+        </div>
+      </splide-slide>
+    </splide>
+  </div>
+  

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICategories, IComment, ILibraries, UserJWT } from 'src/app/utils/interface';
+import { ICategories, IComment, ILibraries, ISeries, UserJWT } from 'src/app/utils/interface';
 import { selectUser } from '../store/user.reducer';
 import { Store } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
@@ -83,6 +83,12 @@ export class LibrariesService {
   getSuggestions(userId: string, limit = 10): Observable<ICategories[]> {
     return this.http.get<ICategories[]>(
       `${environment.baseApiUrl}/api/libraries/users/${userId}/frequent-categories?limit=${limit}`
+    );
+  }
+
+  getSeriesInProgress(userId: string): Observable<ISeries[]> {
+    return this.http.get<ISeries[]>(
+      `${environment.baseApiUrl}/api/libraries/in-progress?userId=${userId}`
     );
   }
 }

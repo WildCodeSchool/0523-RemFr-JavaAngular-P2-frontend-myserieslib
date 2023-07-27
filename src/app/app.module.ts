@@ -72,7 +72,9 @@ import { LoginModalComponent } from './components/modal/login-modal/login-modal.
 import { HistoryCardComponent } from './components/history-card/history-card.component';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
+import { KeepWatchingComponent } from './components/keep-watching/keep-watching.component';
 import { CommentsComponent } from './components/dashboard/admin/comments/comments.component';
+
 
 @NgModule({
   declarations: [
@@ -132,7 +134,9 @@ import { CommentsComponent } from './components/dashboard/admin/comments/comment
     HistoryCardComponent,
     RetrievePasswordComponent,
     ForgottenPasswordComponent,
+    KeepWatchingComponent,
     CommentsComponent,
+
   ],
 
   imports: [
