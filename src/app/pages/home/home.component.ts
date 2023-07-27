@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   trendingSeries: ISeries[] = [];
   topRatedSeries: ISeries[] = [];
   suggestions: ICategories[] = [];
+  keepWatching: ISeries[] = [];
 
   constructor(public trendingsService: TrendingsService, private libraryService: LibrariesService) {}
 
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
     this.getTrendingSeries();
     this.getTopRatedSeries();
     this.getSuggestions();
+    this.getSeriesInProgress();
   }
 
   getTrendingSeries() {
@@ -47,8 +49,19 @@ export class HomeComponent implements OnInit {
     if (jwt) {
       const decoded: any = jwt_decode(jwt);
       const userId = decoded.sub;
-      this.libraryService.getSuggestions(userId).subscribe((res) => {
-        this.suggestions = res;
+      this.libraryService.getSuggestions(userId).subscribe((suggestion) => {
+        this.suggestions = suggestion;
+      });
+    }
+  }
+
+  getSeriesInProgress(): void {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      const decoded: any = jwt_decode(jwt);
+      const userId = decoded.sub;
+      this.libraryService.getSeriesInProgress(userId).subscribe((progress) => {
+      this.keepWatching = progress;
       });
     }
   }

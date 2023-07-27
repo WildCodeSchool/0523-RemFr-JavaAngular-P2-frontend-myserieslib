@@ -71,6 +71,7 @@ import { LoginModalComponent } from './components/modal/login-modal/login-modal.
 import { HistoryCardComponent } from './components/history-card/history-card.component';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
+import { KeepWatchingComponent } from './components/keep-watching/keep-watching.component';
 
 @NgModule({
   declarations: [
@@ -130,6 +131,7 @@ import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten
     HistoryCardComponent,
     RetrievePasswordComponent,
     ForgottenPasswordComponent,
+    KeepWatchingComponent,
   ],
 
   imports: [
