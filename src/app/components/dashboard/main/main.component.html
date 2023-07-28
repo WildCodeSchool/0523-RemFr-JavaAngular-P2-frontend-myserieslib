@@ -1,5 +1,5 @@
 <div class="text-white">
-  <h2 class="text-xl font-bold">Dashboard</h2>
+  <h2 class="text-xl font-bold">Tableau de bord</h2>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
     <div
       *ngFor="let data of DashboardData; let i = index"
@@ -15,6 +15,6 @@
       </div>
     </div>
   </div>
-  <h3 class="text-md font-medium my-6 text-border">Trending Series</h3>
+  <h3 class="text-md font-medium my-6 text-border">Séries tendances</h3>
   <app-serie-table [series]="seriesTrending"></app-serie-table>
 </div>
