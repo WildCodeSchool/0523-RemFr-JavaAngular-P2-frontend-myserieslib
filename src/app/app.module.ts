@@ -72,6 +72,9 @@ import { LoginModalComponent } from './components/modal/login-modal/login-modal.
 import { HistoryCardComponent } from './components/history-card/history-card.component';
 import { RetrievePasswordComponent } from './pages/retrieve-password/retrieve-password.component';
 import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
+import { EpisodeListComponent } from './components/dashboard/admin/episode-list/episode-list.component';
+import { EpisodeTableComponent } from './components/dashboard/table/episode-table/episode-table.component';
+import { AddEpisodeComponent } from './components/dashboard/admin/add-episode/add-episode.component';
 import { KeepWatchingComponent } from './components/keep-watching/keep-watching.component';
 import { CommentsComponent } from './components/dashboard/admin/comments/comments.component';
 import { BtnAddDesktopComponent } from './components/UI/btn-add-desktop/btn-add-desktop.component';
@@ -137,6 +140,9 @@ import { ActorModalComponent } from './components/dashboard/modals/actor-modal/a
     HistoryCardComponent,
     RetrievePasswordComponent,
     ForgottenPasswordComponent,
+    EpisodeListComponent,
+    EpisodeTableComponent,
+    AddEpisodeComponent,
     KeepWatchingComponent,
     CommentsComponent,
     BtnAddDesktopComponent,

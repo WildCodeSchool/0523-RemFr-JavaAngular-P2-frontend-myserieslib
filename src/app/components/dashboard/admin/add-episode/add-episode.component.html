@@ -1,0 +1,95 @@
+<form class="flex text-white flex-col gap-6" [formGroup]="episodeForm" (ngSubmit)="onSubmit()">
+  <h2 class="text-xl font-bold">Créer un épisode</h2>
+  <div>
+    <label class="block text-gray-200" for="serieSelect">Série</label>
+    <select
+      class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+      id="serieSelect"
+      formControlName="serieId"
+    >
+      <option value="">Sélectionner une série</option>
+      <option *ngFor="let serie of series" [value]="serie.id">{{ serie.name }}</option>
+    </select>
+  </div>
+  <div>
+    <label class="block text-gray-200" for="serieTitle">Titre</label>
+    <input
+      class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+      type="text"
+      appGlass
+      id="serieTitle"
+      placeholder="Ajouter un titre"
+      formControlName="title"
+    />
+  </div>
+  <div class="grid grid-cols-2 gap-6">
+    <div>
+      <label class="block text-gray-200" for="seasonNumber">Numéro de la saison</label>
+      <input
+        class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+        type="number"
+        appGlass
+        id="seasonNumber"
+        formControlName="seasonNumber"
+        placeholder="Numéro de la saison"
+      />
+    </div>
+    <div>
+      <label class="block text-gray-200" for="episodeNumber">Numéro de l'épisode</label>
+      <input
+        class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+        type="number"
+        appGlass
+        id="episodeNumber"
+        formControlName="episodeNumber"
+        placeholder="Numéro de l'épisode"
+      />
+    </div>
+  </div>
+  <div>
+    <label class="block text-gray-200" for="releaseDate">Date de sortie</label>
+    <input
+      class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+      type="date"
+      appGlass
+      id="releaseDate"
+      formControlName="releaseDate"
+      placeholder="Ajouter une date de sortie"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <p class="text-border font-semibold text-sm">Prévisualisation</p>
+    <input
+      class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+      type="text"
+      appGlass
+      id="thumbnail"
+      formControlName="thumbnail"
+      placeholder="Ajouter une image"
+    />
+    <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
+      <img
+        [src]="episodeForm.value.thumbnail"
+        [alt]="episodeForm.value.title"
+        class="w-full h-full object-cover rounded"
+      />
+    </div>
+  </div>
+  <div class="gap-6 text-white">
+    <label for="description" class="block mb-2 text-sm font-medium">Description</label>
+    <textarea
+      id="description"
+      rows="4"
+      formControlName="description"
+      class="block p-2.5 w-full text-sm rounded-lg border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
+      placeholder="Write serie description here..."
+      appGlass
+    ></textarea>
+  </div>
+  <div class="py-6 flex justify-center">
+    <button class="w-[70%] btn-msl flex-rows gap-6 font-medium text-white py-4 after:hidden before:rounded-full">
+      <mat-icon>unarchive</mat-icon>
+      Publier l'épisode
+    </button>
+  </div>
+</form>

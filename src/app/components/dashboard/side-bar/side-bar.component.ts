@@ -30,6 +30,16 @@ export class SideBarComponent {
       icon: 'library_add',
     },
     {
+      name: 'Liste des épisodes',
+      link: 'episode-list',
+      icon: 'movie_creation',
+    },
+    {
+      name: 'Ajouter un épisode',
+      link: 'episode',
+      icon: 'library_add',
+    },
+    {
       name: 'Catégories',
       link: 'categories',
       icon: 'library_books',
