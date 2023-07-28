@@ -19,11 +19,12 @@ export class AdminGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.store.select(selectUser).pipe(
       map((user) => {
-        if (user.role.name === 'admin') {
+        
+        
+        if (user?.role === 'admin') {
           return true;
         } else {
-          return true;
-          // return this.router.parseUrl('/'); Décommentez quand on aura fini de bosser sur le dashboard :)
+          return this.router.parseUrl('/');
         }
       })
     );
