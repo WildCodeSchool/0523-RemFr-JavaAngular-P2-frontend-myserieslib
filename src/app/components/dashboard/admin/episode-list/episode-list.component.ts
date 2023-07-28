@@ -13,12 +13,12 @@ export class EpisodeListComponent implements OnInit {
   totalEpisodes = 0;
   series: ISeries[] = [];
 
-  selectedSerie: string | null = null;
+  selectedSerie: string | null = 'Tous les épisodes';
 
   constructor(private episodesService: EpisodesService, private seriesService: SeriesService) {}
 
   getEpisode(): void {
-    if (this.selectedSerie === null || this.selectedSerie === 'all series') {
+    if (this.selectedSerie === null || this.selectedSerie === 'Tous les épisodes') {
       this.episodesService.getAllEpisodes().subscribe((res) => {
         this.episodes = res;
         this.totalEpisodes = this.episodes.length;

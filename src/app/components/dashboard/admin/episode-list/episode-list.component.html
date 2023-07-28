@@ -6,7 +6,7 @@
           <mat-icon class="m-auto">movie_filter</mat-icon>
         </div>
         <div class="col-span-3">
-          <h2>Total Épisodes</h2>
+          <h2>Épisodes</h2>
           <p class="mt-2 font-bold">{{ totalEpisodes }}</p>
         </div>
       </div>
@@ -18,7 +18,7 @@
       [(ngModel)]="selectedSerie"
       class="mt-1 p-4 w-full rounded-md border border-gray-500 outline-none focus:ring-blue-500 focus:border-blue-500"
     >
-      <option value="">-----</option>
+      <option value="Tous les épisodes">Tous les épisodes</option>
       <option [value]="serie.id" *ngFor="let serie of series">{{ serie.name }}</option>
     </select>
   </div>
