@@ -1,0 +1,13 @@
+.container_div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_div > select {
+    width: 50%;
+}
+
+select {
+    background: #484864;
+}
