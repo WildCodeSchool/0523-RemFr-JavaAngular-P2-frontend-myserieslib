@@ -35,6 +35,7 @@ export class UserService {
       const decoded: any = jwt_decode(jwt);
       const expirationDate = new Date(decoded.exp * 1000);
       if (expirationDate > new Date()) {
+    
         this.store.dispatch({ type: 'USER_JWT', payload: jwt });
         this.store.dispatch({
           type: 'USER',
@@ -42,6 +43,7 @@ export class UserService {
             nickname: localStorage.getItem('nickname'),
             pictureUrl: localStorage.getItem('pictureUrl'),
             email: localStorage.getItem('email'),
+            role: localStorage.getItem('role'),
           },
         });
       }
@@ -51,7 +53,7 @@ export class UserService {
   isJWTValid(JWT: string): boolean {
     const decoded: any = jwt_decode(JWT);
     const expirationDate = new Date(decoded.exp * 1000);
-    if (expirationDate > new Date()) {
+    if (expirationDate > new Date()) {   
       this.store.dispatch({ type: 'USER_JWT', payload: JWT });
     }
     return expirationDate > new Date();
@@ -66,6 +68,7 @@ export class UserService {
         localStorage.setItem('nickname', res.user.nickname);
         localStorage.setItem('pictureUrl', res.user.pictureUrl);
         localStorage.setItem('email', res.user.email);
+        localStorage.setItem('role', res.user.role.name);
         this.router.navigate(['/']);
       },
       (error: any) => {
