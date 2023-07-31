@@ -24,10 +24,10 @@ export class NavPcComponent implements OnInit {
     });
   }
 
-  onLogoClick(): void{
-    if(this.user.role.name === 'admin'){
+  onLogoClick(): void {
+    if (this.user.role.name === 'admin') {
       this.router.navigate(['/dashboard']);
-    } else{
+    } else {
       this.router.navigate(['/']);
     }
   }

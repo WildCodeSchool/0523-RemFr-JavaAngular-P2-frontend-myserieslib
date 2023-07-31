@@ -19,8 +19,6 @@ export class AdminGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.store.select(selectUser).pipe(
       map((user) => {
-        
-        
         if (user?.role === 'admin') {
           return true;
         } else {
