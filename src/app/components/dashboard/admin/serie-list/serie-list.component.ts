@@ -19,7 +19,7 @@ export class SerieListComponent implements OnInit {
 
     if ((!categories || categories.length === 0) && !search) {
       this.serieService.getSeries(search, undefined).subscribe((series: ISeries[]) => {
-        this.filterSeries(series, year, isCompleted, search, filter);
+        this.processSeriesData(series, year, isCompleted, search, filter);
       });
       return;
     }
@@ -31,7 +31,7 @@ export class SerieListComponent implements OnInit {
     forkJoin(seriesObservables).subscribe((seriesArray: ISeries[][] | unknown) => {
       if (Array.isArray(seriesArray)) {
         const mergedSeries = seriesArray.reduce((accumulator, currentSeries) => accumulator.concat(currentSeries), []);
-        this.filterSeries(mergedSeries, year, isCompleted, search, filter);
+        this.processSeriesData(mergedSeries, year, isCompleted, search, filter);
       }
     });
   }
@@ -81,14 +81,38 @@ export class SerieListComponent implements OnInit {
 
     return true;
   }
+  private processSeriesData(series: ISeries[], year: string, isCompleted: string, search: string, filter: string) {
+    const observables = series.map((series) => {
+      return this.serieService.getEpisodes(series.id);
+    });
+
+    forkJoin(observables).subscribe((dataArray) => {
+      dataArray.forEach((data, index) => {
+        const numbers = data.map((item) => item.seasonNumber);
+        series[index].season = Math.max(...numbers);
+        series[index].releaseDate = new Date(series[index].releaseDate).getFullYear().toString();
+        series[index].show = false;
+      });
+
+      this.filterSeries(series, year, isCompleted, search, filter);
+    });
+  }
 
   ngOnInit(): void {
     this.serieService.getSeries().subscribe((series: ISeries[]) => {
-      this.series = series.map((series) => {
-        series.releaseDate = new Date(series.releaseDate).getFullYear().toString();
-        return { ...series, show: false };
+      const observables = series.map((series) => {
+        return this.serieService.getEpisodes(series.id);
       });
-      this.totalSeries = this.series.length;
+      forkJoin(observables).subscribe((dataArray) => {
+        dataArray.forEach((data, index) => {
+          const numbers = data.map((item) => item.seasonNumber);
+          series[index].season = Math.max(...numbers);
+          series[index].releaseDate = new Date(series[index].releaseDate).getFullYear().toString();
+          series[index].show = false;
+        });
+        this.series = series;
+        this.totalSeries = series.length;
+      });
     });
   }
 }

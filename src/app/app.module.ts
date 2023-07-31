@@ -78,6 +78,9 @@ import { AddEpisodeComponent } from './components/dashboard/admin/add-episode/ad
 import { KeepWatchingComponent } from './components/keep-watching/keep-watching.component';
 import { CommentsComponent } from './components/dashboard/admin/comments/comments.component';
 import { BtnAddDesktopComponent } from './components/UI/btn-add-desktop/btn-add-desktop.component';
+import { ActorsComponent } from './components/dashboard/admin/actors/actors.component';
+import { ActorsTableComponent } from './components/dashboard/table/actors-table/actors-table.component';
+import { ActorModalComponent } from './components/dashboard/modals/actor-modal/actor-modal.component';
 
 @NgModule({
   declarations: [
@@ -143,6 +146,9 @@ import { BtnAddDesktopComponent } from './components/UI/btn-add-desktop/btn-add-
     KeepWatchingComponent,
     CommentsComponent,
     BtnAddDesktopComponent,
+    ActorsComponent,
+    ActorsTableComponent,
+    ActorModalComponent,
   ],
 
   imports: [

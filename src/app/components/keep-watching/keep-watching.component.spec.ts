@@ -8,9 +8,8 @@ describe('KeepWatchingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ KeepWatchingComponent ]
-    })
-    .compileComponents();
+      declarations: [KeepWatchingComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(KeepWatchingComponent);
     component = fixture.componentInstance;

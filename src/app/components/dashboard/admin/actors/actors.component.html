@@ -1,0 +1,36 @@
+<div class="text-white">
+  <div class="mt-5 flex justify-between mb-10">
+    <div appGlass class="p-4 h-20 rounded bg-main border border-gray-500 grid grid-cols-4 gap-2">
+      <div [ngClass]="['col-span-1', 'rounded-full', 'h-12', 'w-12', 'flex-colo', 'bg-yellow-500']">
+        <mat-icon class="m-auto">supervisor_account</mat-icon>
+      </div>
+      <div class="col-span-3">
+        <h2>Total Actors</h2>
+        <p class="mt-2 font-bold">{{ totalActors }}</p>
+      </div>
+    </div>
+    <div class="flex flex-col items-center">
+      <form (ngSubmit)="onSubmit()">
+        <div class="relative rounded-xl w-[100%] mb-8 border border-gray-400">
+          <input
+            class="outline-none w-[20rem] md:w-[30rem] text-white rounded-xl p-5 pl-10"
+            matInput
+            appGlass
+            [(ngModel)]="searchName"
+            name="searchName"
+            placeholder="Rechercher un actor"
+          />
+          <mat-icon class="absolute m-0 top-5 left-2">search</mat-icon>
+        </div>
+      </form>
+      <button
+        class="btn-msl h-10 w-[8rem] flex items-center before:rounded-2xl after:hidden py-2 px-4 ml-8 gap-3"
+        (click)="openAddModal()"
+      >
+        <h3 class="text-white text-md">Ajouter</h3>
+        <mat-icon class="font-bold text-black bg-white rounded-[50%]">add_circle_outline</mat-icon>
+      </button>
+    </div>
+  </div>
+  <app-actors-table [actors]="actors" (updateActorEvent)="onActorUpdate()"></app-actors-table>
+</div>

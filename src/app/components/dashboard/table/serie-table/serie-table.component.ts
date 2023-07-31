@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { SeriesService } from 'src/app/services/series/series.service';
-import { ISeries } from 'src/app/utils/interface';
+import { ISeries, IEpisode } from 'src/app/utils/interface';
 
 @Component({
   selector: 'app-serie-table',
