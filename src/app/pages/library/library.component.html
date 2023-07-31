@@ -21,9 +21,9 @@
     <div class="fourth_div">
       <span>Vue récemment :</span>
       <div class="container_cards_carousel carouselContainer" #carouselContainer>
-        <div class="left" (click)="onClickLeft()" *ngIf="checkOverflow(carouselContainer)">&#8249;</div>
+        <div class="left" (click)="onClickLeft()" *ngIf="checkOverflowAsync(carouselContainer) | async">&#8249;</div>
         <app-history-card *ngFor="let card of cardsHistory" [card]="card" class="cardWidth"></app-history-card>
-        <div class="right" (click)="onClickRight()" *ngIf="checkOverflow(carouselContainer)">&#8250;</div>
+        <div class="right" (click)="onClickRight()" *ngIf="checkOverflowAsync(carouselContainer) | async">&#8250;</div>
       </div>
     </div>
   </div>
