@@ -27,7 +27,7 @@
       </div>
       <div class="episode_date_check">
         <input
-          *ngIf="!isInLibrary && user.nickname"
+          *ngIf="isInLibrary && user.nickname"
           [(ngModel)]="episode.showCheckbox"
           type="checkbox"
           (change)="onCheckboxChange(episode)"
