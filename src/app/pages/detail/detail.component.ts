@@ -42,7 +42,6 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.id);
     this.serieService.getSerieById(this.id).subscribe((data) => {
       this.serie = data;
       this.serie.trailerSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.serie.trailerURL);
