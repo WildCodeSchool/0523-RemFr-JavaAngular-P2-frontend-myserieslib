@@ -18,37 +18,37 @@ export class MainComponent implements OnInit {
     {
       bg: 'bg-[#fe5388]',
       icon: 'movie_filter',
-      title: 'Total Séries',
+      title: 'Séries',
       total: 90,
     },
     {
       bg: 'bg-blue-700',
       icon: 'library_books',
-      title: 'Total Catégories',
+      title: 'Catégories',
       total: 8,
     },
     {
       bg: 'bg-green-600',
       icon: 'supervisor_account',
-      title: 'Total Utilisateurs',
+      title: 'Utilisateurs',
       total: 134,
     },
     {
       bg: 'bg-[#fe5388]',
       icon: 'movie_filter',
-      title: 'Total épisodes',
+      title: 'Épisodes',
       total: 90,
     },
     {
       bg: 'bg-yellow-500',
       icon: 'recent_actors',
-      title: 'Total Actors',
+      title: 'Acteurs',
       total: 20,
     },
     {
       bg: 'bg-blue-700',
       icon: 'notes',
-      title: 'Total Commentaires',
+      title: 'Commentaires',
       total: 8,
     },
   ];
