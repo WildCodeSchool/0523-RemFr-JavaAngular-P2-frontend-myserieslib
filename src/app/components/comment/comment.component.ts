@@ -8,8 +8,10 @@ import { IComment } from 'src/app/utils/interface';
 })
 export class CommentComponent implements OnChanges {
   @Input() serieId = '';
-  comments: IComment[] = [];
+  @Input() comments: IComment[] = [];
+
   commentsLength = 0;
+
   constructor(public librariesService: LibrariesService) {}
 
   ngOnChanges(): void {
