@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/internal/Observable';
-import { ILogin, IRegister } from 'src/app/utils/interface';
+import { ILogin, IRegister, IComment } from 'src/app/utils/interface';
 import jwt_decode from 'jwt-decode';
 import { environment } from 'src/environments/environment';
 import { IUser } from 'src/app/utils/interface';
@@ -19,7 +19,7 @@ export class UserService {
   isRedirectionAllowed = false;
 
   getUser(): Observable<IUser[]> {
-    return this.http.get<any[]>(environment.baseApiUrl + '/api/users').pipe(
+    return this.http.get<any[]>(environment.baseApiUrl + '/api/users/active').pipe(
       map((data) =>
         data.map((user) => ({
           ...user,
@@ -35,7 +35,6 @@ export class UserService {
       const decoded: any = jwt_decode(jwt);
       const expirationDate = new Date(decoded.exp * 1000);
       if (expirationDate > new Date()) {
-    
         this.store.dispatch({ type: 'USER_JWT', payload: jwt });
         this.store.dispatch({
           type: 'USER',
@@ -53,7 +52,7 @@ export class UserService {
   isJWTValid(JWT: string): boolean {
     const decoded: any = jwt_decode(JWT);
     const expirationDate = new Date(decoded.exp * 1000);
-    if (expirationDate > new Date()) {   
+    if (expirationDate > new Date()) {
       this.store.dispatch({ type: 'USER_JWT', payload: JWT });
     }
     return expirationDate > new Date();
@@ -93,7 +92,7 @@ export class UserService {
   register(user: IRegister) {
     return this.http.post(`${environment.baseApiUrl}/api/auth/register`, user).subscribe(
       (registerData: any) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       },
       (error: any) => {
         this.toaster.error("Une erreur s'est produite lors de l'inscription");
@@ -131,5 +130,17 @@ export class UserService {
   sendNewPasswordLink(email: string) {
     this.http.get(`${environment.baseApiUrl}/api/users/retrievePassword/${email}`).subscribe();
     this.toaster.success('Un email vous a été envoyé');
+  }
+
+  findUserByNickname(nickname: string): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.baseApiUrl}/api/users/find/${nickname}`);
+  }
+
+  deleteUser(id: string): Observable<IUser> {
+    return this.http.delete<IUser>(environment.baseApiUrl + '/api/users/' + id);
+  }
+
+  getAllUserComments(id: string): Observable<IComment> {
+    return this.http.get<IComment>(environment.baseApiUrl + '/api/libraries/user/' + id + '/comments');
   }
 }

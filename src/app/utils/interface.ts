@@ -22,6 +22,7 @@ export interface ISeries {
   show?: boolean;
   image?: string;
   rating: number;
+  season: number;
 }
 
 export interface IActors {
@@ -45,6 +46,8 @@ export interface IComment {
   userNickname: string;
   score: number | null;
   serieName: string;
+  userAvatar: string;
+  userEmail: string;
   id: string;
 }
 
@@ -69,6 +72,7 @@ export interface IUser {
   JWT: string;
   pictureUrl: string;
   role: string;
+  numberOfComments: number;
 }
 
 export interface UserJWT {

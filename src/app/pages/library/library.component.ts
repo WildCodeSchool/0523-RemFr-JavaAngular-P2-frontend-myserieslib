@@ -45,11 +45,19 @@ export class LibraryComponent implements OnInit {
         return new Date(b.addedDate).getTime() - new Date(a.addedDate).getTime();
       });
     });
-  }
 
+  }
   checkOverflow(element: HTMLElement) {
     return element.offsetWidth < element.scrollWidth;
   }
+  checkOverflowAsync(element: HTMLElement) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.checkOverflow(element));
+      }, 0);
+    });
+  }
+  
 
   onClickLeft(): void {
     const containerCard = document.querySelector('.carouselContainer');

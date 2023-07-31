@@ -1,30 +1,56 @@
-<h2 class="text-white text-2xl mt-4">Commentaires ({{length}})</h2>
+<div class="mt-5 flex justify-between mb-10 text-white">
+  <div appGlass class="p-4 rounded bg-main border border-gray-500 grid grid-cols-4 gap-2">
+    <div [ngClass]="['col-span-1', 'rounded-full', 'h-12', 'w-12', 'flex-colo', 'bg-blue-700']">
+      <mat-icon class="m-auto">notes</mat-icon>
+    </div>
+    <div class="col-span-3">
+      <h2>Total Commentaires</h2>
+      <p class="mt-2 font-bold">{{ length }}</p>
+    </div>
+  </div>
+  <h2>Search Users</h2>
+</div>
 <div class="pagination">
-  <div *ngFor="let comment of comments">
-    <div class="p-8 border-white border-solid border-2 m-8" appGlass>
-      <div class="flex justify-between mb-2">
-        <p class="text-slate-200 text-xl">{{comment.userNickname}}</p>
-        <p class="text-white">{{comment.serieName}}</p>
+  <div
+    *ngFor="let comment of comments"
+    appGlass
+    class="p-4 rounded-tl-[40px] rounded-r-[40px] border-gray-500 border m-8"
+  >
+    <div class="flex">
+      <div class="w-16 p-1 border border-border h-16 rounded-full">
+        <img class="h-full w-full rounded-full object-cover" [src]="comment.userAvatar" [alt]="comment.userNickname" />
       </div>
-      <p class="text-white italic	">{{ comment.comment}}</p>
-        <button class="bg-[#fe5388] ml-3 text-white rounded flex-colo w-8 h-8 absolute bottom-2 right-2">
-          <mat-icon class="text-white" (click)="deleteComment(comment.id)">delete</mat-icon>
-        </button>
+      <div class="flex-col p-2 w-[90%]">
+        <div class="mb-2">
+          <p class="text-slate-200 text-xl">{{ comment.userNickname }}</p>
+          <p class="text-slate-200 text-xs">{{ comment.userEmail }}</p>
+        </div>
+        <p class="text-white italic">{{ comment.comment }}</p>
+        <div class="mt-5 flex justify-between">
+          <div class="btn-msl after:hidden before:rounded-full p-1">
+            <p class="text-white">{{ comment.serieName }}</p>
+          </div>
+          <button class="bg-[#fe5388] ml-3 text-white rounded w-8 h-8">
+            <mat-icon class="text-white" (click)="deleteComment(comment.id)">delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   <div class="text-white">
-  <mat-paginator #paginator
-                appGlass
-                class="demo-paginator"
-                (page)="handlePageEvent($event)"
-                [length]="length"
-                [pageSize]="pageSize"
-                [disabled]="disabled"
-                [showFirstLastButtons]="showFirstLastButtons"
-                [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
-                [hidePageSize]="hidePageSize"
-                [pageIndex]="pageIndex"
-                aria-label="Select page">
-  </mat-paginator>
-</div>
+    <mat-paginator
+      #paginator
+      appGlass
+      class="demo-paginator"
+      (page)="handlePageEvent($event)"
+      [length]="length"
+      [pageSize]="pageSize"
+      [disabled]="disabled"
+      [showFirstLastButtons]="showFirstLastButtons"
+      [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+      [hidePageSize]="hidePageSize"
+      [pageIndex]="pageIndex"
+      aria-label="Select page"
+    ></mat-paginator>
+  </div>
 </div>

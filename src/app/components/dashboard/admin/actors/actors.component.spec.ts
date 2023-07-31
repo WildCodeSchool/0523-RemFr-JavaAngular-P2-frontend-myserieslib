@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BtnAddDesktopComponent } from './btn-add-desktop.component';
+import { ActorsComponent } from './actors.component';
 
-describe('BtnAddDesktopComponent', () => {
-  let component: BtnAddDesktopComponent;
-  let fixture: ComponentFixture<BtnAddDesktopComponent>;
+describe('ActorsComponent', () => {
+  let component: ActorsComponent;
+  let fixture: ComponentFixture<ActorsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BtnAddDesktopComponent],
+      declarations: [ActorsComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BtnAddDesktopComponent);
+    fixture = TestBed.createComponent(ActorsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
