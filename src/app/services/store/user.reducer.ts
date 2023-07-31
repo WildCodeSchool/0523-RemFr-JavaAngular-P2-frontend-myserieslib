@@ -16,7 +16,7 @@ export const selectJWT = createSelector(selectUserState, (state: any) => state.u
 export function reducer(state = initialState, action: any): UserState {
   switch (action.type) {
     case 'USER_LOGIN':
-      return { ...state, user: {...action.payload}  };
+      return { ...state, user: action.payload, role : action.payload.role.name  };
     case 'USER_JWT':
       return { ...state, user: { ...state.user, JWT: action.payload }};
     case 'USER':
