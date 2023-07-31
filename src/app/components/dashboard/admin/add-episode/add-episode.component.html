@@ -69,8 +69,15 @@
     />
     <div class="mt-2 w-32 h-32 p-2 bg-main border border-border rounded">
       <img
+        *ngIf="!episodeForm.value.thumbnail"
+        src="assets/imgPreview.png"
+        alt="Preview"
+        class="w-full h-full object-cover rounded"
+      />
+      <img
+        *ngIf="episodeForm.value.thumbnail"
         [src]="episodeForm.value.thumbnail"
-        [alt]="episodeForm.value.title"
+        alt="Selected Image"
         class="w-full h-full object-cover rounded"
       />
     </div>

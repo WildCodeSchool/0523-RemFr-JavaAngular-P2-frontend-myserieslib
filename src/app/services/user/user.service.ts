@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/internal/Observable';
-import { ILogin, IRegister } from 'src/app/utils/interface';
+import { ILogin, IRegister, IComment } from 'src/app/utils/interface';
 import jwt_decode from 'jwt-decode';
 import { environment } from 'src/environments/environment';
 import { IUser } from 'src/app/utils/interface';
@@ -19,7 +19,7 @@ export class UserService {
   isRedirectionAllowed = false;
 
   getUser(): Observable<IUser[]> {
-    return this.http.get<any[]>(environment.baseApiUrl + '/api/users').pipe(
+    return this.http.get<any[]>(environment.baseApiUrl + '/api/users/active').pipe(
       map((data) =>
         data.map((user) => ({
           ...user,
@@ -42,6 +42,7 @@ export class UserService {
             nickname: localStorage.getItem('nickname'),
             pictureUrl: localStorage.getItem('pictureUrl'),
             email: localStorage.getItem('email'),
+            role: localStorage.getItem('role'),
           },
         });
       }
@@ -66,6 +67,7 @@ export class UserService {
         localStorage.setItem('nickname', res.user.nickname);
         localStorage.setItem('pictureUrl', res.user.pictureUrl);
         localStorage.setItem('email', res.user.email);
+        localStorage.setItem('role', res.user.role.name);
         this.router.navigate(['/']);
       },
       (error: any) => {
@@ -128,5 +130,17 @@ export class UserService {
   sendNewPasswordLink(email: string) {
     this.http.get(`${environment.baseApiUrl}/api/users/retrievePassword/${email}`).subscribe();
     this.toaster.success('Un email vous a été envoyé');
+  }
+
+  findUserByNickname(nickname: string): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.baseApiUrl}/api/users/find/${nickname}`);
+  }
+
+  deleteUser(id: string): Observable<IUser> {
+    return this.http.delete<IUser>(environment.baseApiUrl + '/api/users/' + id);
+  }
+
+  getAllUserComments(id: string): Observable<IComment> {
+    return this.http.get<IComment>(environment.baseApiUrl + '/api/libraries/user/' + id + '/comments');
   }
 }

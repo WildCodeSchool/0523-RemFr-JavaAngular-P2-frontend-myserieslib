@@ -26,7 +26,7 @@ export class CategoriesComponent implements OnInit {
     });
   }
 
-  onCategoryDeleted(): void {
+  onCategoryUpdate(): void {
     this.ngOnInit();
   }
 }

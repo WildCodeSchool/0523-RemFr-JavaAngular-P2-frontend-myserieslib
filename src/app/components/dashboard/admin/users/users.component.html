@@ -5,11 +5,23 @@
         <mat-icon class="m-auto">supervisor_account</mat-icon>
       </div>
       <div class="col-span-3">
-        <h2>Total Users</h2>
+        <h2>Utilisateurs</h2>
         <p class="mt-2 font-bold">{{ totalUsers }}</p>
       </div>
     </div>
-    <h2 class="text-xl font-bold">Search user</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="relative rounded-xl w-[100%] mb-8 border border-gray-400">
+        <input
+          class="outline-none w-[20rem] md:w-[30rem] text-white rounded-xl p-5 pl-10"
+          matInput
+          appGlass
+          [(ngModel)]="searchNickname"
+          name="searchNickname"
+          placeholder="Rechercher un user"
+        />
+        <mat-icon class="absolute m-0 top-5 left-2">search</mat-icon>
+      </div>
+    </form>
   </div>
-  <app-users-table [users]="users"></app-users-table>
+  <app-users-table [users]="users" (updateUser)="onUserDeleted()"></app-users-table>
 </div>

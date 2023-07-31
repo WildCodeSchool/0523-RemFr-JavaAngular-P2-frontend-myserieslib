@@ -13,4 +13,20 @@ export class ActorsService {
   getActors(): Observable<IActors[]> {
     return this.http.get<IActors[]>(`${environment.baseApiUrl}/api/actors`);
   }
+
+  addActor(actor: IActors): Observable<IActors> {
+    return this.http.post<IActors>(`${environment.baseApiUrl}/api/actors`, actor);
+  }
+
+  deleteActor(id: string): Observable<IActors> {
+    return this.http.delete<IActors>(`${environment.baseApiUrl}/api/actors/${id}`);
+  }
+
+  updateActor(actor: IActors): Observable<IActors> {
+    return this.http.put<IActors>(`${environment.baseApiUrl}/api/actors/${actor.id}`, actor);
+  }
+
+  searchActor(name: string): Observable<IActors[]> {
+    return this.http.get<IActors[]>(`${environment.baseApiUrl}/api/actors/search-actors?fullName=${name}`);
+  }
 }

@@ -21,9 +21,14 @@ export class NavPcComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(selectUser).subscribe((user) => {
       this.user = user;
-      if (user.role.name === 'admin') {
-        this.isAdmin = true;
-      }
     });
+  }
+
+  onLogoClick(): void {
+    if (this.user.role.name === 'admin') {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 }

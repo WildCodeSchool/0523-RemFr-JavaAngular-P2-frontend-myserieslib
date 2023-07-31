@@ -15,7 +15,7 @@ interface SidebarLink {
 export class SideBarComponent {
   SideLinks: SidebarLink[] = [
     {
-      name: 'Dashboard',
+      name: 'Tableau de bord',
       link: 'main',
       icon: 'dashboard',
     },
@@ -43,6 +43,11 @@ export class SideBarComponent {
       name: 'Catégories',
       link: 'categories',
       icon: 'library_books',
+    },
+    {
+      name: 'Actors',
+      link: 'actors',
+      icon: 'recent_actors',
     },
     {
       name: 'Utilisateurs',

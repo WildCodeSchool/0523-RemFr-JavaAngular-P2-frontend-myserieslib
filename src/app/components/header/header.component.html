@@ -19,9 +19,11 @@
             </div>
             <p class="text-base font-medium mt-4 mb-6">&nbsp;|&nbsp;{{ serie.releaseDate }}</p>
           </div>
-          <p class="hidden md:block relative text-base font-medium text-white mt-4 mb-6 text-shadow">{{ serie.description }}</p>
+          <p class="hidden md:block relative text-base font-medium text-white mt-4 mb-6 text-shadow">
+            {{ serie.description }}
+          </p>
         </div>
-            <app-btn-add-desktop [id]="serie.id" ></app-btn-add-desktop>
+        <app-btn-add-desktop [id]="serie.id"></app-btn-add-desktop>
         <div class="md:hidden flex flex-row-reverse w-[100%] justify-around absolute p-10 bottom-0">
           <app-btn-add class="flex-end" [id]="serie.id"></app-btn-add>
           <app-btn-trailer [id]="serie.id"></app-btn-trailer>
