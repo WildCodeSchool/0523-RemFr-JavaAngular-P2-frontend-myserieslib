@@ -92,7 +92,7 @@ export class UserService {
   register(user: IRegister) {
     return this.http.post(`${environment.baseApiUrl}/api/auth/register`, user).subscribe(
       (registerData: any) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       },
       (error: any) => {
         this.toaster.error("Une erreur s'est produite lors de l'inscription");

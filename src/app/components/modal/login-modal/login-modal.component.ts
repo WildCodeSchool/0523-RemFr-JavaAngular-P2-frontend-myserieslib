@@ -26,10 +26,11 @@ export class LoginModalComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.userService.confirmLogin(
-        this.loginForm.value,
-        this.modalService.closeModal(this.toaster.success('Vous êtes connecté !'))
-      );
+      this.userService.confirmLogin(this.loginForm.value, () => {
+        this.modalService.closeModal(() => {
+          this.toaster.success('Vous êtes connecté !');
+        });
+      });
     }
   }
 }

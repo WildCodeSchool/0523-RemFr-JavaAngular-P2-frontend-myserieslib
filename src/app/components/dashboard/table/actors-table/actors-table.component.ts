@@ -26,14 +26,14 @@ export class ActorsTableComponent {
   openUpdateModal(actor: IActors): void {
     this.modalService.openActorModal(() => {
       this.updateActorEvent.emit();
-      this.toastr.success('Actor updated successfully', 'Success');
+      this.toastr.success('Acteur modifié avec succès', 'Success');
     }, actor);
   }
 
   deleteCategory(actor: IActors): void {
     this.actorsService.deleteActor(actor.id).subscribe(() => {
       this.updateActorEvent.emit();
-      this.toastr.success('Actor deleted successfully', 'Success');
+      this.toastr.success('Acteur supprimé avec succès', 'Success');
     });
   }
 }

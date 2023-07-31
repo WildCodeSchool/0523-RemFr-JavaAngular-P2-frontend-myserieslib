@@ -45,7 +45,7 @@ export class SideBarComponent {
       icon: 'library_books',
     },
     {
-      name: 'Actors',
+      name: 'Acteurs',
       link: 'actors',
       icon: 'recent_actors',
     },

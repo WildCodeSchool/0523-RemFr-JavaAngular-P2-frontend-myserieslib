@@ -1,4 +1,5 @@
 import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectUser } from 'src/app/services/store/user.reducer';
 
@@ -11,7 +12,7 @@ export class ButtonAccComponent implements OnInit {
   open = false;
   user: any = {};
 
-  constructor(private elementRef: ElementRef, private store: Store) {}
+  constructor(private elementRef: ElementRef, private store: Store, private router: Router) {}
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
     const clickedInside = this.elementRef.nativeElement.contains(event.target);
@@ -26,5 +27,6 @@ export class ButtonAccComponent implements OnInit {
 
   logOut(): void {
     this.store.dispatch({ type: 'USER_LOGOUT' });
+    this.router.navigate(['/login']);
   }
 }
