@@ -19,12 +19,11 @@ export class UsersComponent implements OnInit {
 
   loadUsers(): void {
     this.userService.getUser().subscribe((users: IUser[]) => {
-      this.users = users.map((user) => {
-        const randomNumber = Math.floor(Math.random() * 14) + 1;
-        return {
-          ...user,
-          pictureUrl: `assets/avatars/ava-${randomNumber}.png`,
-        };
+      this.users = users.map((user: IUser) => {
+        this.userService.getAllUserComments(user.id).subscribe((comments: any) => {
+          user.numberOfComments = comments.length;
+        });
+        return user;
       });
       this.totalUsers = this.users.length;
     });
@@ -34,7 +33,6 @@ export class UsersComponent implements OnInit {
     if (this.searchNickname.trim() !== '') {
       this.userService.findUserByNickname(this.searchNickname).subscribe((user: IUser) => {
         this.users = [user];
-        this.users[0].pictureUrl = `assets/avatars/ava-${Math.floor(Math.random() * 14) + 1}.png`;
         this.users[0].role = (user.role as any).name || 'user';
         this.totalUsers = 1;
       });

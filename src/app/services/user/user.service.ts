@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/internal/Observable';
-import { ILogin, IRegister } from 'src/app/utils/interface';
+import { ILogin, IRegister, IComment } from 'src/app/utils/interface';
 import jwt_decode from 'jwt-decode';
 import { environment } from 'src/environments/environment';
 import { IUser } from 'src/app/utils/interface';
@@ -136,5 +136,9 @@ export class UserService {
 
   deleteUser(id: string): Observable<IUser> {
     return this.http.delete<IUser>(environment.baseApiUrl + '/api/users/' + id);
+  }
+
+  getAllUserComments(id: string): Observable<IComment> {
+    return this.http.get<IComment>(environment.baseApiUrl + '/api/libraries/user/' + id + '/comments');
   }
 }
