@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';
 import { ILibraries } from 'src/app/utils/interface';
@@ -12,6 +12,8 @@ export class InputComponent {
   @Input() userInfo!: ILibraries;
   @Input() serieId!: string;
 
+  @Output() commentUpdated: EventEmitter<string> = new EventEmitter<string>();
+
   userForm: FormGroup;
 
   constructor(private fb: FormBuilder, private librariesService: LibrariesService) {
@@ -24,6 +26,7 @@ export class InputComponent {
     if (this.userForm.valid) {
       this.librariesService.updateComment(this.serieId, this.userForm.value.message).subscribe();
       this.userForm.reset();
+      this.commentUpdated.emit();
     }
   }
 }

@@ -23,6 +23,11 @@
     ></iframe>
   </div>
   <app-card-actor [actors]="serie.actors"></app-card-actor>
-  <app-input *ngIf="userInfo" [userInfo]="userInfo" [serieId]="serie.id"></app-input>
-  <app-comment [serieId]="serie.id"></app-comment>
+  <app-input
+    *ngIf="userInfo"
+    [userInfo]="userInfo"
+    [serieId]="serie.id"
+    (commentUpdated)="onCommentAdded()"
+  ></app-input>
+  <app-comment [serieId]="serie.id" [comments]="comments"></app-comment>
 </div>

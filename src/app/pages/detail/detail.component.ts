@@ -42,6 +42,7 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.id);
     this.serieService.getSerieById(this.id).subscribe((data) => {
       this.serie = data;
       this.serie.trailerSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.serie.trailerURL);
@@ -51,7 +52,7 @@ export class DetailComponent implements OnInit {
       this.isInLibrary = this.userData.some((library) => library.serie.id === this.serie.id);
     });
     this.store.select(selectUser).subscribe((user) => (this.user = user));
-    this.librariesService.getUserSerieDetails(this.serie.id).subscribe((data: ILibraries) => {
+    this.librariesService.getUserSerieDetails(this.id).subscribe((data: ILibraries) => {
       this.userInfo = data;
     });
   }

@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, Output } from '@angular/core';
-import { ILibraries, ISeries } from 'src/app/utils/interface';
+import { Component, Input, OnChanges } from '@angular/core';
+import { IComment, ILibraries, ISeries } from 'src/app/utils/interface';
 import { SeriesService } from 'src/app/services/series/series.service';
 import { LibrariesService } from 'src/app/services/libraries/libraries.service';
 @Component({
@@ -11,6 +11,8 @@ export class DetailInformationsComponent implements OnChanges {
   @Input() serie!: ISeries;
 
   userInfo!: ILibraries;
+  comments: IComment[] = [];
+  scoreUser!: number;
 
   constructor(public serieService: SeriesService, public librariesService: LibrariesService) {}
 
@@ -20,6 +22,20 @@ export class DetailInformationsComponent implements OnChanges {
     });
     this.librariesService.getUserSerieDetails(this.serie.id).subscribe((data: ILibraries) => {
       this.userInfo = data;
+    });
+    this.getComments();
+  }
+
+  onCommentAdded(): void {
+    this.librariesService.getUserSerieDetails(this.serie.id).subscribe((data: ILibraries) => {
+      this.userInfo = data;
+    });
+    this.getComments();
+  }
+
+  getComments(): void {
+    this.librariesService.getComments(this.serie.id).subscribe((data) => {
+      this.comments = data;
     });
   }
 }
