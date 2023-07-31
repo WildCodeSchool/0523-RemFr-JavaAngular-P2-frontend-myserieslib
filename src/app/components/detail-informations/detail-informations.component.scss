@@ -1,7 +1,35 @@
+.cat_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0rem;
+}
+
+.cat_p {
+  background-color: black;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  margin: 0.25rem 0.25rem;
+  box-shadow: 1px 1px rgba(255, 255, 255, 0.288);
+}
+
 .youtube-video {
   aspect-ratio: 16 / 9;
-  width: calc(100% - 2rem);
+  width: calc(80% - 2rem);
   margin: 1rem;
   border-radius: 25px;
   box-sizing: border-box;
+}
+
+.p_desc {
+  margin: 2rem 8rem;
+}
+
+@media screen and (max-width: 600px) {
+  .youtube-video {
+    width: calc(90% - 2rem);
+  }
+  .p_desc {
+    margin: 2rem 2rem;
+  }
 }
