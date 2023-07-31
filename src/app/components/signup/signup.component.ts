@@ -51,6 +51,7 @@ export class SignupComponent {
       };
       this.userService.register(user);
       this.toastr.success('Inscription réussie !');
+      
     }
   }
 }
