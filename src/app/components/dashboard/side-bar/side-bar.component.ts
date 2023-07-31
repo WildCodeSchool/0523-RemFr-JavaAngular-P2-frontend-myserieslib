@@ -15,7 +15,7 @@ interface SidebarLink {
 export class SideBarComponent {
   SideLinks: SidebarLink[] = [
     {
-      name: 'Dashboard',
+      name: 'Tableau de bord',
       link: 'main',
       icon: 'dashboard',
     },
