@@ -12,8 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    email: ['sagnol.ludivine@gmail.com', [Validators.required, Validators.email]],
+    password: ['Test1234*', Validators.required],
   });
 
   signIn = new FormControl(false);

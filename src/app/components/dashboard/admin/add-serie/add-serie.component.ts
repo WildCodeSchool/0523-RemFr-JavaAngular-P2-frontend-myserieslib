@@ -26,15 +26,21 @@ export class AddSerieComponent implements OnInit {
     private serieService: SeriesService
   ) {
     this.addSerieForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      pictureUrlXL: ['', Validators.required],
-      pictureUrlXS: ['', Validators.required],
-      producer: ['', Validators.required],
+      name: ['Desperate Housewives', Validators.required],
+      description: [
+        `Le quotidien mouvementé de quatre femmes : Susan Mayer, Lynette Scavo, Bree Van de Kamp et Gabrielle Solis. Elles vivent à Wisteria Lane, une banlieue chic de Fairview, stéréotype des quartiers résidentiels des classes aisées américaines. Mary Alice Young, une amie des héroïnes, se suicide au début de l'épisode pilote, et commente d'outre-tombe la multitude d'intrigues mêlant humour, drame et mystère auxquelles prennent part les quatre femmes.`,
+        Validators.required,
+      ],
+      pictureUrlXL: [
+        'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/CC7BA28AD77E83F6DD66BBB0A46ECD8AAE37B0039825973BB460AD57EAAD6122/scale?width=1200&aspectRatio=1.78&format=jpeg',
+        Validators.required,
+      ],
+      pictureUrlXS: ['https://imgsrc.cineserie.com/2004/10/1575842.jpg?ver=1', Validators.required],
+      producer: ['Marc Cherry', Validators.required],
       actors: ['', Validators.required],
-      releaseDate: ['', Validators.required],
-      trailerURL: ['', Validators.required],
-      isCompleted: [false, Validators.required],
+      releaseDate: ['2004-10-04', Validators.required],
+      trailerURL: ['https://www.youtube.com/watch?v=TRQ-Oor0pOE', Validators.required],
+      isCompleted: [true, Validators.required],
       category: ['', Validators.required],
     });
   }
