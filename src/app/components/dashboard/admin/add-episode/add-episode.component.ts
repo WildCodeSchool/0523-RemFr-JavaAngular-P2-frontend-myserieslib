@@ -23,12 +23,18 @@ export class AddEpisodeComponent implements OnInit {
   ) {
     this.episodeForm = this.fb.group({
       serieId: ['', Validators.required],
-      title: ['', Validators.required],
-      seasonNumber: [0, Validators.required],
-      episodeNumber: [0, Validators.required],
-      releaseDate: ['', Validators.required],
-      thumbnail: ['', Validators.required],
-      description: ['', Validators.required],
+      title: ['Pilote', Validators.required],
+      seasonNumber: [1, Validators.required],
+      episodeNumber: [1, Validators.required],
+      releaseDate: ['2004-10-04', Validators.required],
+      thumbnail: [
+        'https://m.media-amazon.com/images/M/MV5BODIwNWIwMWYtNjRjNC00NTU0LThlZTgtNmFjNmNkMTBmMzk2XkEyXkFqcGdeQXVyNTQ0NDExMjQ@._V1_.jpg',
+        Validators.required,
+      ],
+      description: [
+        `Mary Alice Young mène une vie paisible dans sa maison de Wisteria Lane, entourée d'un époux et d'un fils qui l'aiment. Tout semble parfait ! Pourtant un jour, qui semble comme les autres, elle met fin à ses jours... laissant toute la communauté dans le trouble. Ses amies et voisines ne comprennent pas son acte désespéré...`,
+        Validators.required,
+      ],
     });
   }
 

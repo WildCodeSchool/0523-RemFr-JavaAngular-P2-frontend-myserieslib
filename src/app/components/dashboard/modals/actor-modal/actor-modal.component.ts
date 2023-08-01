@@ -9,16 +9,16 @@ import { ActorsService } from 'src/app/services/actors/actors.service';
   styleUrls: ['./actor-modal.component.scss'],
 })
 export class ActorModalComponent {
-  firstNameActor = '';
-  lastNameActor = '';
-  imageActor = '';
+  firstNameActor = 'Marcia';
+  lastNameActor = 'Cross';
+  imageActor = 'https://fr.web.img3.acsta.net/pictures/16/07/21/10/01/323860.jpg';
   constructor(
     public actorsService: ActorsService,
     private dialogRef: MatDialogRef<ActorModalComponent>,
     @Inject(MAT_DIALOG_DATA) public actor?: IActors | null
   ) {
-    this.firstNameActor = actor ? actor.firstName : '';
-    this.lastNameActor = actor ? actor.lastName : '';
+    this.firstNameActor = actor ? actor.firstName : 'Marcia';
+    this.lastNameActor = actor ? actor.lastName : 'Cross';
   }
 
   submitActor(): void {
